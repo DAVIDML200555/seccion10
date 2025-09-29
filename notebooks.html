@@ -1,0 +1,2274 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Miniproyecto Sección 10 &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <link rel="prev" title="Markdown Files" href="markdown.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Proyecto de Análisis y Predicción de Insuficiencia Cardíaca
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Miniproyecto Sección 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotebooks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/notebooks.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Miniproyecto Sección 10</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importacion-de-librerias">Importación de Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-del-dataset">Lectura del Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores Únicos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado">Análisis Univariado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias">Variables Binarias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas">Variables Categóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas">Variables Númericas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manejo-de-valores-clinicamente-imposibles">Manejo de Valores Clínicamente Imposibles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-atipicos">Análisis de Valores Atípicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manejo-de-valores-atipicos-mediante-winsorization">Manejo de Valores Atípicos mediante Winsorization</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verificacion-visual-del-efecto-de-la-winsorization">Verificación Visual del Efecto de la Winsorization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bivariado">Análisis Bivariado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias-vs-heartdisease">Variables Binarias vs HeartDisease</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas-vs-heartdisease">Variables Categóricas vs HeartDisease</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas-vs-heartdisease">Variables Númericas vs HeartDisease</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-multivariado">Análisis Multivariado</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="miniproyecto-seccion-10">
+<h1>Miniproyecto Sección 10<a class="headerlink" href="#miniproyecto-seccion-10" title="Link to this heading">#</a></h1>
+<section id="importacion-de-librerias">
+<h2>Importación de Librerías<a class="headerlink" href="#importacion-de-librerias" title="Link to this heading">#</a></h2>
+<p>Se importan las librerías esenciales para facilitar el análisis, que abarca la carga de datos, la visualización, la transformación, la fusión y la unión. Además, se configura el entorno para suprimir las advertencias (<code class="docutils literal notranslate"><span class="pre">warnings</span></code>) y asegurar que la salida del código sea más limpia y enfocada en los resultados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">enable_iterative_imputer</span>  
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">IterativeImputer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats.mstats</span><span class="w"> </span><span class="kn">import</span> <span class="n">winsorize</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lectura-del-dataset">
+<h2>Lectura del Dataset<a class="headerlink" href="#lectura-del-dataset" title="Link to this heading">#</a></h2>
+<p>Para iniciar el proceso de análisis, se procede a cargar el dataset descargado en el entorno de trabajo utilizando la biblioteca Pandas. El archivo <code class="docutils literal notranslate"><span class="pre">heart.csv</span></code> contiene toda la información clínica de los pacientes que será objeto de estudio en este proyecto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;C:/Users/david/Downloads/heart.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se muestran las primeras filas del DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>ChestPainType</th>
+      <th>RestingBP</th>
+      <th>Cholesterol</th>
+      <th>FastingBS</th>
+      <th>RestingECG</th>
+      <th>MaxHR</th>
+      <th>ExerciseAngina</th>
+      <th>Oldpeak</th>
+      <th>ST_Slope</th>
+      <th>HeartDisease</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>M</td>
+      <td>ATA</td>
+      <td>140</td>
+      <td>289</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>172</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>Up</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>49</td>
+      <td>F</td>
+      <td>NAP</td>
+      <td>160</td>
+      <td>180</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>156</td>
+      <td>N</td>
+      <td>1.0</td>
+      <td>Flat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>37</td>
+      <td>M</td>
+      <td>ATA</td>
+      <td>130</td>
+      <td>283</td>
+      <td>0</td>
+      <td>ST</td>
+      <td>98</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>Up</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>48</td>
+      <td>F</td>
+      <td>ASY</td>
+      <td>138</td>
+      <td>214</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>108</td>
+      <td>Y</td>
+      <td>1.5</td>
+      <td>Flat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>54</td>
+      <td>M</td>
+      <td>NAP</td>
+      <td>150</td>
+      <td>195</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>122</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>Up</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Se muestran las últimas filas del DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>ChestPainType</th>
+      <th>RestingBP</th>
+      <th>Cholesterol</th>
+      <th>FastingBS</th>
+      <th>RestingECG</th>
+      <th>MaxHR</th>
+      <th>ExerciseAngina</th>
+      <th>Oldpeak</th>
+      <th>ST_Slope</th>
+      <th>HeartDisease</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>913</th>
+      <td>45</td>
+      <td>M</td>
+      <td>TA</td>
+      <td>110</td>
+      <td>264</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>132</td>
+      <td>N</td>
+      <td>1.2</td>
+      <td>Flat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>914</th>
+      <td>68</td>
+      <td>M</td>
+      <td>ASY</td>
+      <td>144</td>
+      <td>193</td>
+      <td>1</td>
+      <td>Normal</td>
+      <td>141</td>
+      <td>N</td>
+      <td>3.4</td>
+      <td>Flat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>915</th>
+      <td>57</td>
+      <td>M</td>
+      <td>ASY</td>
+      <td>130</td>
+      <td>131</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>115</td>
+      <td>Y</td>
+      <td>1.2</td>
+      <td>Flat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>916</th>
+      <td>57</td>
+      <td>F</td>
+      <td>ATA</td>
+      <td>130</td>
+      <td>236</td>
+      <td>0</td>
+      <td>LVH</td>
+      <td>174</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>Flat</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>917</th>
+      <td>38</td>
+      <td>M</td>
+      <td>NAP</td>
+      <td>138</td>
+      <td>175</td>
+      <td>0</td>
+      <td>Normal</td>
+      <td>173</td>
+      <td>N</td>
+      <td>0.0</td>
+      <td>Up</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Se emplea el método <code class="docutils literal notranslate"><span class="pre">df.info()</span></code> para evaluar la estructura y calidad inicial del dataset. Este análisis revela información sobre la composición de los datos, incluyendo el número total de registros (filas) y variables (columnas), los tipos de datos asociados a cada campo (como objetos, enteros o valores flotantes), y la cantidad de valores no nulos por columna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 918 entries, 0 to 917
+Data columns (total 12 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   Age             918 non-null    int64  
+ 1   Sex             918 non-null    object 
+ 2   ChestPainType   918 non-null    object 
+ 3   RestingBP       918 non-null    int64  
+ 4   Cholesterol     918 non-null    int64  
+ 5   FastingBS       918 non-null    int64  
+ 6   RestingECG      918 non-null    object 
+ 7   MaxHR           918 non-null    int64  
+ 8   ExerciseAngina  918 non-null    object 
+ 9   Oldpeak         918 non-null    float64
+ 10  ST_Slope        918 non-null    object 
+ 11  HeartDisease    918 non-null    int64  
+dtypes: float64(1), int64(6), object(5)
+memory usage: 86.2+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>El resultado del método <code class="docutils literal notranslate"><span class="pre">info()</span></code> indica que el dataset está en un estado <strong>óptimo y listo para el análisis</strong>, sin problemas inmediatos de integridad de datos. A continuación, se desglosa el análisis:</p>
+<p><strong>1. Dimensión del Dataset:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RangeIndex:</span> <span class="pre">918</span> <span class="pre">entries,</span> <span class="pre">0</span> <span class="pre">to</span> <span class="pre">917</span></code></strong>: El dataset contiene <strong>918 registros o pacientes</strong>, cada uno identificado por un índice del 0 al 917. Este es un tamaño muy adecuado para un proyecto de análisis y machine learning.</p></li>
+</ul>
+<p><strong>2. Integridad de los Datos (Ausencia de Valores Nulos):</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Non-Null</span> <span class="pre">Count:</span> <span class="pre">918</span> <span class="pre">non-null</span></code> para todas las columnas</strong>. Este es el hallazgo más importante. <strong>No hay valores faltantes (Missing Values)</strong> en ninguna de las 12 columnas. Esto elimina la necesidad de realizar técnicas de imputación o eliminación de datos, simplificando significativamente la fase de preprocesamiento.</p></li>
+</ul>
+<p><strong>3. Tipos de Datos (Dtypes):</strong>
+Los tipos de datos están correctamente asignados, lo que sugiere que la carga del archivo CSV fue exitosa. Se identifican tres tipos:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">int64</span></code> (6 columnas)</strong>: Variables enteras. Incluyen <code class="docutils literal notranslate"><span class="pre">Age</span></code> (edad), <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> (presión arterial), <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> (colesterol), <code class="docutils literal notranslate"><span class="pre">FastingBS</span></code> (glucemia, que es binaria pero codificada como 0/1), <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> (frecuencia cardíaca máxima) y la variable objetivo <code class="docutils literal notranslate"><span class="pre">HeartDisease</span></code>. Son correctos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">float64</span></code> (1 columna)</strong>: Variable decimal. Solo <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> (depresión del ST) tiene este tipo, lo cual es apropiado ya que esta medida clínica suele ser un valor continuo.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">object</span></code> (5 columnas)</strong>: Variables categóricas (texto). Incluyen <code class="docutils literal notranslate"><span class="pre">Sex</span></code>, <code class="docutils literal notranslate"><span class="pre">ChestPainType</span></code>, <code class="docutils literal notranslate"><span class="pre">RestingECG</span></code>, <code class="docutils literal notranslate"><span class="pre">ExerciseAngina</span></code> y <code class="docutils literal notranslate"><span class="pre">ST_Slope</span></code>. Antes de modelar, será necesario convertirlas a formato numérico mediante técnicas como <strong>One-Hot Encoding</strong>.</p></li>
+</ul>
+<p><strong>4. Uso de Memoria:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">memory</span> <span class="pre">usage:</span> <span class="pre">86.2+</span> <span class="pre">KB</span></code></strong>: El dataset es muy liviano, ocupando aproximadamente 86 kilobytes en memoria. Esto permite manipularlo y procesarlo con gran facilidad sin preocupaciones por rendimiento.</p></li>
+</ul>
+<section id="valores-unicos">
+<h3>Valores Únicos<a class="headerlink" href="#valores-unicos" title="Link to this heading">#</a></h3>
+<p>Se calcula el número de valores únicos para cada variable del DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age                50
+Sex                 2
+ChestPainType       4
+RestingBP          67
+Cholesterol       222
+FastingBS           2
+RestingECG          3
+MaxHR             119
+ExerciseAngina      2
+Oldpeak            53
+ST_Slope            3
+HeartDisease        2
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Este análisis complementa la información de <code class="docutils literal notranslate"><span class="pre">df.info()</span></code> y revela el <strong>grado de diversidad y el tipo de variable</strong> con la que trabajamos en cada columna.</p>
+<p><strong>Variables Categóricas:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Sex:</span> <span class="pre">2</span></code></strong>: Confirma que es una variable binaria con dos categorías, ‘M’ y ‘F’.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ChestPainType:</span> <span class="pre">4</span></code></strong>: Existen los 4 tipos de dolor torácico definidos en la descripción: TA, ATA, NAP, ASY.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RestingECG:</span> <span class="pre">3</span></code></strong>: Coincide con las 3 categorías esperadas: Normal, ST, LVH.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ExerciseAngina:</span> <span class="pre">2</span></code></strong>: Variable binaria con dos valores: ‘Y’ (Yes) y ‘N’ (No).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ST_Slope:</span> <span class="pre">3</span></code></strong>: Confirma las 3 pendientes posibles: Up, Flat, Down.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">FastingBS:</span> <span class="pre">2</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">HeartDisease:</span> <span class="pre">2</span></code></strong>: Ambas son variables binarias codificadas numéricamente (0 y 1), lo cual es correcto.</p></li>
+</ul>
+<p><strong>Variables Numéricas:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Age:</span> <span class="pre">50</span></code></strong>: Hay 50 valores únicos de edad en 918 pacientes. Esto sugiere una <strong>distribución bastante diversa</strong> y que la edad está representada en un rango amplio, lo cual es positivo para el modelo.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RestingBP:</span> <span class="pre">67</span></code></strong>: Existen 67 valores únicos de presión arterial. Esto indica que es una <strong>variable continua</strong> con buena variabilidad, pero se debe verificar que no haya valores erróneos (ej., presiones arteriales de 0 mm Hg, que serían inviables).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Cholesterol:</span> <span class="pre">222</span></code></strong>: Este es un hallazgo <strong>crucial y que requiere atención inmediata</strong>. Tener 222 valores únicos en 918 registros sugiere que es una variable continua con una variabilidad muy alta en la muestra.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">MaxHR:</span> <span class="pre">119</span></code></strong>: Tiene 119 valores únicos, lo que es esperable para una medida de frecuencia cardíaca máxima, comportándose como una variable continua saludable.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Oldpeak:</span> <span class="pre">53</span></code></strong>: Presenta 53 valores únicos, lo que confirma su naturaleza de variable numérica continua (float) con una precisión decimal adecuada.</p></li>
+</ul>
+</section>
+</section>
+<section id="analisis-univariado">
+<h2>Análisis Univariado<a class="headerlink" href="#analisis-univariado" title="Link to this heading">#</a></h2>
+<p>El Análisis Univariado es la primera fase del análisis exploratorio de datos. Se enfoca en el estudio individual de cada variable para entender su distribución, características y valores atípicos. Esto permite identificar patrones y la calidad de los datos antes de un análisis más complejo.</p>
+<section id="variables-binarias">
+<h3>Variables Binarias<a class="headerlink" href="#variables-binarias" title="Link to this heading">#</a></h3>
+<p>Se identifican y analizan las variables binarias (aquellas con solo 2 valores únicos) en el DataFrame. Luego, se genera un doble gráfico para cada variable binaria, permitiendo comparar su distribución mediante:</p>
+<ol class="arabic simple">
+<li><p><strong>Gráfico de Barras</strong>:</p>
+<ul class="simple">
+<li><p>Muestra el conteo absoluto de cada categoría.</p></li>
+<li><p>Ideal para comparar magnitudes visualmente.</p></li>
+</ul>
+</li>
+<li><p><strong>Gráfico de Torta</strong>:</p>
+<ul class="simple">
+<li><p>Muestra la proporción porcentual de cada categoría.</p></li>
+<li><p>Útil para entender el balance/imbalance entre clases.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-v0_8-darkgrid&#39;</span><span class="p">)</span>
+<span class="n">binarias</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">binarias</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="n">value_order</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">value_order</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribución de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">value_order</span><span class="p">]</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> 
+            <span class="n">labels</span><span class="o">=</span><span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> 
+            <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
+            <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribución de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== SEX ===
+</pre></div>
+</div>
+<img alt="_images/0b39ae5981b5e7c755cf7f047a126b2da31b4311b856b8e7d45684721734a143.png" src="_images/0b39ae5981b5e7c755cf7f047a126b2da31b4311b856b8e7d45684721734a143.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== FASTINGBS ===
+</pre></div>
+</div>
+<img alt="_images/9a71cabd230a8f05363137e1c95f526e6ed971c4854f20cea2f03ea9757fdf7a.png" src="_images/9a71cabd230a8f05363137e1c95f526e6ed971c4854f20cea2f03ea9757fdf7a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== EXERCISEANGINA ===
+</pre></div>
+</div>
+<img alt="_images/dd7bbb4b767587ada0d73f04710620b4ba5dff3ea1f004ce96240e75cf94be08.png" src="_images/dd7bbb4b767587ada0d73f04710620b4ba5dff3ea1f004ce96240e75cf94be08.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== HEARTDISEASE ===
+</pre></div>
+</div>
+<img alt="_images/36018302ac582f150253a5e6573ee37f290d802b935799cbab392fd84704973d.png" src="_images/36018302ac582f150253a5e6573ee37f290d802b935799cbab392fd84704973d.png" />
+</div>
+</div>
+<p><strong>1. Distribución de Sex (Sexo)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> 79% Masculino (M) vs 21% Femenino (F).</p></li>
+<li><p><strong>Interpretación:</strong> Existe un <strong>desequilibrio significativo</strong> en la representación por sexo. El dataset está predominantemente compuesto por pacientes masculinos (725 hombres vs 193 mujeres).</p></li>
+</ul>
+<p><strong>2. Distribución de FastingBS (Glucemia en Ayunas)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> 76.7% con valor 0 (FastingBS ≤ 120 mg/dl) vs 23.3% con valor 1 (FastingBS &gt; 120 mg/dl).</p></li>
+<li><p><strong>Interpretación:</strong> La mayoría de los pacientes presentan niveles normales de azúcar en sangre en ayunas. Aproximadamente 1 de cada 4 pacientes (214 individuos) tiene glucemia elevada, que es un factor de riesgo conocido para enfermedades cardiovasculares.</p></li>
+</ul>
+<p><strong>3. Distribución de ExerciseAngina (Angina Inducida por Ejercicio)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> 59.6% No (N) vs 40.4% Sí (Y).</p></li>
+<li><p><strong>Interpretación:</strong> La angina inducida por el ejercicio está presente en una proporción muy alta de pacientes (371 casos). Dado que esta es una variable clínica directamente relacionada con la isquemia cardíaca, se espera que sea un <strong>predictor muy fuerte</strong> de la enfermedad.</p></li>
+</ul>
+<p><strong>4. Distribución de HeartDisease (Variable Objetivo - Enfermedad Cardíaca)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> 55.3% con enfermedad (1) vs 44.7% sin enfermedad (0).</p></li>
+<li><p><strong>Interpretación:</strong> <strong>El dataset está ligeramente desbalanceado</strong> a favor de la clase positiva (enfermedad presente). Hay 508 pacientes con enfermedad cardíaca y 410 sin ella.</p></li>
+</ul>
+</section>
+<section id="variables-categoricas">
+<h3>Variables Categóricas<a class="headerlink" href="#variables-categoricas" title="Link to this heading">#</a></h3>
+<p>Se generan gráficos de barras para visualizar la distribución de cada variable categórica.</p>
+<p><strong>Cada gráfico muestra</strong>:</p>
+<ul class="simple">
+<li><p>El número absoluto de observaciones (conteo).</p></li>
+<li><p>El porcentaje relativo respecto al total.</p></li>
+<li><p>Las categorías ordenadas de mayor a menor.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categoricas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">categoricas</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categoricas</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categoricas</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="n">value_order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="n">value_order</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">())</span>
+        <span class="n">percent</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="se">\n</span><span class="s1">(</span><span class="si">{</span><span class="n">percent</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">%)&#39;</span><span class="p">,</span>
+                    <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()),</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+                    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">14</span><span class="p">),</span>
+                    <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">)</span>
+        
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribución de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CHESTPAINTYPE ===
+</pre></div>
+</div>
+<img alt="_images/9e2c3f2db03459f7d2fa70778f86859c24041def166b64e4d6a64c7eaf450a9b.png" src="_images/9e2c3f2db03459f7d2fa70778f86859c24041def166b64e4d6a64c7eaf450a9b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RESTINGECG ===
+</pre></div>
+</div>
+<img alt="_images/8daa681959ada6515ad0180cf57b11215b66d759cb7191e8f6f139d524fab57e.png" src="_images/8daa681959ada6515ad0180cf57b11215b66d759cb7191e8f6f139d524fab57e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== ST_SLOPE ===
+</pre></div>
+</div>
+<img alt="_images/1d3723c82ee8365e2850a3e671227949303e523723a2bb88d293707db12fc31c.png" src="_images/1d3723c82ee8365e2850a3e671227949303e523723a2bb88d293707db12fc31c.png" />
+</div>
+</div>
+<p><strong>1. Distribución de ChestPainType (Tipo de Dolor Torácico)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> <strong>ASY (Asintomático): 54.0%</strong> &gt; NAP (Dolor No Anginoso): 22.1% &gt; ATA (Angina Atípica): 18.8% &gt; TA (Angina Típica): 5.0%</p></li>
+<li><p><strong>Interpretación:</strong> Existe una <strong>predominancia abrumadora de pacientes asintomáticos (ASY)</strong>. Más de la mitad de la cohorte no reportó dolor torácico, a pesar de estar siendo evaluados por enfermedad cardíaca.</p></li>
+<li><p><strong>Implicación para el modelo:</strong> Este es un hallazgo clínicamente crucial. La ausencia de síntomas (ASY) es, en este contexto, un <strong>potente predictor de enfermedad cardíaca</strong>. Sugiere que la condición puede estar enmascarada o ser “silenciosa”, haciendo que las otras variables clínicas y de pruebas de esfuerzo sean aún más importantes para el diagnóstico. La angina típica (TA), clásicamente asociada a problemas coronarios, es la menos frecuente.</p></li>
+</ul>
+<p><strong>2. Distribución de RestingECG (Electrocardiograma en Reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> <strong>Normal: 60.1%</strong> &gt; LVH: 20.5% &gt; ST: 19.4%</p></li>
+<li><p><strong>Interpretación:</strong> La mayoría de los pacientes presentan un ECG en reposo normal. Las anomalías se dividen de manera similar entre hipertrofia ventricular izquierda (LVH) y anomalías en la onda ST-T.</p></li>
+<li><p><strong>Implicación para el modelo:</strong> Un ECG en reposo normal es común incluso en pacientes con enfermedad cardíaca, por lo que esta variable por sí sola podría no ser un discriminador fuerte. La presencia de LVH (un indicador de esfuerzo cardíaco crónico) y anomalías ST-T (asociadas a isquemia) son hallazgos más específicos que probablemente se correlacionen con la variable objetivo.</p></li>
+</ul>
+<p><strong>3. Distribución de ST_Slope (Pendiente del Segmento ST)</strong></p>
+<ul class="simple">
+<li><p><strong>Proporción:</strong> <strong>Flat (Plana): 50.1%</strong> &gt; Up (Ascendente): 43.0% &gt; Down (Descendente): 6.9%</p></li>
+<li><p><strong>Interpretación:</strong> La pendiente plana es la más frecuente, seguida de cerca por la ascendente. La pendiente descendente, que es el hallazgo más preocupante, es la menos común.</p></li>
+<li><p><strong>Implicación para el modelo:</strong> La <strong>pendiente plana es un fuerte marcador de isquemia miocárdica</strong>. Que sea la categoría más común en este dataset de pacientes con sospecha de enfermedad es un indicador de que la prueba de esfuerzo fue muy efectiva para identificar anomalías. Se anticipa que “Flat” y “Down” serán predictores muy fuertes de enfermedad cardíaca, mientras que “Up” (normal) se asociará con la ausencia de la enfermedad.</p></li>
+</ul>
+</section>
+<section id="variables-numericas">
+<h3>Variables Númericas<a class="headerlink" href="#variables-numericas" title="Link to this heading">#</a></h3>
+<p>Se genera una tabla para visualizar algunos estadísticos descriptivos para las variables númericas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numericas</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">numericas</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numericas</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">df</span><span class="p">[</span><span class="n">numericas</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>RestingBP</th>
+      <th>Cholesterol</th>
+      <th>MaxHR</th>
+      <th>Oldpeak</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>918.000000</td>
+      <td>918.000000</td>
+      <td>918.000000</td>
+      <td>918.000000</td>
+      <td>918.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>53.510893</td>
+      <td>132.396514</td>
+      <td>198.799564</td>
+      <td>136.809368</td>
+      <td>0.887364</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>9.432617</td>
+      <td>18.514154</td>
+      <td>109.384145</td>
+      <td>25.460334</td>
+      <td>1.066570</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>28.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>60.000000</td>
+      <td>-2.600000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>47.000000</td>
+      <td>120.000000</td>
+      <td>173.250000</td>
+      <td>120.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>54.000000</td>
+      <td>130.000000</td>
+      <td>223.000000</td>
+      <td>138.000000</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>60.000000</td>
+      <td>140.000000</td>
+      <td>267.000000</td>
+      <td>156.000000</td>
+      <td>1.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>77.000000</td>
+      <td>200.000000</td>
+      <td>603.000000</td>
+      <td>202.000000</td>
+      <td>6.200000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Hallazgos Críticos y Posibles Errores</strong></p>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RestingBP</span> <span class="pre">(Presión</span> <span class="pre">Arterial</span> <span class="pre">en</span> <span class="pre">Reposo)</span></code>:</strong></p>
+<ul class="simple">
+<li><p><strong>Problema Grave:</strong> El <strong>mínimo es 0.000000</strong> (<code class="docutils literal notranslate"><span class="pre">min:</span> <span class="pre">0.000000</span></code>).</p></li>
+<li><p><strong>Interpretación:</strong> Una presión arterial de 0 mm Hg es <strong>clínicamente imposible</strong> (indicaría la muerte del paciente). Esto son <strong>valores faltantes (missing values) disfrazados</strong>.</p></li>
+<li><p><strong>Acción Necesaria:</strong> Identificar y manejar estos registros (imputación o eliminación).</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Cholesterol</span> <span class="pre">(Colesterol</span> <span class="pre">Sérico)</span></code>:</strong></p>
+<ul class="simple">
+<li><p><strong>Problema Grave:</strong> El <strong>mínimo es 0.000000</strong> (<code class="docutils literal notranslate"><span class="pre">min:</span> <span class="pre">0.000000</span></code>).</p></li>
+<li><p><strong>Interpretación:</strong> Un nivel de colesterol de 0 mm/dl es <strong>biológicamente imposible</strong>. Al igual que con <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code>, estos son missing values codificados como 0.</p></li>
+<li><p><strong>Acción Necesaria:</strong> Es crucial investigar cuántos registros están afectados y decidir una estrategia.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Análisis de Variables Numéricas “Sanas”</strong></p>
+<ol class="arabic simple" start="3">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Age</span> <span class="pre">(Edad)</span></code>:</strong></p>
+<ul class="simple">
+<li><p><strong>Distribución:</strong> La edad media de los pacientes es de 53.5 años (<code class="docutils literal notranslate"><span class="pre">mean:</span> <span class="pre">53.5</span></code>), con una desviación estándar de 9.4 años (<code class="docutils literal notranslate"><span class="pre">std:</span> <span class="pre">9.4</span></code>). El 50% de los pacientes (mediana) tiene entre 47 y 60 años (<code class="docutils literal notranslate"><span class="pre">25%:</span> <span class="pre">47</span></code>, <code class="docutils literal notranslate"><span class="pre">75%:</span> <span class="pre">60</span></code>).</p></li>
+<li><p><strong>Interpretación:</strong> La distribución es normal, centrada en la mediana edad, que es la población típica de riesgo para enfermedades cardíacas. No se observan valores atípicos imposibles (rango de 28 a 77 años es válido).</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">MaxHR</span> <span class="pre">(Frecuencia</span> <span class="pre">Cardíaca</span> <span class="pre">Máxima)</span></code>:</strong></p>
+<ul class="simple">
+<li><p><strong>Distribución:</strong> La media es de 136.8 lpm (<code class="docutils literal notranslate"><span class="pre">mean:</span> <span class="pre">136.8</span></code>). Los percentiles (25%, 50%, 75%) muestran una distribución simétrica.</p></li>
+<li><p><strong>Interpretación:</strong> El rango (60-202 lpm) es fisiológicamente posible. No hay valores evidentemente erróneos. Es una variable de buena calidad.</p></li>
+</ul>
+</li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Oldpeak</span> <span class="pre">(Depresión</span> <span class="pre">del</span> <span class="pre">ST)</span></code>:</strong></p>
+<ul class="simple">
+<li><p><strong>Distribución:</strong> La media es 0.89 (<code class="docutils literal notranslate"><span class="pre">mean:</span> <span class="pre">0.887</span></code>), pero la mediana es 0.6 (<code class="docutils literal notranslate"><span class="pre">50%:</span> <span class="pre">0.6</span></code>), lo que sugiere una distribución asimétrica (sesgada a la derecha). La mayoría de los valores (75%) están por debajo de 1.5.</p></li>
+<li><p><strong>Interpretación:</strong> El valor mínimo de -2.6 es clínicamente plausible (puede indicar elevación). El valor máximo de 6.2 es alto pero posible, indicando una depresión significativa del segmento ST.</p></li>
+</ul>
+</li>
+</ol>
+<section id="manejo-de-valores-clinicamente-imposibles">
+<h4>Manejo de Valores Clínicamente Imposibles<a class="headerlink" href="#manejo-de-valores-clinicamente-imposibles" title="Link to this heading">#</a></h4>
+<p>Se identificaron valores iguales a 0 en las variables <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> y <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code>, los cuales son clínicamente imposibles. Estos valores se interpretan como missing values y se procede a reemplazarlos por <code class="docutils literal notranslate"><span class="pre">NaN</span></code> para un tratamiento adecuado posterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cholesterol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cholesterol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;RestingBP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;RestingBP&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para cuantificar la magnitud de datos ausentes en ambas columnas, se calculó el porcentaje de valores nulos mediante <code class="docutils literal notranslate"><span class="pre">df.isnull().mean()</span> <span class="pre">*</span> <span class="pre">100</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age                0.000000
+Sex                0.000000
+ChestPainType      0.000000
+RestingBP          0.108932
+Cholesterol       18.736383
+FastingBS          0.000000
+RestingECG         0.000000
+MaxHR              0.000000
+ExerciseAngina     0.000000
+Oldpeak            0.000000
+ST_Slope           0.000000
+HeartDisease       0.000000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Debido a que la cantidad de valores nulos en <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> es pequeña, eliminar los registros con valores faltantes no afectará significativamente el análisis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RestingBP&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se verifica el nuevo tamaño del dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(917, 12)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para manejar los valores faltantes en la variable <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> identificados previamente, se implementó el método MICE (Multiple Imputation by Chained Equations). Esta técnica utiliza las relaciones entre las variables numéricas del dataset para imputar los valores missing de manera iterativa, preservando la estructura estadística de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_mice</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">mice</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">df_mice</span><span class="p">[</span><span class="n">numericas</span><span class="p">]</span> <span class="o">=</span> <span class="n">mice</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_mice</span><span class="p">[</span><span class="n">numericas</span><span class="p">])</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cholesterol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_mice</span><span class="p">[</span><span class="s1">&#39;Cholesterol&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se verifican los cambios realizados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age               0.0
+Sex               0.0
+ChestPainType     0.0
+RestingBP         0.0
+Cholesterol       0.0
+FastingBS         0.0
+RestingECG        0.0
+MaxHR             0.0
+ExerciseAngina    0.0
+Oldpeak           0.0
+ST_Slope          0.0
+HeartDisease      0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una vez aplicada las imputaciones se procede a verificar las estadísticas descriptivas de las variables tratadas para evaluar cómo ha impactado el proceso en su distribución y asegurar la conservación de sus propiedades estadísticas fundamentales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Cholesterol&quot;</span><span class="p">,</span> <span class="s2">&quot;RestingBP&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cholesterol</th>
+      <th>RestingBP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>917.000000</td>
+      <td>917.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>244.638971</td>
+      <td>132.540894</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>53.383904</td>
+      <td>17.999749</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>85.000000</td>
+      <td>80.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>214.000000</td>
+      <td>120.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>242.824123</td>
+      <td>130.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>267.000000</td>
+      <td>140.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>603.000000</td>
+      <td>200.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>1. Estrategia Aplicada</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RestingBP</span></code>:</strong> Al tener menos del 1% de valores nulos (una sola observación), se optó por la <strong>eliminación</strong> de dicho registro. Esta es una estrategia conservadora y válida que evita introducir sesgo por imputación cuando el impacto en el tamaño de la muestra es mínimo.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code>:</strong> Al tener un porcentaje significativo de valores nulos (18%), se aplicó el método <strong>MICE (Multiple Imputation by Chained Equations)</strong>, una técnica avanzada que preserva la estructura estadística de los datos.</p></li>
+</ul>
+<p><strong>2. Evaluación de <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> Post-Eliminación</strong></p>
+<ul class="simple">
+<li><p><strong>Estabilidad de la distribución:</strong> Las estadísticas descriptivas se mantienen prácticamente idénticas a las originales.</p></li>
+<li><p><strong>Rango clínico válido:</strong> El mínimo de <strong>80 mm Hg</strong> y máximo de <strong>200 mm Hg</strong> son valores fisiológicamente posibles, indicando que la limpieza fue efectiva.</p></li>
+<li><p><strong>Conclusión:</strong> La eliminación del único valor nulo no impactó la representatividad de la variable.</p></li>
+</ul>
+<p><strong>3. Evaluación de <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> Post-Imputación MICE</strong></p>
+<ul class="simple">
+<li><p><strong>Cambio en la tendencia central:</strong> La <strong>media aumentó de 198.8 a 244.6 mg/dl</strong>, lo que sugiere que los valores faltantes correspondían predominantemente a pacientes con niveles de colesterol más altos.</p></li>
+<li><p><strong>Distribución más realista:</strong></p>
+<ul>
+<li><p>El <strong>mínimo de 85 mg/dl</strong> es clínicamente posible (se eliminaron los valores 0 imposibles).</p></li>
+<li><p>La <strong>mediana de 242.8 mg/dl</strong> indica que la mayoría de los pacientes se encuentran en rango de colesterol límite alto/alto.</p></li>
+<li><p>El <strong>máximo de 603 mg/dl</strong> representa casos de hipercolesterolemia severa real.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Impacto General en la Calidad del Dataset</strong></p>
+<ul class="simple">
+<li><p><strong>Integridad:</strong> Ambas variables ahora tienen <strong>0 valores nulos</strong>.</p></li>
+<li><p><strong>Validez clínica:</strong> Todos los valores están dentro de rangos fisiológicamente posibles.</p></li>
+<li><p><strong>Consistencia:</strong> Se mantuvo la variabilidad natural de las mediciones clínicas.</p></li>
+<li><p><strong>Preparación para modelado:</strong> El dataset está listo para proceder con las siguientes etapas de análisis.</p></li>
+</ul>
+<p><strong>Conclusión:</strong> Las estrategias de tratamiento de valores faltantes fueron apropiadas y efectivas, produciendo un dataset más robusto y clínicamente válido para el modelado predictivo.</p>
+<hr class="docutils" />
+<p>Se genera un histograma y un boxplot para visualizar la distribución de frecuencias e identificar outliers (puntos fuera de los bigotes) y la dispersión de los datos. Además se evalua:</p>
+<ul class="simple">
+<li><p><strong>Asimetría</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">=</span> <span class="pre">0</span></code>: Distribución simétrica (valores aceptables skew <span class="math notranslate nohighlight">\(\in (-1,1)\)</span>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>: Mayor peso en la cola izquierda de la distribución (sesgo positivo).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>: Mayor peso en la cola derecha de la distribución (sesgo negativo).</p></li>
+</ul>
+</li>
+<li><p><strong>Kurtosis</strong>: Determina si una distribución tiene colas gruesas con respecto a la distribución normal. Proporciona información sobre la forma de una distribución de frecuencias.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">=</span> <span class="pre">3</span></code>: se denomina mesocúrtica (distribución normal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">&lt;</span> <span class="pre">3</span></code>: se denomina platicúrtica (distribución con colas menos gruesas que la normal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">&gt;</span> <span class="pre">3</span></code>: se denomina leptocúrtica (distribución con colas más gruesas que la normal) y significa que trata de producir más valores atípicos que la distribución normal.</p></li>
+</ul>
+</li>
+<li><p><strong>Coeficiente de Variación</strong>: Es una medida estadística que se utiliza para evaluar la variabilidad relativa de una muestra en relación con su media. Se calcula como la desviación estándar de los datos dividida por la media, y se expresa como un porcentaje multiplicado por 100 para facilitar su interpretación.</p></li>
+</ul>
+<p>Para el número de Bins se utiliza la <strong>Regla de Rice</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numericas</span><span class="p">:</span> 
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skew:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kurtosis: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">coef_variacion</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coeficiente de Variación: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">coef_variacion</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Histograma de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Boxplot de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== AGE ===
+Skew: -0.2
+Kurtosis:  -0.39
+Coeficiente de Variación:  17.64 %
+</pre></div>
+</div>
+<img alt="_images/17569e65028bb5a71dd5dbeb6c7638faf2ad38669f2c96d695fdfa86a5ea28fd.png" src="_images/17569e65028bb5a71dd5dbeb6c7638faf2ad38669f2c96d695fdfa86a5ea28fd.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RESTINGBP ===
+Skew: 0.61
+Kurtosis:  0.79
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coeficiente de Variación:  13.58 %
+</pre></div>
+</div>
+<img alt="_images/da916bd24c85c9c06a93d86f7f71887cd3261eebc37fc4058fce7e2e39867faf.png" src="_images/da916bd24c85c9c06a93d86f7f71887cd3261eebc37fc4058fce7e2e39867faf.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CHOLESTEROL ===
+Skew: 1.37
+Kurtosis:  6.22
+Coeficiente de Variación:  21.82 %
+</pre></div>
+</div>
+<img alt="_images/23df3979fcf67ca33a41adc4a4259e9f783e554c23a9cc4eedaeaa8e0d07edfc.png" src="_images/23df3979fcf67ca33a41adc4a4259e9f783e554c23a9cc4eedaeaa8e0d07edfc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== MAXHR ===
+Skew: -0.14
+Kurtosis:  -0.45
+Coeficiente de Variación:  18.62 %
+</pre></div>
+</div>
+<img alt="_images/98aa4237933c4a2fd3dbfd62f76ccc571e781fa07d6ca88ce788a222d9833b1a.png" src="_images/98aa4237933c4a2fd3dbfd62f76ccc571e781fa07d6ca88ce788a222d9833b1a.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== OLDPEAK ===
+Skew: 1.02
+Kurtosis:  1.2
+Coeficiente de Variación:  120.33 %
+</pre></div>
+</div>
+<img alt="_images/280f91a826fa0d801635ac94502b0994eba9328c972e67fa0621ba685ed3eeb9.png" src="_images/280f91a826fa0d801635ac94502b0994eba9328c972e67fa0621ba685ed3eeb9.png" />
+</div>
+</div>
+<p><strong>1. Age (Edad)</strong></p>
+<ul class="simple">
+<li><p><strong>Skew: -0.2</strong> → Distribución <strong>ligeramente asimétrica negativa</strong>. La cola izquierda es más larga, indicando una concentración ligeramente mayor de pacientes en edades más avanzadas, pero la asimetría es mínima (casi simétrica).</p></li>
+<li><p><strong>Kurtosis: -0.39</strong> → Distribución <strong>platicúrtica (más plana)</strong> que la normal. Los datos están menos concentrados alrededor de la media y tienen colas más ligeras.</p></li>
+<li><p><strong>Coeficiente de Variación: 17.64%</strong> → Dispersión <strong>moderada y saludable</strong>. La variabilidad relativa es aceptable para análisis estadísticos.</p></li>
+</ul>
+<p><strong>2. Cholesterol (Colesterol)</strong></p>
+<ul class="simple">
+<li><p><strong>Skew: 1.37</strong> → <strong>Asimetría fuertemente positiva</strong>. Indicando una cola extendida hacia la derecha.</p></li>
+<li><p><strong>Kurtosis: 6.22</strong> → Distribución <strong>extremadamente leptocúrtica (muy picada)</strong>. Los datos están muy concentrados alrededor de la media, sugiriendo posible sobre-ajuste en la imputación.</p></li>
+<li><p><strong>Coeficiente de Variación: 21.82%</strong> → <strong>Dispersión moderada</strong>. Indicando datos homogéneos y consistentes.</p></li>
+</ul>
+<p><strong>3. MaxHR (Frecuencia Cardíaca Máxima)</strong></p>
+<ul class="simple">
+<li><p><strong>Skew: -0.14</strong> → Distribución <strong>casi perfectamente simétrica</strong>.</p></li>
+<li><p><strong>Kurtosis: -0.45</strong> → Ligera <strong>platocurtosis</strong>, indicando una distribución saludable sin valores extremos pronunciados.</p></li>
+<li><p><strong>Coeficiente de Variación: 18.62%</strong> → Dispersión <strong>moderada y consistente</strong>. Se mantiene como una de las variables mejor comportadas del dataset.</p></li>
+</ul>
+<p><strong>4. Oldpeak (Depresión del ST)</strong></p>
+<ul class="simple">
+<li><p><strong>Skew: 1.02</strong> → <strong>Fuertemente asimétrica positiva</strong>. La mayoría de los valores están concentrados en el rango bajo (0-1.5) con una cola hacia valores más altos.</p></li>
+<li><p><strong>Kurtosis: 1.2</strong> → Distribución <strong>leptocúrtica</strong>, con valores más concentrados y presencia de algunos valores extremos positivos.</p></li>
+<li><p><strong>Coeficiente de Variación: 120.33%</strong> → <strong>Dispersión muy alta</strong>. Indica una gran variabilidad relativa en las mediciones de depresión del ST entre pacientes.</p></li>
+</ul>
+<p><strong>5. RestingBP (Presión Arterial en Reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Skew: 0.61</strong> → Distribución <strong>moderadamente asimétrica positiva</strong>. La cola derecha es más larga, indicando la presencia de algunos valores de presión arterial elevada, pero la asimetría es manejable.</p></li>
+<li><p><strong>Kurtosis: 0.79</strong> → Distribución <strong>levemente leptocúrtica</strong>. Los datos presentan una concentración moderada alrededor de la media con colas ligeramente más pesadas que la distribución normal.</p></li>
+<li><p><strong>Coeficiente de Variación: 13.58%</strong> → <strong>Baja dispersión relativa</strong>. Los valores de presión arterial muestran consistencia y estabilidad, con variabilidad controlada que es típica en mediciones fisiológicas de presión arterial.</p></li>
+</ul>
+</section>
+<section id="analisis-de-valores-atipicos">
+<h4>Análisis de Valores Atípicos<a class="headerlink" href="#analisis-de-valores-atipicos" title="Link to this heading">#</a></h4>
+<p>Para la identificación de valores atípicos en las variables númericas, se aplicó el método del rango intercuartílico (IQR).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numericas</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    
+    <span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">Q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+    <span class="n">limite_inferior</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
+    <span class="n">limite_superior</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
+
+    <span class="n">outliers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">limite_inferior</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">limite_superior</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de outliers: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Porcentaje de outliers: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== AGE ===
+Número de outliers: 0
+Porcentaje de outliers: 0.00%
+
+=== RESTINGBP ===
+Número de outliers: 27
+Porcentaje de outliers: 2.94%
+
+=== CHOLESTEROL ===
+Número de outliers: 41
+Porcentaje de outliers: 4.47%
+
+=== MAXHR ===
+Número de outliers: 2
+Porcentaje de outliers: 0.22%
+
+=== OLDPEAK ===
+Número de outliers: 16
+Porcentaje de outliers: 1.74%
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>1. Age (Edad)</strong></p>
+<ul class="simple">
+<li><p><strong>Número de outliers: 0</strong> → <strong>Porcentaje: 0.00%</strong></p></li>
+<li><p><strong>Interpretación:</strong> La distribución de edad es <strong>extremadamente limpia y consistente</strong>. No se detectan valores atípicos según el criterio IQR.</p></li>
+</ul>
+<p><strong>2. RestingBP (Presión Arterial en Reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Número de outliers: 27</strong> → <strong>Porcentaje: 2.94%</strong></p></li>
+<li><p><strong>Interpretación:</strong> Presencia de <strong>outliers moderados</strong>. Probablemente corresponden a pacientes con hipertensión severa (valores muy altos) o hipotensión (valores muy bajos).</p></li>
+</ul>
+<p><strong>3. Cholesterol (Colesterol)</strong></p>
+<ul class="simple">
+<li><p><strong>Número de outliers: 41</strong> → <strong>Porcentaje: 4.47%</strong></p></li>
+<li><p><strong>Interpretación:</strong> <strong>Cantidad significativa de outliers</strong>, principalmente valores altos. Esto es esperable después de la imputación con MICE y refleja pacientes con hipercolesterolemia real.</p></li>
+</ul>
+<p><strong>4. MaxHR (Frecuencia Cardíaca Máxima)</strong></p>
+<ul class="simple">
+<li><p><strong>Número de outliers: 2</strong> → <strong>Porcentaje: 0.22%</strong></p></li>
+<li><p><strong>Interpretación:</strong> <strong>Muy pocos outliers</strong>. Posiblemente corresponden a pacientes con frecuencias cardíacas máximas excepcionalmente bajas o altas durante el ejercicio.</p></li>
+</ul>
+<p><strong>5. Oldpeak (Depresión del ST)</strong></p>
+<ul class="simple">
+<li><p><strong>Número de outliers: 16</strong> → <strong>Porcentaje: 1.74%</strong></p></li>
+<li><p><strong>Interpretación:</strong> Outliers <strong>moderados y esperables</strong>. Corresponden a pacientes con depresión significativa del segmento ST, lo cual es clínicamente relevante para enfermedad cardíaca.</p></li>
+</ul>
+<section id="manejo-de-valores-atipicos-mediante-winsorization">
+<h5>Manejo de Valores Atípicos mediante Winsorization<a class="headerlink" href="#manejo-de-valores-atipicos-mediante-winsorization" title="Link to this heading">#</a></h5>
+<p>Para mitigar el impacto de valores extremos en las variables numéricas identificadas previamente en el análisis de outliers, se aplicó la técnica de winsorization. Este método preserva los casos atípicos reemplazando los valores en los percentiles extremos superior e inferior por los valores en un límite especificado, reduciendo así la distorsión en los modelos sin eliminar registros valiosos. Los límites se establecieron equilibrando la retención de información clínicamente relevante con la estabilidad estadística del modelo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RestingBP&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">winsorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RestingBP&#39;</span><span class="p">],</span> <span class="n">limits</span><span class="o">=</span><span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">])</span>  
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cholesterol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">winsorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cholesterol&#39;</span><span class="p">],</span> <span class="n">limits</span><span class="o">=</span><span class="p">[</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">])</span> 
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Oldpeak&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">winsorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Oldpeak&#39;</span><span class="p">],</span> <span class="n">limits</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se verifican los cambios realizados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atipicos</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;RestingBP&quot;</span><span class="p">,</span><span class="s2">&quot;Cholesterol&quot;</span><span class="p">,</span><span class="s2">&quot;Oldpeak&quot;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">atipicos</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RestingBP</th>
+      <th>Cholesterol</th>
+      <th>Oldpeak</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>917.000000</td>
+      <td>917.000000</td>
+      <td>917.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>132.496183</td>
+      <td>243.080629</td>
+      <td>0.888332</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>17.422543</td>
+      <td>43.281662</td>
+      <td>1.029460</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>100.000000</td>
+      <td>164.000000</td>
+      <td>-0.500000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>120.000000</td>
+      <td>214.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>130.000000</td>
+      <td>242.824123</td>
+      <td>0.600000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>140.000000</td>
+      <td>267.000000</td>
+      <td>1.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>180.000000</td>
+      <td>340.000000</td>
+      <td>4.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>1. <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> (Presión arterial en reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Mínimo:</strong> Aumentó de <strong>80</strong> a <strong>100</strong> mm Hg.</p></li>
+<li><p><strong>Máximo:</strong> Disminuyó de <strong>200</strong> a <strong>180</strong> mm Hg.</p></li>
+<li><p><strong>Desviación estándar:</strong> Reducción leve de <strong>17.99</strong> a <strong>17.42</strong>.</p></li>
+<li><p><strong>Interpretación:</strong> La winsorización recortó valores en ambos extremos de la distribución. El nuevo mínimo (100 mm Hg) corrige valores de hipotensión extrema, mientras el nuevo máximo (180 mm Hg) limita casos de hipertensión severa. La distribución mantiene su variabilidad clínicamente relevante pero es más robusta para modelado.</p></li>
+</ul>
+<p><strong>2. <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> (Colesterol sérico)</strong></p>
+<ul class="simple">
+<li><p><strong>Mínimo:</strong> Aumentó significativamente de <strong>85</strong> a <strong>164</strong> mg/dl.</p></li>
+<li><p><strong>Máximo:</strong> Disminuyó drásticamente de <strong>603</strong> a <strong>340</strong> mg/dl.</p></li>
+<li><p><strong>Desviación estándar:</strong> Reducción notable de <strong>53.38</strong> a <strong>43.28</strong>.</p></li>
+<li><p><strong>Interpretación:</strong> La winsorización controló efectivamente los valores extremos, especialmente los superiores (hipercolesterolemia severa &gt;340 mg/dl). Esto reduce el sesgo positivo extremo de la variable, creando una distribución más compacta y manejable para modelos sensibles a outliers, mientras preserva el rango clínicamente significativo de colesterol elevado.</p></li>
+</ul>
+<p><strong>3. <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> (Depresión del segmento ST)</strong></p>
+<ul class="simple">
+<li><p><strong>Mínimo:</strong> Aumentó de <strong>-2.6</strong> a <strong>-0.5</strong>.</p></li>
+<li><p><strong>Máximo:</strong> Reducción significativa de <strong>6.2</strong> a <strong>4.0</strong>.</p></li>
+<li><p><strong>Desviación estándar:</strong> Leve disminución de <strong>1.07</strong> a <strong>1.03</strong>.</p></li>
+<li><p><strong>Interpretación:</strong> Los valores extremos de depresión severa del segmento ST (&gt;4.0) fueron ajustados al límite superior winsorizado. Esto es clínicamente apropiado, ya que valores superiores a 4.0 mm representan anomalías electrocardiográficas graves y su reducción controla su influencia desproporcionada en el modelo, manteniendo su valor predictivo crítico dentro de rangos clínicamente relevantes.</p></li>
+</ul>
+</section>
+</section>
+<section id="verificacion-visual-del-efecto-de-la-winsorization">
+<h4>Verificación Visual del Efecto de la Winsorization<a class="headerlink" href="#verificacion-visual-del-efecto-de-la-winsorization" title="Link to this heading">#</a></h4>
+<p>Para evaluar visualmente el impacto de la winsorization en la distribución y dispersión de las variables tratadas (<code class="docutils literal notranslate"><span class="pre">RestingBP</span></code>, <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code>, <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code>), se generaron histogramas y diagramas de caja (boxplots). Estas visualizaciones permiten contrastar las distribuciones antes y después del tratamiento, confirmando la reducción de valores extremos mientras se mantiene la estructura central de los datos, asegurando así la preparación adecuada para el modelado. Además se evalua nuevamente:</p>
+<ul class="simple">
+<li><p><strong>Asimetría</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">=</span> <span class="pre">0</span></code>: Distribución simétrica (valores aceptables skew <span class="math notranslate nohighlight">\(\in (-1,1)\)</span>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>: Mayor peso en la cola izquierda de la distribución (sesgo positivo).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skew</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>: Mayor peso en la cola derecha de la distribución (sesgo negativo).</p></li>
+</ul>
+</li>
+<li><p><strong>Kurtosis</strong>: Determina si una distribución tiene colas gruesas con respecto a la distribución normal. Proporciona información sobre la forma de una distribución de frecuencias.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">=</span> <span class="pre">3</span></code>: se denomina mesocúrtica (distribución normal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">&lt;</span> <span class="pre">3</span></code>: se denomina platicúrtica (distribución con colas menos gruesas que la normal).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kurtosis</span> <span class="pre">&gt;</span> <span class="pre">3</span></code>: se denomina leptocúrtica (distribución con colas más gruesas que la normal) y significa que trata de producir más valores atípicos que la distribución normal.</p></li>
+</ul>
+</li>
+<li><p><strong>Coeficiente de Variación</strong>: Es una medida estadística que se utiliza para evaluar la variabilidad relativa de una muestra en relación con su media. Se calcula como la desviación estándar de los datos dividida por la media, y se expresa como un porcentaje multiplicado por 100 para facilitar su interpretación.</p></li>
+</ul>
+<p>Para el número de Bins se utiliza la <strong>Regla de Rice</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">atipicos</span><span class="p">:</span> 
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skew:&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kurtosis: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">coef_variacion</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coeficiente de Variación: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">coef_variacion</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Histograma de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Boxplot de </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RESTINGBP ===
+Skew: 0.51
+Kurtosis:  0.13
+Coeficiente de Variación:  13.15 %
+</pre></div>
+</div>
+<img alt="_images/511ca98519a93ebe63ed80eb51b71fd503f251409ded7de510d001687d139a1b.png" src="_images/511ca98519a93ebe63ed80eb51b71fd503f251409ded7de510d001687d139a1b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CHOLESTEROL ===
+Skew: 0.32
+Kurtosis:  -0.19
+Coeficiente de Variación:  17.81 %
+</pre></div>
+</div>
+<img alt="_images/618d8e04fa9e16b56f8b8e16233985b82cf9035209cf2803713bcfb628db94b0.png" src="_images/618d8e04fa9e16b56f8b8e16233985b82cf9035209cf2803713bcfb628db94b0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== OLDPEAK ===
+Skew: 0.97
+Kurtosis:  0.19
+Coeficiente de Variación:  115.89 %
+</pre></div>
+</div>
+<img alt="_images/a18ba0594b7d42955192c9879595b4b1cd03b210a35b0683dd86fddd5a79788b.png" src="_images/a18ba0594b7d42955192c9879595b4b1cd03b210a35b0683dd86fddd5a79788b.png" />
+</div>
+</div>
+<p><strong>1. <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> (Presión arterial en reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Skewness (0.51):</strong> El sesgo se redujo levemente (de 0.61 a 0.51), indicando una distribución más simétrica. La winsorización equilibró efectivamente la influencia de valores extremos en ambos extremos de la distribución.</p></li>
+<li><p><strong>Kurtosis (0.13):</strong> La curtosis disminuyó moderadamente (de  0.79 a 0.13), acercándose a una distribución mesocúrtica. Esto refleja una reducción en la concentración de valores extremos y una distribución más normal.</p></li>
+<li><p><strong>Coeficiente de Variación (13.15%):</strong> La dispersión relativa disminuyó (de  13.58 % a 13.15%), confirmando que la variable es más estable y consistente después del tratamiento, manteniendo su variabilidad clínicamente relevante.</p></li>
+</ul>
+<p><strong>2. <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> (Colesterol sérico)</strong></p>
+<ul class="simple">
+<li><p><strong>Skewness (0.32):</strong> El sesgo se redujo drásticamente (de 1.37 a 0.32), indicando una distribución mucho más simétrica. La winsorización corrigió eficientemente la asimetría positiva extrema causada por los valores de hipercolesterolemia severa.</p></li>
+<li><p><strong>Kurtosis (-0.19):</strong> La curtosis disminuyó notablemente (de 6.22 a -0.19), transformando la distribución de extremadamente leptocúrtica a ligeramente platicúrtica. Esto refleja una eliminación completa de los valores atípicos que causaban el exceso de curtosis.</p></li>
+<li><p><strong>Coeficiente de Variación (17.81%):</strong> La dispersión relativa se redujo significativamente (de 21.82% a 17.81%), indicando que la variabilidad de los datos es ahora más homogénea y menos influenciada por outliers extremos.</p></li>
+</ul>
+<p><strong>3. <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> (Depresión del segmento ST)</strong></p>
+<ul class="simple">
+<li><p><strong>Skewness (0.97):</strong> El sesgo disminuyó levemente (de 1.02 a 0.97), pero sigue siendo moderadamente positivo. Esto era esperado debido a la naturaleza inherentemente sesgada de esta variable clínica, donde la mayoría de los pacientes presentan depresiones leves o nulas del ST.</p></li>
+<li><p><strong>Kurtosis (0.19):</strong> La curtosis se redujo (de 1.20 a 0.19), acercándose a una distribución mesocúrtica. Esto indica que los valores extremos superiores fueron controlados efectivamente.</p></li>
+<li><p><strong>Coeficiente de Variación (115.89%):</strong> La dispersión relativa disminuyó ligeramente (de 120.33% a 115.89%), pero sigue siendo muy alta. Esto confirma que <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> mantiene su alta variabilidad inherente, característica de las mediciones de depresión del segmento ST en población con sospecha de enfermedad cardíaca.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="analisis-bivariado">
+<h2>Análisis Bivariado<a class="headerlink" href="#analisis-bivariado" title="Link to this heading">#</a></h2>
+<p>El análisis bivariado es la segunda fase del análisis exploratorio de datos. Se enfoca en las relaciones entre dos variables para obtener datos estadísticos sobre sus influencias mutuas.</p>
+<section id="variables-binarias-vs-heartdisease">
+<h3>Variables Binarias vs HeartDisease<a class="headerlink" href="#variables-binarias-vs-heartdisease" title="Link to this heading">#</a></h3>
+<p>Se generan graficos de barras para analizar la relación entre un conjunto de variables binarias y la presencia de enfermedad cardíaca con el fin de identificar qué variables binarias están asociadas a mayores proporciones de diagnóstico positivos en el conjunto de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> 
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">binarias</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>  
+    <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s2">&quot;HeartDisease&quot;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> 
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> 
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span> 
+        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> 
+        <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">,</span>
+        <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span>
+        <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;HeartDisease vs </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporción de Presencia de Enfermedad Cardíaca&#39;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="p">)</span>  
+            
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d10e7a6d58df416b222474180f9e4c89bceecda6491dee5c938fb00439dd2c1d.png" src="_images/d10e7a6d58df416b222474180f9e4c89bceecda6491dee5c938fb00439dd2c1d.png" />
+</div>
+</div>
+<p><strong>1. HeartDisease vs Sex (Enfermedad Cardíaca vs Sexo)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Fuerte correlación con claro dimorfismo sexual</strong>. La prevalencia de enfermedad cardíaca es significativamente mayor en hombres.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Masculino (M): 63%</strong> - Casi dos tercios de los pacientes hombres en el dataset tienen enfermedad cardíaca.</p></li>
+<li><p><strong>Femenino (F): 26%</strong> - Solo una cuarta parte de las mujeres presentan la enfermedad.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> El <strong>sexo masculino es un factor de riesgo mayor</strong> en este dataset. La variable <code class="docutils literal notranslate"><span class="pre">Sex</span></code> será un predictor importante, pero es crucial recordar el desbalance en la muestra (79% hombres vs 21% mujeres). El modelo podría tener un mejor rendimiento predictivo en hombres debido a esta sobrerrepresentación.</p></li>
+</ul>
+<p><strong>2. HeartDisease vs FastingBS (Enfermedad Cardíaca vs Glucemia en Ayunas)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación moderadamente fuerte</strong>. La glucemia elevada está asociada con una mayor prevalencia de enfermedad cardíaca.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>FastingBS &gt; 120 mg/dl (1): 79%</strong> - Aproximadamente dos de cada tres pacientes con glucemia elevada tienen enfermedad cardíaca.</p></li>
+<li><p><strong>FastingBS ≤ 120 mg/dl (0): 48%</strong> - Aproximadamente la mitad de los pacientes con glucemia normal también presentan la enfermedad.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> La diabetes o prediabetes (<code class="docutils literal notranslate"><span class="pre">FastingBS</span> <span class="pre">=</span> <span class="pre">1</span></code>) es un <strong>factor de riesgo claro</strong>, elevando la probabilidad de enfermedad cardíaca en un 31% en comparación con los pacientes con glucemia normal. Será un predictor útil, aunque no tan determinante como otras variables.</p></li>
+</ul>
+<p><strong>3. HeartDisease vs ExerciseAngina (Enfermedad Cardíaca vs Angina Inducida por Ejercicio)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación extremadamente fuerte</strong>. La presencia de angina durante el ejercicio es un indicador poderoso de enfermedad cardíaca.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>ExerciseAngina = Sí (Y): 85%</strong> - La gran mayoría de los pacientes que reportan angina durante la prueba de esfuerzo tienen enfermedad cardíaca.</p></li>
+<li><p><strong>ExerciseAngina = No (N): 35%</strong> - Solo alrededor de un tercio de los que no la reportan están enfermos.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">ExerciseAngina</span></code> es, junto con <code class="docutils literal notranslate"><span class="pre">ST_Slope</span></code>, uno de los <strong>predictores más poderosos</strong> del dataset. La capacidad del modelo para identificar correctamente a los pacientes que experimentan angina con el ejercicio será fundamental para su precisión general.</p></li>
+</ul>
+<p><strong>Conclusión General y Orden de Importancia Predictiva</strong>:</p>
+<p>Basado en este análisis bivariado, <strong>el poder predictivo</strong> de estas variables binarias, de mayor a menor, es:</p>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ExerciseAngina</span></code></strong>: Discriminador excepcional. La presencia de angina durante la prueba de esfuerzo es un signo de alarma mayor.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Sex</span></code></strong>: Predictor muy fuerte, mostrando una disparidad muy marcada en la prevalencia de la enfermedad entre hombres y mujeres en esta cohorte.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">FastingBS</span></code></strong>: Predictor moderado, pero clínicamente relevante, que refuerza la conocida asociación entre la disglucemia y la enfermedad cardiovascular.</p></li>
+</ol>
+<p><strong>En resumen, el perfil de mayor riesgo en este dataset es: Hombre, con glucemia elevada, que desarrolla angina durante la prueba de esfuerzo</strong></p>
+</section>
+<section id="variables-categoricas-vs-heartdisease">
+<h3>Variables Categóricas vs HeartDisease<a class="headerlink" href="#variables-categoricas-vs-heartdisease" title="Link to this heading">#</a></h3>
+<p>Se generan graficos de barras para analizar la relación entre variables categóricas y la presencia de enfermedad cardíaca en la población estudiada. Con el fin de identificar qué categorías dentro de cada variable presentan mayores proporciones de diagnósticos positivos, lo que podría indicar posibles factores de riesgo asociados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">categoricas</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="n">order</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">col</span><span class="p">)[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">index</span>
+    <span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> 
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span> 
+        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> 
+        <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">,</span>
+        <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="n">order</span>
+    <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;HeartDisease vs </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporción de Presencia de Enfermedad Cardíaca&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span><span class="p">)</span>
+          
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CHESTPAINTYPE ===
+</pre></div>
+</div>
+<img alt="_images/fec57dc7f7ffc2859294254a75fd031c82badf826658c4eb43eea28eafd79290.png" src="_images/fec57dc7f7ffc2859294254a75fd031c82badf826658c4eb43eea28eafd79290.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RESTINGECG ===
+</pre></div>
+</div>
+<img alt="_images/5c018027a25f1d1415e0a42976c4727a9bff7e06443259e7636387ec0640a6e4.png" src="_images/5c018027a25f1d1415e0a42976c4727a9bff7e06443259e7636387ec0640a6e4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== ST_SLOPE ===
+</pre></div>
+</div>
+<img alt="_images/ce0e3f93b799ddc10351132c38d489970b74f6ef7be224a01ddf2962bdb480fe.png" src="_images/ce0e3f93b799ddc10351132c38d489970b74f6ef7be224a01ddf2962bdb480fe.png" />
+</div>
+</div>
+<p><strong>1. HeartDisease vs ChestPainType (Enfermedad Cardíaca vs Tipo de Dolor Torácico)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Fuerte correlación</strong>. La presencia de enfermedad cardíaca varía drásticamente según el tipo de dolor torácico.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>ASY (Asintomático): 79%</strong> - La gran mayoría de pacientes <strong>asintomáticos</strong> tienen enfermedad cardíaca. Este es el hallazgo más crítico, ya que resalta la naturaleza “silenciosa” de la condición en esta población.</p></li>
+<li><p><strong>TA (Angina Típica): 43%</strong> - Menos de la mitad de los pacientes con el dolor clásicamente asociado a problemas coronarios tienen la enfermedad.</p></li>
+<li><p><strong>ATA (Angina Atípica): 14%</strong> y <strong>NAP (Dolor No Anginoso): 35%</strong> - Presentan las proporciones más bajas de enfermedad.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> La variable <code class="docutils literal notranslate"><span class="pre">ChestPainType</span></code> será un <strong>predictor extremadamente poderoso</strong>. El valor <code class="docutils literal notranslate"><span class="pre">ASY</span></code> es, de forma contraintuitiva, el indicador de riesgo más alto. Esto sugiere que el modelo aprenderá que la ausencia de síntomas típicos en este contexto específico es una señal de alarma.</p></li>
+</ul>
+<p><strong>2. HeartDisease vs RestingECG (Enfermedad Cardíaca vs Electrocardiograma en Reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación moderada a débil</strong>. Las anomalías en el ECG en reposo muestran una prevalencia de enfermedad solo ligeramente mayor.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>ST (Anomalía ST-T): 66%</strong> - La anomalía más específica para isquemia muestra la mayor proporción de enfermedad.</p></li>
+<li><p><strong>LVH (Hipertrofia Ventricular Izquierda): 56%</strong> - Un marcador de esfuerzo cardíaco crónico también está asociado a una mayor prevalencia.</p></li>
+<li><p><strong>Normal: 52%</strong> - Sorprendentemente, más de la mitad de los pacientes con un ECG en reposo normal tienen enfermedad cardíaca.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> Un ECG en reposo <strong>normal no descarta</strong> la enfermedad. Si bien las anomalías (ST y LVH) aumentan la probabilidad, la discriminación no es perfecta. Esta variable probablemente tendrá una <strong>importancia moderada</strong> en el modelo, complementando a predictores más fuertes.</p></li>
+</ul>
+<p><strong>3. HeartDisease vs ST_Slope (Enfermedad Cardíaca vs Pendiente del ST en Ejercicio)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación extremadamente fuerte y clínicamente esperada</strong>. Esta es probablemente la variable predictiva individual más importante.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Down (Descendente): 78%</strong> - Casi todos los pacientes con esta anomalía severa tienen enfermedad cardíaca.</p></li>
+<li><p><strong>Flat (Plana): 83%</strong> - La pendiente plana, un marcador de isquemia, tiene una asociación muy alta con la enfermedad.</p></li>
+<li><p><strong>Up (Ascendente): 20%</strong> - Solo 1 de cada 5 pacientes con una respuesta normal a la prueba de esfuerzo tiene la enfermedad.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">ST_Slope</span></code> será un <strong>predictor de primera clase</strong>. El modelo dependerá en gran medida de esta variable para distinguir entre pacientes sanos y enfermos. La separación casi perfecta entre “Up” (mayormente sano) y “Flat/Down” (mayormente enfermo) la convierte en una característica fundamental.</p></li>
+</ul>
+<p><strong>Conclusión General y Orden de Importancia Predictiva</strong></p>
+<p>Basado en el análisis bivariado, el poder predictivo de estas variables categóricas, de mayor a menor, es:</p>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ST_Slope</span></code></strong>: Discriminador casi perfecto. La variable categórica más importante.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">ChestPainType</span></code></strong>: Predictor muy fuerte, especialmente por el alto riesgo asociado a ser asintomático (ASY).</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RestingECG</span></code></strong>: Predictor más débil, pero aún valioso, especialmente el hallazgo de anomalías en la onda ST-T.</p></li>
+</ol>
+<p><strong>Este análisis confirma que las pruebas de esfuerzo (<code class="docutils literal notranslate"><span class="pre">ST_Slope</span></code>) y la presentación clínica atípica (<code class="docutils literal notranslate"><span class="pre">ChestPainType</span> <span class="pre">=</span> <span class="pre">ASY</span></code>) son los factores clave que el modelo utilizará para predecir la enfermedad cardíaca en este dataset.</strong></p>
+</section>
+<section id="variables-numericas-vs-heartdisease">
+<h3>Variables Númericas vs HeartDisease<a class="headerlink" href="#variables-numericas-vs-heartdisease" title="Link to this heading">#</a></h3>
+<p>Con el objetivo de identificar la relación entre las variables numéricas predictoras y la variable objetivo (<code class="docutils literal notranslate"><span class="pre">HeartDisease</span></code>), se genera una serie de diagramas de caja (boxplots). Esta visualización permite comparar la distribución (mediana, rango intercuartílico) de cada variable numérica segmentada por la clase de diagnóstico, facilitando la observación de diferencias significativas entre los grupos que podrían ser patrones predictivos clave.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numericas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">col</span><span class="p">,</span>          
+        <span class="n">y</span><span class="o">=</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span>        
+        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> 
+        <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set2&#39;</span><span class="p">,</span> 
+        <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span>      
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;HeartDisease vs </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== AGE ===
+</pre></div>
+</div>
+<img alt="_images/67383d53041e1d541a3135c4858da53cd2ba994fb6a755fc09fb1cee41a57c07.png" src="_images/67383d53041e1d541a3135c4858da53cd2ba994fb6a755fc09fb1cee41a57c07.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RESTINGBP ===
+</pre></div>
+</div>
+<img alt="_images/bc5e986f4884ceff75a24d8c4378962c5fee0806ab6f8ffbd37693fea60ff5ab.png" src="_images/bc5e986f4884ceff75a24d8c4378962c5fee0806ab6f8ffbd37693fea60ff5ab.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CHOLESTEROL ===
+</pre></div>
+</div>
+<img alt="_images/67e9710119887c0c808374c7e0dc6d31232be8f49cd204b015ef96df15d50368.png" src="_images/67e9710119887c0c808374c7e0dc6d31232be8f49cd204b015ef96df15d50368.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== MAXHR ===
+</pre></div>
+</div>
+<img alt="_images/0baa0b9b31809900ae407937b3e97bcd6db2f765879ca09a98950fea3a176111.png" src="_images/0baa0b9b31809900ae407937b3e97bcd6db2f765879ca09a98950fea3a176111.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== OLDPEAK ===
+</pre></div>
+</div>
+<img alt="_images/f86cc9d3f8c5a5697f70479d37a8e42be80cc9fa36451c603c5eacd6216f71b0.png" src="_images/f86cc9d3f8c5a5697f70479d37a8e42be80cc9fa36451c603c5eacd6216f71b0.png" />
+</div>
+</div>
+<p><strong>1. HeartDisease vs Age (Enfermedad Cardíaca vs Edad)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación positiva moderada</strong>. Se observa una tendencia clara donde la prevalencia de enfermedad cardíaca aumenta con la edad.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Pacientes jóvenes (&lt;45 años):</strong> Baja densidad de puntos rojos (enfermedad), predominando los verdes (sanos).</p></li>
+<li><p><strong>Pacientes de mediana edad (45-60 años):</strong> Mezcla más equilibrada entre ambos grupos.</p></li>
+<li><p><strong>Pacientes mayores (&gt;60 años):</strong> Clara predominancia de puntos rojos (enfermos).</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> La <code class="docutils literal notranslate"><span class="pre">Age</span></code> será un <strong>predictor consistente y confiable</strong>. El modelo aprenderá que el riesgo aumenta progresivamente con la edad, lo cual es epidemiológicamente correcto.</p></li>
+</ul>
+<p><strong>2. HeartDisease vs RestingBP (Enfermedad Cardíaca vs Presión Arterial en Reposo)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación muy débil o nula</strong>. La distribución de puntos rojos y verdes es bastante uniforme a lo largo de todo el rango de presión arterial.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p>No se aprecia una concentración clara de casos de enfermedad en los valores altos de presión arterial.</p></li>
+<li><p>Hay muchos pacientes con presión arterial normal (verdes alrededor de 120-130 mmHg) y también muchos con hipertensión (rojos por encima de 140 mmHg).</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> probablemente tendrá una <strong>baja importancia relativa</strong> en el modelo predictivo final. Por sí sola, no es un buen discriminador.</p></li>
+</ul>
+<p><strong>3. HeartDisease vs Cholesterol (Enfermedad Cardíaca vs Colesterol)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación positiva débil a moderada</strong>. Existe una ligera tendencia donde los niveles más altos de colesterol se asocian con más casos de enfermedad cardíaca.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p>En el rango bajo de colesterol (175-225 mg/dl) hay una mezcla de pacientes sanos y enfermos.</p></li>
+<li><p>A medida que el colesterol aumenta (especialmente por encima de ~250 mg/dl), la densidad de puntos rojos (enfermos) parece incrementarse.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code> aportará información al modelo, pero no será uno de los predictores principales. Su poder predictivo es limitado de forma aislada.</p></li>
+</ul>
+<p><strong>4. HeartDisease vs MaxHR (Enfermedad Cardíaca vs Frecuencia Cardíaca Máxima)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación negativa fuerte y clara</strong>. Esta es una de las relaciones más evidentes entre las variables numéricas.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Alta MaxHR (&gt;150 bpm):</strong> Predominio absoluto de puntos verdes (sanos).</p></li>
+<li><p><strong>Baja MaxHR (&lt;120 bpm):</strong> Predominio absoluto de puntos rojos (enfermos).</p></li>
+<li><p>Existe un punto de separación alrededor de los 130-140 bpm donde la proporción se invierte.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> será un <strong>predictor de primera clase</strong>, extremadamente poderoso. La incapacidad para alcanzar una frecuencia cardíaca alta durante el ejercicio es un fuerte indicador de enfermedad coronaria subyacente.</p></li>
+</ul>
+<p><strong>5. HeartDisease vs Oldpeak (Depresión del ST)</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Correlación positiva muy fuerte</strong>. La relación es casi lineal: a mayor depresión del ST, mayor probabilidad de enfermedad.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Oldpeak = 0:</strong> Predominan los puntos verdes (sanos).</p></li>
+<li><p><strong>Oldpeak &gt; 1:</strong> Predominan abrumadoramente los puntos rojos (enfermos).</p></li>
+<li><p>Casi no hay puntos verdes para valores de Oldpeak superiores a 2.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> es, junto con <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> y <code class="docutils literal notranslate"><span class="pre">ST_Slope</span></code>, uno de los <strong>predictores numéricos más importantes</strong>. Será una variable fundamental para que el modelo identifique a los pacientes con isquemia miocárdica inducible.</p></li>
+</ul>
+<p><strong>Conclusión General y Orden de Importancia Predictiva</strong></p>
+<p>Basado en el análisis visual bivariado, el <strong>poder predictivo</strong> de estas variables numéricas, de mayor a menor, es:</p>
+<ol class="arabic simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code></strong>: Relación casi determinista con la enfermedad para valores altos.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">MaxHR</span></code></strong>: Fuerte discriminador, con una correlación negativa muy clara.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Age</span></code></strong>: Predictor consistente con una tendencia positiva evidente.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Cholesterol</span></code></strong>: Predictor débil, con una tendencia positiva leve.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">RestingBP</span></code></strong>: Predictor muy débil o nulo en este análisis visual.</p></li>
+</ol>
+<p><strong>En resumen, las variables derivadas de la prueba de esfuerzo (<code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> y <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code>) son, con diferencia, los predictores numéricos más potentes para la enfermedad cardíaca en este dataset.</strong></p>
+<hr class="docutils" />
+<p>Para comprender la distribución y la solapación de cada variable numérica entre los pacientes sanos y aquellos con diagnóstico positivo, se generaron histogramas comparativos. Estos gráficos permiten visualizar diferencias en la forma de la distribución, tendencias centrales y dispersión entre las dos clases, lo que ayuda a identificar qué variables tienen un mayor poder discriminatorio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numericas</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== </span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> ===&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">col</span><span class="p">,</span>
+        <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;HeartDisease&quot;</span><span class="p">,</span>    
+        <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span>    
+        <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">,</span>
+        <span class="n">element</span><span class="o">=</span><span class="s2">&quot;poly&quot;</span><span class="p">,</span>        
+        <span class="n">common_norm</span><span class="o">=</span><span class="kc">False</span>      
+    <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;HeartDisease vs </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Proporción de Presencia de Enfermedad Cardíaca&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== AGE ===
+</pre></div>
+</div>
+<img alt="_images/0e47042bf4c95bc5a35958d30aa351bf37a6b8bbccccf591247846fc09e92f83.png" src="_images/0e47042bf4c95bc5a35958d30aa351bf37a6b8bbccccf591247846fc09e92f83.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RESTINGBP ===
+</pre></div>
+</div>
+<img alt="_images/d6d81071b6abc68a02109dcff26a386e2ebaf26b21db270412d00b86f7c740e4.png" src="_images/d6d81071b6abc68a02109dcff26a386e2ebaf26b21db270412d00b86f7c740e4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CHOLESTEROL ===
+</pre></div>
+</div>
+<img alt="_images/eed7daeee576bf84c97c2c5dc7015080cab002eb7e30c851167699a8f24fb742.png" src="_images/eed7daeee576bf84c97c2c5dc7015080cab002eb7e30c851167699a8f24fb742.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== MAXHR ===
+</pre></div>
+</div>
+<img alt="_images/b73fd2e992e07c9654a816db6c940e94dcb8f8e0298cece5cc3b11f0477c7a9c.png" src="_images/b73fd2e992e07c9654a816db6c940e94dcb8f8e0298cece5cc3b11f0477c7a9c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== OLDPEAK ===
+</pre></div>
+</div>
+<img alt="_images/87bfa64c450faa61eb0fe81685234cd2f40dd527f63bd77d557cbe507b5218f8.png" src="_images/87bfa64c450faa61eb0fe81685234cd2f40dd527f63bd77d557cbe507b5218f8.png" />
+</div>
+</div>
+<p><strong>1. Age (Edad) según HeartDisease</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Diferencias claras en la distribución por edad</strong>.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Sin Enfermedad (0):</strong> La distribución es más joven, con su pico alrededor de los 50-55 años.</p></li>
+<li><p><strong>Con Enfermedad (1):</strong> La distribución se desplaza hacia la derecha, con un pico alrededor de los 55-60 años y una cola más larga hacia edades avanzadas.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> La edad es un <strong>factor de riesgo consistente</strong>. El modelo aprenderá que los pacientes mayores tienen mayor probabilidad de enfermedad cardíaca.</p></li>
+</ul>
+<p><strong>2. RestingBP (Presión Arterial en Reposo) según HeartDisease</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Distribuciones muy similares, diferencia mínima</strong>.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p>Ambas distribuciones (con y sin enfermedad) son casi superpuestas.</p></li>
+<li><p>No se aprecia un desplazamiento claro ni diferencias significativas en la forma de las distribuciones.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">RestingBP</span></code> por sí sola tendrá un <strong>poder discriminatorio muy bajo</strong>. Probablemente será una de las variables menos importantes en el modelo predictivo.</p></li>
+</ul>
+<p><strong>3. Cholesterol (Colesterol) según HeartDisease</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Diferencias moderadas en la distribución</strong>.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Sin Enfermedad (0):</strong> Distribución ligeramente desplazada hacia la izquierda, con mayor densidad en valores alrededor de 220-240 mg/dl.</p></li>
+<li><p><strong>Con Enfermedad (1):</strong> Distribución más plana y extendida hacia la derecha, con mayor frecuencia relativa en valores superiores a 240 mg/dl.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> El colesterol aportará <strong>señal discriminativa al modelo</strong>, especialmente para identificar pacientes con niveles muy elevados (&gt;310 mg/dl) que están asociados con mayor riesgo.</p></li>
+</ul>
+<p><strong>4. MaxHR (Frecuencia Cardíaca Máxima) según HeartDisease</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Diferencias muy marcadas y claras</strong>.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Sin Enfermedad (0):</strong> Distribución desplazada hacia la derecha, con un pico pronunciado alrededor de 150-165 lpm.</p></li>
+<li><p><strong>Con Enfermedad (1):</strong> Distribución desplazada hacia la izquierda, con un pico alrededor de 120-130 lpm.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code> será un <strong>predictor extremadamente poderoso</strong>. La incapacidad para alcanzar frecuencias cardíacas altas durante el ejercicio es un fuerte indicador de enfermedad coronaria.</p></li>
+</ul>
+<p><strong>5. Oldpeak (Depresión del ST) según HeartDisease</strong></p>
+<ul class="simple">
+<li><p><strong>Relación:</strong> <strong>Diferencias extremadamente marcadas</strong>.</p></li>
+<li><p><strong>Hallazgos Clave:</strong></p>
+<ul>
+<li><p><strong>Sin Enfermedad (0):</strong> Distribución muy concentrada cerca de 0, con rápida disminución.</p></li>
+<li><p><strong>Con Enfermedad (1):</strong> Distribución mucho más extendida hacia la derecha, con una moda alrededor de 1.0 y frecuencia significativa hasta valores de 2.0-3.0.</p></li>
+</ul>
+</li>
+<li><p><strong>Implicación para el Modelo:</strong> <code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> es probablemente el <strong>predictor numérico más fuerte</strong>. Cualquier valor significativamente mayor que 0 aumenta drásticamente la probabilidad de enfermedad cardíaca.</p></li>
+</ul>
+<p><strong>En resumen, las mediciones de la prueba de esfuerzo (<code class="docutils literal notranslate"><span class="pre">Oldpeak</span></code> y <code class="docutils literal notranslate"><span class="pre">MaxHR</span></code>) son, con diferencia, los predictores numéricos más potentes, mientras que la presión arterial en reposo aporta muy poca información discriminatoria por sí sola.</strong></p>
+</section>
+</section>
+<section id="analisis-multivariado">
+<h2>Análisis Multivariado<a class="headerlink" href="#analisis-multivariado" title="Link to this heading">#</a></h2>
+<p>Para identificar relaciones lineales entre las variables del Dataset, se generó una matriz de correlación mediante un heatmap. Este gráfico muestra el coeficiente de correlación de Pearson (rango: -1 a 1) entre cada par de variables, utilizando una escala de colores (azul para correlaciones negativas, rojo para positivas). Los valores numéricos anotados permiten evaluar posibles dependencias entre variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="n">encoded</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">categoricas</span> <span class="o">+</span> <span class="n">binarias</span><span class="p">])</span>
+<span class="n">encoded_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">encoded</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">encoder</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">(</span><span class="n">categoricas</span> <span class="o">+</span> <span class="n">binarias</span><span class="p">),</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+<span class="p">)</span>
+<span class="n">df_encoded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="n">numericas</span><span class="p">],</span> <span class="n">encoded_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">df_encoded</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span>
+    <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Matriz de Correlación&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c51440c43f7c1d6012dc89fbe06b36934f6644d207c048256c7b93bbe8c7a12b.png" src="_images/c51440c43f7c1d6012dc89fbe06b36934f6644d207c048256c7b93bbe8c7a12b.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="markdown.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Markdown Files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="markdown-notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importacion-de-librerias">Importación de Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lectura-del-dataset">Lectura del Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valores-unicos">Valores Únicos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-univariado">Análisis Univariado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias">Variables Binarias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas">Variables Categóricas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas">Variables Númericas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manejo-de-valores-clinicamente-imposibles">Manejo de Valores Clínicamente Imposibles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-atipicos">Análisis de Valores Atípicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manejo-de-valores-atipicos-mediante-winsorization">Manejo de Valores Atípicos mediante Winsorization</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verificacion-visual-del-efecto-de-la-winsorization">Verificación Visual del Efecto de la Winsorization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-bivariado">Análisis Bivariado</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-binarias-vs-heartdisease">Variables Binarias vs HeartDisease</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-categoricas-vs-heartdisease">Variables Categóricas vs HeartDisease</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-numericas-vs-heartdisease">Variables Númericas vs HeartDisease</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-multivariado">Análisis Multivariado</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
