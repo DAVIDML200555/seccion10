@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Markdown Files &#8212; My sample book</title>
+    <title>Conclusiones y Hallazgos Principales &#8212; My sample book</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,8 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'markdown';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Miniproyecto Sección 10" href="notebooks.html" />
-    <link rel="prev" title="Proyecto de Análisis y Predicción de Insuficiencia Cardíaca" href="intro.html" />
+    <link rel="prev" title="Miniproyecto Sección 10" href="notebooks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,14 +174,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Proyecto de Análisis y Predicción de Insuficiencia Cardíaca
+                    Introducción y Contextualización
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Miniproyecto Sección 10</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html"><strong>Miniproyecto Sección 10</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Conclusiones y Hallazgos Principales</strong></a></li>
 </ul>
 
     </div>
@@ -368,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Markdown Files</h1>
+    <h1>Conclusiones y Hallazgos Principales</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -378,10 +376,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-myst">What is MyST?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-roles-and-directives">Sample Roles and Directives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logro-de-los-objetivos-propuestos"><strong>1. Logro de los Objetivos Propuestos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgos-clinicos-y-epidemiologicos-relevantes"><strong>2. Hallazgos Clínicos y Epidemiológicos Relevantes</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desempeno-comparativo-de-modelos"><strong>3. Desempeño Comparativo de Modelos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas-y-estrategias-metodologicas-implementadas"><strong>4. Buenas Prácticas y Estrategias Metodológicas Implementadas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretabilidad-y-validacion-clinica"><strong>5. Interpretabilidad y Validación Clínica</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-y-consideraciones"><strong>6. Limitaciones y Consideraciones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impacto-potencial-y-proyeccion-futura"><strong>7. Impacto Potencial y Proyección Futura</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-final"><strong>Reflexión Final</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -393,59 +397,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="markdown-files">
-<h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Link to this heading">#</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Link to this heading">#</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="conclusiones-y-hallazgos-principales">
+<h1><strong>Conclusiones y Hallazgos Principales</strong><a class="headerlink" href="#conclusiones-y-hallazgos-principales" title="Link to this heading">#</a></h1>
+<section id="logro-de-los-objetivos-propuestos">
+<h2><strong>1. Logro de los Objetivos Propuestos</strong><a class="headerlink" href="#logro-de-los-objetivos-propuestos" title="Link to this heading">#</a></h2>
+<p>El presente proyecto ha cumplido satisfactoriamente con todos los objetivos planteados inicialmente, demostrando la viabilidad de utilizar algoritmos de machine learning para la predicción temprana de enfermedad cardíaca. A través de un proceso sistemático que incluyó desde el análisis exploratorio hasta la interpretación de modelos, se ha desarrollado un framework robusto capaz de identificar pacientes con alto riesgo cardiovascular con una precisión notable.</p>
 </section>
-<section id="sample-roles-and-directives">
-<h2>Sample Roles and Directives<a class="headerlink" href="#sample-roles-and-directives" title="Link to this heading">#</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a>.</p>
+<section id="hallazgos-clinicos-y-epidemiologicos-relevantes">
+<h2><strong>2. Hallazgos Clínicos y Epidemiológicos Relevantes</strong><a class="headerlink" href="#hallazgos-clinicos-y-epidemiologicos-relevantes" title="Link to this heading">#</a></h2>
+<p>El análisis exploratorio reveló patrones epidemiológicos significativos que coinciden con la literatura médica existente:</p>
+<ul class="simple">
+<li><p><strong>Perfil de riesgo identificado</strong>: Los pacientes con mayor probabilidad de enfermedad cardíaca son predominantemente <strong>hombres de mediana edad</strong> (prevalencia del 63% en hombres vs 26% en mujeres), con <strong>alteraciones en la prueba de esfuerzo</strong> (pendiente plana o descendente del segmento ST) y frecuentemente <strong>asintomáticos</strong> (79% de los pacientes asintomáticos presentaban enfermedad).</p></li>
+<li><p><strong>Variables críticas identificadas</strong>: Las mediciones de <strong>prueba de esfuerzo</strong> (ST_Slope, Oldpeak, MaxHR) emergieron como los predictores más potentes, superando en importancia a variables tradicionales como presión arterial en reposo y colesterol.</p></li>
+<li><p><strong>Paradoja clínica descubierta</strong>: Contrario a la intuición médica convencional, la <strong>ausencia de síntomas</strong> (dolor torácico) resultó ser el factor de riesgo más alto, sugiriendo la presencia de enfermedad cardíaca “silenciosa” o enmascarada.</p></li>
+</ul>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Link to this heading">#</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[<a class="reference internal" href="#id3" title="Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In International Conference on Cognitive Neuroscience. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.">HdHPK14</a>]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<div class="docutils container" id="id2">
-<div role="list" class="citation-list">
-<div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">HdHPK14</a><span class="fn-bracket">]</span></span>
-<p>Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In <em>International Conference on Cognitive Neuroscience</em>. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.</p>
-</div>
-</div>
-</div>
+<section id="desempeno-comparativo-de-modelos">
+<h2><strong>3. Desempeño Comparativo de Modelos</strong><a class="headerlink" href="#desempeno-comparativo-de-modelos" title="Link to this heading">#</a></h2>
+<p>La evaluación exhaustiva de ocho algoritmos diferentes reveló insights valiosos sobre su aplicabilidad en el contexto médico:</p>
+<ul class="simple">
+<li><p><strong>GaussianNB como sorpresa destacada</strong>: A pesar de su simplicidad teórica, GaussianNB demostró el <strong>mejor desempeño general</strong> (Accuracy: 89.13%, F1-Score: 90.10%), superando a algoritmos más complejos como XGBoost y Random Forest.</p></li>
+<li><p><strong>Robustez de modelos lineales</strong>: Logistic Regression mostró un <strong>excelente balance</strong> (Recall: 91.18%, F1-Score: 88.57%), particularmente efectivo en la identificación de pacientes enfermos.</p></li>
+<li><p><strong>Jerarquía de rendimiento establecida</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>GaussianNB</strong> - Mejor equilibrio general.</p></li>
+<li><p><strong>Logistic Regression</strong> - Mejor detección de enfermos.</p></li>
+<li><p><strong>XGBoost</strong> - Mejor precisión entre ensembles.</p></li>
+<li><p><strong>KNN y MultinomialNB</strong> - Rendimiento competitivo.</p></li>
+<li><p><strong>Random Forest</strong> - Resultados inferiores a lo esperado.</p></li>
+<li><p><strong>BernoulliNB y Decision Tree</strong> - Menor efectividad.</p></li>
+</ol>
+</li>
+</ul>
 </section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Link to this heading">#</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+<section id="buenas-practicas-y-estrategias-metodologicas-implementadas">
+<h2><strong>4. Buenas Prácticas y Estrategias Metodológicas Implementadas</strong><a class="headerlink" href="#buenas-practicas-y-estrategias-metodologicas-implementadas" title="Link to this heading">#</a></h2>
+<p>El proyecto incorporó rigurosas prácticas de ciencia de datos que garantizaron la calidad y validez de los resultados obtenidos:</p>
+<ul class="simple">
+<li><p><strong>Preprocesamiento diferenciado por algoritmos</strong>: Se diseñaron estrategias específicas para cada familia de modelos, incluyendo estandarización para algoritmos sensibles a escalas, discretización para métodos probabilísticos, y preservación de formatos originales para modelos basados en árboles, optimizando así el rendimiento de cada clasificador.</p></li>
+<li><p><strong>Manejo robusto de datos problemáticos</strong>: Se implementó exitosamente el método MICE para la imputación de valores clínicamente imposibles en colesterol, preservando tanto la integridad estadística como la validez clínica del dataset.</p></li>
+<li><p><strong>Validación exhaustiva y prevención de sobreajuste</strong>: Se emplearon múltiples técnicas de validación cruzada y métricas específicas para problemas médicos, asegurando la generalización de los modelos y minimizando el riesgo de sobreajuste mediante procesos rigurosos de evaluación.</p></li>
+<li><p><strong>Pipeline de machine learning reproducible</strong>: Se estableció un flujo de trabajo completo y automatizado que garantiza la consistencia entre entrenamiento y predicción, eliminando posibles fugas de datos y facilitando la reproducibilidad de los resultados.</p></li>
+</ul>
+<section id="interpretabilidad-y-validacion-clinica">
+<h3><strong>5. Interpretabilidad y Validación Clínica</strong><a class="headerlink" href="#interpretabilidad-y-validacion-clinica" title="Link to this heading">#</a></h3>
+<p>El análisis de importancia de variables y las explicaciones con LIME proporcionaron transparencia a los modelos:</p>
+<ul class="simple">
+<li><p><strong>Consistencia en predictores clave</strong>: Los tres principales modelos basados en árboles coincidieron en identificar <strong>ST_Slope</strong> como la variable más importante, validando su relevancia clínica.</p></li>
+<li><p><strong>Jerarquía de factores de riesgo</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Variables de prueba de esfuerzo</strong> (ST_Slope, Oldpeak, ExerciseAngina).</p></li>
+<li><p><strong>Factores demográficos</strong> (Sexo).</p></li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+<section id="limitaciones-y-consideraciones">
+<h2><strong>6. Limitaciones y Consideraciones</strong><a class="headerlink" href="#limitaciones-y-consideraciones" title="Link to this heading">#</a></h2>
+<p>Es importante reconocer las limitaciones del estudio:</p>
+<ul class="simple">
+<li><p><strong>Desequilibrio de género</strong>: La sobrerrepresentación masculina (79%) puede introducir sesgos en las predicciones para población femenina.</p></li>
+<li><p><strong>Naturaleza del dataset</strong>: La procedencia de datos de una sola fuente y contexto específico limita la generalización a otras poblaciones.</p></li>
+<li><p><strong>Variables faltantes</strong>: La ausencia de indicadores importantes como tabaquismo, historial familiar y medicación actual.</p></li>
+</ul>
+</section>
+<section id="impacto-potencial-y-proyeccion-futura">
+<h2><strong>7. Impacto Potencial y Proyección Futura</strong><a class="headerlink" href="#impacto-potencial-y-proyeccion-futura" title="Link to this heading">#</a></h2>
+<p>La implementación exitosa de este sistema predictivo podría transformar la práctica clínica en varias dimensiones:</p>
+<ul class="simple">
+<li><p><strong>Detección temprana</strong>: Identificación de pacientes asintomáticos con enfermedad subclínica, permitiendo intervenciones preventivas.</p></li>
+<li><p><strong>Optimización de recursos</strong>: Asignación más eficiente de pruebas diagnósticas especializadas a población de mayor riesgo.</p></li>
+<li><p><strong>Medicina personalizada</strong>: Desarrollo de perfiles de riesgo individualizados basados en combinaciones específicas de factores predictivos.</p></li>
+</ul>
+</section>
+<section id="reflexion-final">
+<h2><strong>Reflexión Final</strong><a class="headerlink" href="#reflexion-final" title="Link to this heading">#</a></h2>
+<p>Este proyecto demuestra convincentemente que los algoritmos de machine learning, cuando son aplicados con rigor metodológico y comprensión del dominio clínico, pueden convertirse en herramientas poderosas para el avance de la medicina preventiva. El éxito de GaussianNB, un modelo conceptualmente simple, sugiere que en muchos contextos médicos la elegancia y transparencia pueden superar a la complejidad computacional.</p>
+<p>Los hallazgos no solo validan el potencial de la inteligencia artificial en salud, sino que también contribuyen al entendimiento de los patrones de enfermedad cardíaca, particularmente la relevancia de las pruebas de esfuerzo y la paradoja de los pacientes asintomáticos.</p>
 </section>
 </section>
 
@@ -480,22 +509,13 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="notebooks.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>Proyecto de Análisis y Predicción de Insuficiencia Cardíaca</strong></p>
+        <p class="prev-next-title"><strong>Miniproyecto Sección 10</strong></p>
       </div>
-    </a>
-    <a class="right-next"
-       href="notebooks.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Miniproyecto Sección 10</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -513,10 +533,16 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-myst">What is MyST?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-roles-and-directives">Sample Roles and Directives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more">Learn more</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logro-de-los-objetivos-propuestos"><strong>1. Logro de los Objetivos Propuestos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hallazgos-clinicos-y-epidemiologicos-relevantes"><strong>2. Hallazgos Clínicos y Epidemiológicos Relevantes</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desempeno-comparativo-de-modelos"><strong>3. Desempeño Comparativo de Modelos</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buenas-practicas-y-estrategias-metodologicas-implementadas"><strong>4. Buenas Prácticas y Estrategias Metodológicas Implementadas</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretabilidad-y-validacion-clinica"><strong>5. Interpretabilidad y Validación Clínica</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-y-consideraciones"><strong>6. Limitaciones y Consideraciones</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impacto-potencial-y-proyeccion-futura"><strong>7. Impacto Potencial y Proyección Futura</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-final"><strong>Reflexión Final</strong></a></li>
 </ul>
   </nav></div>
 
@@ -531,7 +557,7 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By David Marquez y Cristian Linero
 </p>
 
   </div>

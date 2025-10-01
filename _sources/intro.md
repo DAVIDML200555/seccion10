@@ -1,6 +1,4 @@
-# **Proyecto de Análisis y Predicción de Insuficiencia Cardíaca**
-
-## **Introducción y Contextualización**
+# **Introducción y Contextualización**
 
 Las enfermedades cardiovasculares (ECV) constituyen una de las principales causas de mortalidad a nivel mundial, representando aproximadamente el 32% de todas las muertes globales según la Organización Mundial de la Salud (OMS). Dentro de este grupo, la insuficiencia cardíaca es una afección grave y crónica que ocurre cuando el corazón no puede bombear la sangre de manera eficiente para satisfacer las necesidades del organismo. Su diagnóstico temprano y preciso es, por tanto, un pilar fundamental en la medicina moderna, con el potencial de salvar innumerables vidas y mejorar significativamente la calidad de vida de los pacientes.
 
@@ -33,7 +31,7 @@ Estos atributos pueden clasificarse en las siguientes categorías para su análi
 
 La variable objetivo (**HeartDisease**) es binaria, lo que permite abordar el problema como una tarea de clasificación supervisada.
 
-### **Objetivos del Proyecto**
+## **Objetivos del Proyecto**
 
 El presente proyecto tiene como objetivo general **desarrollar y evaluar un modelo predictivo de aprendizaje automático que determine con alta precisión la probabilidad de que un paciente sufra una enfermedad cardíaca, basándose en sus características clínicas y demográficas.**
 
@@ -41,7 +39,7 @@ Para alcanzar este objetivo general, se han definido los siguientes **objetivos 
 
 1.  **Análisis Exploratorio de Datos (EDA):** Realizar una exploración exhaustiva del dataset para comprender la distribución de cada variable, identificar valores atípicos (outliers), missing values (si los hubiera) y descubrir relaciones preliminares entre las características y la variable objetivo.
 2.  **Preprocesamiento e Ingeniería de Características:** Preparar los datos para el modelado, lo que incluye la codificación de variables categóricas, la normalización/escalado de variables numéricas y la posible creación de nuevas características que puedan mejorar el poder predictivo de los modelos.
-3.  **Modelado y Entrenamiento:** Implementar y entrenar una variedad de algoritmos de clasificación supervisada, tales como Regresión Logística, Árboles de Decisión, Random Forest, Support Vector Machines (SVM), y algoritmos de boosting como XGBoost o LightGBM.
+3.  **Modelado y Entrenamiento:** Implementar y entrenar una variedad de algoritmos de clasificación supervisada, tales como Regresión Logística, Árboles de Decisión, K Vecinos Más Cercanos, Random Forest y algoritmos de boosting como XGBoost.
 4.  **Evaluación y Comparación de Modelos:** Evaluar el rendimiento de cada modelo utilizando métricas robustas y apropiadas para problemas de clasificación binaria en el ámbito de la salud, como la precisión (Accuracy), la sensibilidad (Recall), la precisión (Precision), la métrica F1-score y el área bajo la curva ROC (AUC-ROC). La sensibilidad será de especial interés, ya que es crucial identificar correctamente a la mayor cantidad posible de pacientes enfermos (minimizar falsos negativos).
 5.  **Interpretación del Modelo Final:** Una vez seleccionado el mejor modelo, se buscará interpretar sus resultados para identificar qué características son las más influyentes en la predicción. Esta interpretabilidad es clave para que el modelo no sea una "caja negra" y sus resultados puedan ser comprendidos y validados por expertos en cardiología.
 
