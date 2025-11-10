@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -432,8 +432,8 @@ document.write(`
 <ol class="arabic simple">
 <li><p><strong>Análisis Exploratorio de Datos (EDA):</strong> Realizar una exploración exhaustiva del dataset para comprender la distribución de cada variable, identificar valores atípicos (outliers), missing values (si los hubiera) y descubrir relaciones preliminares entre las características y la variable objetivo.</p></li>
 <li><p><strong>Preprocesamiento e Ingeniería de Características:</strong> Preparar los datos para el modelado, lo que incluye la codificación de variables categóricas, la normalización/escalado de variables numéricas y la posible creación de nuevas características que puedan mejorar el poder predictivo de los modelos.</p></li>
-<li><p><strong>Modelado y Entrenamiento:</strong> Implementar y entrenar una variedad de algoritmos de clasificación supervisada, tales como Regresión Logística, Árboles de Decisión, K Vecinos Más Cercanos, Random Forest y algoritmos de boosting como XGBoost.</p></li>
-<li><p><strong>Evaluación y Comparación de Modelos:</strong> Evaluar el rendimiento de cada modelo utilizando métricas robustas y apropiadas para problemas de clasificación binaria en el ámbito de la salud, como la precisión (Accuracy), la sensibilidad (Recall), la precisión (Precision), la métrica F1-score y el área bajo la curva ROC (AUC-ROC). La sensibilidad será de especial interés, ya que es crucial identificar correctamente a la mayor cantidad posible de pacientes enfermos (minimizar falsos negativos).</p></li>
+<li><p><strong>Modelado y Entrenamiento:</strong> Implementar y entrenar una variedad de algoritmos de clasificación supervisada, tales como Regresión Logística, Árboles de Decisión, K Vecinos Más Cercanos, Random Forest, Support Vector Machine y algoritmos de boosting como XGBoost, CatBoost y GradientBoost.</p></li>
+<li><p><strong>Evaluación y Comparación de Modelos:</strong> Evaluar el rendimiento de cada modelo utilizando métricas robustas y apropiadas para problemas de clasificación binaria en el ámbito de la salud, como la precisión (Accuracy), la sensibilidad (Recall), la precisión (Precision), la métrica F1-score, el área bajo la curva ROC (AUC-ROC) y el tiempo de predicción. La sensibilidad será de especial interés, ya que es crucial identificar correctamente a la mayor cantidad posible de pacientes enfermos (minimizar falsos negativos).</p></li>
 <li><p><strong>Interpretación del Modelo Final:</strong> Una vez seleccionado el mejor modelo, se buscará interpretar sus resultados para identificar qué características son las más influyentes en la predicción. Esta interpretabilidad es clave para que el modelo no sea una “caja negra” y sus resultados puedan ser comprendidos y validados por expertos en cardiología.</p></li>
 </ol>
 </section>
