@@ -7,10 +7,15 @@ import os
 import sys
 import types
 
+
 main_module = types.ModuleType("__main__")
+
+
 def dynamic_binarizer(X):
     thresholds = np.mean(X, axis=0)
     return (X > thresholds).astype(int)
+
+
 main_module.dynamic_binarizer = dynamic_binarizer
 sys.modules["__main__"] = main_module
 
@@ -19,6 +24,7 @@ MODEL_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "models.joblib"))
 
 models = joblib.load(MODEL_PATH)
 app = FastAPI()
+
 
 class Features(BaseModel):
     Sex: str
@@ -29,14 +35,20 @@ class Features(BaseModel):
     Oldpeak: float
     ST_Slope: str
 
+
 class PredictRequest(BaseModel):
-    model_name: str  
+    model_name: str
     features: Features
+
 
 @app.post("/predict")
 def predict(req: PredictRequest):
     if req.model_name not in models:
-        return {"error": f"Modelo '{req.model_name}' no encontrado. Usa uno de: {list(models.keys())}"}
+        available_models = list(models.keys())
+        return {
+            "error": f"Modelo '{req.model_name}' no encontrado. "
+                     f"Usa uno de: {available_models}"
+        }
     
     model = models[req.model_name]
 
