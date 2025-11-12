@@ -19,11 +19,11 @@ La evaluación exhaustiva de doce algoritmos diferentes reveló insights valioso
 ### **Ranking de Modelos por Métricas Clínicas**
 
 **Modelos de Elite (Múltiples Métricas Top)**
-- **GaussianNB**: **Líder absoluto** - Accuracy (89.13%), Precision (91.00%), F1-Score (90.10%), top 3 en AUC-ROC (93.53%).
-- **Logistic Regression**: **Excelente balance** - Accuracy (86.96%), Recall (90.20%), F1-Score (88.46%), velocidad rápida (0.007-0.010s).
+- **GaussianNB**: **Líder absoluto** - Accuracy (89.13%), Precision (91.00%), F1-Score (90.10%), top 2 en AUC-ROC (93.53%).
+- **Logistic Regression**: **Excelente balance** - Accuracy (86.95%), Recall (90.20%), F1-Score (88.46%), velocidad rápida (0.007-0.010s).
 
 **Modelos de Alto Rendimiento**
-- **XGBoost**: **Mejor ensemble** - Accuracy (86.96%), Precision (88.24%), F1-Score (88.24%).
+- **XGBoost**: **Mejor ensemble** - Accuracy (86.95%), Precision (88.24%), F1-Score (88.24%).
 - **CatBoost**: **Competitivo** - Accuracy (86.41%), buen balance general.
 - **BernoulliNB**: **Velocidad extrema** - Predicción instantánea con buen desempeño (Accuracy 86.41%).
 

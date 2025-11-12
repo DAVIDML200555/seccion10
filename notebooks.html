@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -3744,9 +3744,9 @@ Tiempo predicción: 0.0449 segundos
 <li><p><strong>XGBoost (0.8824)</strong></p></li>
 <li><p><strong>SVM (0.8725)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.8725)</strong></p></li>
-<li><p><strong>KNN (0.8654)</strong></p></li>
 <li><p><strong>Logistic Regression L1/L2 (0.8679)</strong></p></li>
 <li><p><strong>CatBoost (0.8667)</strong></p></li>
+<li><p><strong>KNN (0.8654)</strong></p></li>
 <li><p><strong>MultinomialNB (0.8585)</strong></p></li>
 <li><p><strong>Random Forest (0.8426)</strong></p></li>
 <li><p><strong>Decision Tree (0.8304)</strong></p></li>
@@ -3760,9 +3760,9 @@ Tiempo predicción: 0.0449 segundos
 <li><p><strong>CatBoost (0.8922)</strong></p></li>
 <li><p><strong>GaussianNB (0.8922)</strong></p></li>
 <li><p><strong>XGBoost (0.8824)</strong></p></li>
+<li><p><strong>KNN (0.8824)</strong></p></li>
 <li><p><strong>SVM (0.8725)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.8725)</strong></p></li>
-<li><p><strong>KNN (0.8824)</strong></p></li>
 <li><p><strong>BernoulliNB (0.8627)</strong></p></li>
 </ol>
 <p><strong>F1-Score (Balance Precision-Recall)</strong></p>
@@ -3770,14 +3770,14 @@ Tiempo predicción: 0.0449 segundos
 <li><p><strong>GaussianNB (0.9010)</strong></p></li>
 <li><p><strong>Logistic Regression L1/L2 (0.8846)</strong></p></li>
 <li><p><strong>XGBoost (0.8824)</strong></p></li>
-<li><p><strong>BernoulliNB (0.8756)</strong></p></li>
-<li><p><strong>KNN (0.8738)</strong></p></li>
 <li><p><strong>CatBoost (0.8792)</strong></p></li>
+<li><p><strong>BernoulliNB (0.8756)</strong></p></li>
 <li><p><strong>MultinomialNB (0.8750)</strong></p></li>
+<li><p><strong>KNN (0.8738)</strong></p></li>
 <li><p><strong>SVM (0.8725)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.8725)</strong></p></li>
-<li><p><strong>Random Forest (0.8667)</strong></p></li>
 <li><p><strong>Decision Tree (0.8692)</strong></p></li>
+<li><p><strong>Random Forest (0.8667)</strong></p></li>
 </ol>
 <p><strong>AUC-ROC (Capacidad Discriminativa)</strong></p>
 <ol class="arabic simple">
@@ -3797,8 +3797,8 @@ Tiempo predicción: 0.0449 segundos
 <p><strong>Tiempo de Predicción (Eficiencia)</strong></p>
 <ol class="arabic simple">
 <li><p><strong>BernoulliNB (0.0000s)</strong> - Instantáneo</p></li>
-<li><p><strong>GaussianNB (0.0076s)</strong></p></li>
 <li><p><strong>Logistic Regression L1 (0.0071s)</strong></p></li>
+<li><p><strong>GaussianNB (0.0076s)</strong></p></li>
 <li><p><strong>Decision Tree (0.0094s)</strong></p></li>
 <li><p><strong>Logistic Regression L2 (0.0102s)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.0121s)</strong></p></li>
@@ -3815,19 +3815,19 @@ Tiempo predicción: 0.0449 segundos
 <p><strong>Modelos de Elite (Múltiples Métricas Top)</strong></p>
 <ul class="simple">
 <li><p><strong>GaussianNB</strong>: Líder en Accuracy, Precision y F1-score; top 3 en AUC-ROC.</p></li>
-<li><p><strong>Logistic Regression</strong>: Top 2 en Accuracy, Recall y F1-score; top 4 en AUC-ROC.</p></li>
+<li><p><strong>Logistic Regression</strong>: Top 2 en Accuracy, Recall y F1-score; top 3 en AUC-ROC.</p></li>
 </ul>
 <p><strong>Modelos de Alto Rendimiento (Balance General)</strong></p>
 <ul class="simple">
 <li><p><strong>XGBoost</strong>: Top 3 en Accuracy, Precision y F1-score.</p></li>
-<li><p><strong>BernoulliNB</strong>: Top 5 en Accuracy, Precision y velocidad máxima.</p></li>
+<li><p><strong>BernoulliNB</strong>: Top 5 en Accuracy, Top 2 en Precision y velocidad máxima.</p></li>
 <li><p><strong>CatBoost</strong>: Top 4 en Accuracy, buen balance general.</p></li>
 </ul>
 <p><strong>Modelos Especializados (Fuerzas Específicas)</strong></p>
 <ul class="simple">
-<li><p><strong>SVM</strong>: Mejor AUC-ROC global pero accuracy medio</p></li>
-<li><p><strong>Decision Tree</strong>: Mejor Recall pero peor Precision</p></li>
-<li><p><strong>KNN</strong>: Rendimiento equilibrado pero lento en predicción</p></li>
+<li><p><strong>SVM</strong>: Mejor AUC-ROC global pero accuracy medio.</p></li>
+<li><p><strong>Decision Tree</strong>: Mejor Recall pero peor Precision.</p></li>
+<li><p><strong>KNN</strong>: Rendimiento equilibrado pero lento en predicción.</p></li>
 </ul>
 </section>
 <section id="hallazgos-clave-y-recomendaciones-finales">
