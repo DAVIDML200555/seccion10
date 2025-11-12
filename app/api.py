@@ -49,10 +49,10 @@ def predict(req: PredictRequest):
             "error": f"Modelo '{req.model_name}' no encontrado. "
                      f"Usa uno de: {available_models}"
         }
-    
+
     model = models[req.model_name]
 
     input_df = pd.DataFrame([req.features.dict()])
-    
+
     prediction = model.predict(input_df)
     return {"model": req.model_name, "prediction": prediction.tolist()}
