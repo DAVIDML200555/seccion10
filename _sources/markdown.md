@@ -19,24 +19,22 @@ La evaluación exhaustiva de doce algoritmos diferentes reveló insights valioso
 ### **Ranking de Modelos por Métricas Clínicas**
 
 **Modelos de Elite (Múltiples Métricas Top)**
-- **GaussianNB**: **Líder absoluto** - Accuracy (89.13%), Precision (91.00%), F1-Score (90.10%), top 2 en AUC-ROC (93.53%).
-- **Logistic Regression**: **Excelente balance** - Accuracy (86.95%), Recall (90.20%), F1-Score (88.46%), velocidad rápida (0.007-0.010s).
+- **GaussianNB**: **Líder absoluto** - Accuracy (88.58%), Precision (90.90%), F1-Score (89.55%), top 4 en AUC-ROC (93.29%).
+- **Logistic Regression**: **Excelente balance** - Accuracy (86.95%), Recall (90.19%), F1-Score (88.46%), velocidad rápida (0.019-0.020s).
 
 **Modelos de Alto Rendimiento**
-- **XGBoost**: **Mejor ensemble** - Accuracy (86.95%), Precision (88.24%), F1-Score (88.24%).
+- **XGBoost**: **Mejor ensemble** - Accuracy (86.95%), Precision (88.23%), F1-Score (88.23%).
 - **CatBoost**: **Competitivo** - Accuracy (86.41%), buen balance general.
-- **BernoulliNB**: **Velocidad extrema** - Predicción instantánea con buen desempeño (Accuracy 86.41%).
 
 **Modelos Especializados**
-- **SVM**: **Mejor capacidad discriminativa** - AUC-ROC líder (93.59%).
-- **Decision Tree**: **Mejor detección de enfermos** - Recall máximo (91.18%).
-- **KNN**: **Rendimiento equilibrado** pero menor velocidad.
+- **SVM**: **Mejor capacidad discriminativa** - AUC-ROC líder (93.58%).
+- **Decision Tree**: **Mejor detección de enfermos** - Recall máximo (91.17%).
 
 ### **Jerarquía de Rendimiento Establecida**
 1. **GaussianNB** - Mejor equilibrio general y precisión diagnóstica.
 2. **Logistic Regression** - Mejor balance velocidad-recall para emergencias.
 3. **XGBoost** - Mejor precisión entre ensembles complejos.
-4. **CatBoost & BernoulliNB** - Rendimiento competitivo con especialidades únicas.
+4. **CatBoost** - Rendimiento competitivo con especialidades únicas.
 5. **SVM** - Máxima capacidad discriminativa.
 6. **KNN & MultinomialNB** - Rendimiento medio consistente.
 7. **Random Forest & Decision Tree** - Resultados inferiores a lo esperado.
@@ -67,7 +65,6 @@ El análisis de importancia de variables proporcionó transparencia a los modelo
 **Según Objetivo Específico del Sistema:**
 - **Detección masiva y precisa**: GaussianNB (máxima confiabilidad y balance).
 - **velocidad para emergencias**: Logistic Regression (alto recall y velocidad).
-- **Sistemas en tiempo real**: BernoulliNB (predicción instantánea).
 - **Investigación clínica**: SVM (mejor capacidad discriminativa).
 
 **Consideraciones de Implementación:**

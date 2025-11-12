@@ -421,20 +421,18 @@ document.write(`
 <h3><strong>Ranking de Modelos por Métricas Clínicas</strong><a class="headerlink" href="#ranking-de-modelos-por-metricas-clinicas" title="Link to this heading">#</a></h3>
 <p><strong>Modelos de Elite (Múltiples Métricas Top)</strong></p>
 <ul class="simple">
-<li><p><strong>GaussianNB</strong>: <strong>Líder absoluto</strong> - Accuracy (89.13%), Precision (91.00%), F1-Score (90.10%), top 2 en AUC-ROC (93.53%).</p></li>
-<li><p><strong>Logistic Regression</strong>: <strong>Excelente balance</strong> - Accuracy (86.95%), Recall (90.20%), F1-Score (88.46%), velocidad rápida (0.007-0.010s).</p></li>
+<li><p><strong>GaussianNB</strong>: <strong>Líder absoluto</strong> - Accuracy (88.58%), Precision (90.90%), F1-Score (89.55%), top 4 en AUC-ROC (93.29%).</p></li>
+<li><p><strong>Logistic Regression</strong>: <strong>Excelente balance</strong> - Accuracy (86.95%), Recall (90.19%), F1-Score (88.46%), velocidad rápida (0.019-0.020s).</p></li>
 </ul>
 <p><strong>Modelos de Alto Rendimiento</strong></p>
 <ul class="simple">
-<li><p><strong>XGBoost</strong>: <strong>Mejor ensemble</strong> - Accuracy (86.95%), Precision (88.24%), F1-Score (88.24%).</p></li>
+<li><p><strong>XGBoost</strong>: <strong>Mejor ensemble</strong> - Accuracy (86.95%), Precision (88.23%), F1-Score (88.23%).</p></li>
 <li><p><strong>CatBoost</strong>: <strong>Competitivo</strong> - Accuracy (86.41%), buen balance general.</p></li>
-<li><p><strong>BernoulliNB</strong>: <strong>Velocidad extrema</strong> - Predicción instantánea con buen desempeño (Accuracy 86.41%).</p></li>
 </ul>
 <p><strong>Modelos Especializados</strong></p>
 <ul class="simple">
-<li><p><strong>SVM</strong>: <strong>Mejor capacidad discriminativa</strong> - AUC-ROC líder (93.59%).</p></li>
-<li><p><strong>Decision Tree</strong>: <strong>Mejor detección de enfermos</strong> - Recall máximo (91.18%).</p></li>
-<li><p><strong>KNN</strong>: <strong>Rendimiento equilibrado</strong> pero menor velocidad.</p></li>
+<li><p><strong>SVM</strong>: <strong>Mejor capacidad discriminativa</strong> - AUC-ROC líder (93.58%).</p></li>
+<li><p><strong>Decision Tree</strong>: <strong>Mejor detección de enfermos</strong> - Recall máximo (91.17%).</p></li>
 </ul>
 </section>
 <section id="jerarquia-de-rendimiento-establecida">
@@ -443,7 +441,7 @@ document.write(`
 <li><p><strong>GaussianNB</strong> - Mejor equilibrio general y precisión diagnóstica.</p></li>
 <li><p><strong>Logistic Regression</strong> - Mejor balance velocidad-recall para emergencias.</p></li>
 <li><p><strong>XGBoost</strong> - Mejor precisión entre ensembles complejos.</p></li>
-<li><p><strong>CatBoost &amp; BernoulliNB</strong> - Rendimiento competitivo con especialidades únicas.</p></li>
+<li><p><strong>CatBoost</strong> - Rendimiento competitivo con especialidades únicas.</p></li>
 <li><p><strong>SVM</strong> - Máxima capacidad discriminativa.</p></li>
 <li><p><strong>KNN &amp; MultinomialNB</strong> - Rendimiento medio consistente.</p></li>
 <li><p><strong>Random Forest &amp; Decision Tree</strong> - Resultados inferiores a lo esperado.</p></li>
@@ -479,7 +477,6 @@ document.write(`
 <ul class="simple">
 <li><p><strong>Detección masiva y precisa</strong>: GaussianNB (máxima confiabilidad y balance).</p></li>
 <li><p><strong>velocidad para emergencias</strong>: Logistic Regression (alto recall y velocidad).</p></li>
-<li><p><strong>Sistemas en tiempo real</strong>: BernoulliNB (predicción instantánea).</p></li>
 <li><p><strong>Investigación clínica</strong>: SVM (mejor capacidad discriminativa).</p></li>
 </ul>
 <p><strong>Consideraciones de Implementación:</strong></p>

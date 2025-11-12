@@ -456,6 +456,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-la-evaluacion-comparativa-de-modelos-paciente-de-prueba"><strong>Resumen de la Evaluación Comparativa de Modelos (Paciente de Prueba)</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-modelos"><strong>Carga modelos</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -486,7 +487,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">lime</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">lime.lime_tabular</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sklearn</span>
-
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats.mstats</span><span class="w"> </span><span class="kn">import</span> <span class="n">winsorize</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.outliers_influence</span><span class="w"> </span><span class="kn">import</span> <span class="n">variance_inflation_factor</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">enable_iterative_imputer</span>  
@@ -510,6 +511,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.calibration</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalibratedClassifierCV</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_scorer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">PowerTransformer</span>
 </pre></div>
 </div>
 </div>
@@ -520,7 +522,7 @@ document.write(`
 <p>Para iniciar el proceso de análisis, se procede a cargar el dataset descargado en el entorno de trabajo utilizando la biblioteca Pandas. El archivo <code class="docutils literal notranslate"><span class="pre">heart.csv</span></code> contiene toda la información clínica de los pacientes que será objeto de estudio en este proyecto.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;C:/Users/david/Downloads/heart.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;heart.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2512,29 +2514,29 @@ Round 4: Eliminando &#39;Age&#39; con VIF = 16.94
 
 <span class="n">preprocessor_knn</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
     <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">numericas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;bin_num&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="n">binarias_num</span><span class="p">)</span>
 <span class="p">])</span>
 
 <span class="n">preprocessor_gnb</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">numericas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">PowerTransformer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;yeo-johnson&#39;</span><span class="p">),</span> <span class="n">numericas</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;bin_num&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="n">binarias_num</span><span class="p">)</span>
 <span class="p">])</span>
 
 <span class="n">preprocessor_bnb</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
     <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">binarizer</span><span class="p">,</span> <span class="n">numericas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;bin_num&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="n">binarias_num</span><span class="p">)</span>
 <span class="p">])</span>
 
 <span class="n">preprocessor_mnb</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
     <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="s2">&quot;ordinal&quot;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;quantile&quot;</span><span class="p">),</span> <span class="n">numericas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
-    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_dense</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;bin_num&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="n">binarias_num</span><span class="p">)</span>
 <span class="p">])</span>
 
@@ -2574,7 +2576,7 @@ Round 4: Eliminando &#39;Age&#39; con VIF = 16.94
 <span class="p">])</span>
 
 <span class="n">preprocessor_gb</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">(),</span> <span class="n">numericas</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="n">numericas</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">categoricas</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;bin_cat&quot;</span><span class="p">,</span> <span class="n">onehot_sparse</span><span class="p">,</span> <span class="n">binarias_cat</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;bin_num&quot;</span><span class="p">,</span> <span class="s2">&quot;passthrough&quot;</span><span class="p">,</span> <span class="n">binarias_num</span><span class="p">)</span>
@@ -2796,7 +2798,7 @@ Round 4: Eliminando &#39;Age&#39; con VIF = 16.94
 
 
 <span class="n">pipeline_gb</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;preprocessing&quot;</span><span class="p">,</span> <span class="n">preprocessor_tree</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;preprocessing&quot;</span><span class="p">,</span> <span class="n">preprocessor_gb</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;classifier&quot;</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
 <span class="p">])</span>
 
@@ -2817,10 +2819,9 @@ Round 4: Eliminando &#39;Age&#39; con VIF = 16.94
 
 
 <span class="n">pipeline_catboost</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s2">&quot;preprocessing&quot;</span><span class="p">,</span> <span class="n">preprocessor_xgb</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;preprocessing&quot;</span><span class="p">,</span> <span class="n">preprocessor_catboost</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">&quot;classifier&quot;</span><span class="p">,</span> <span class="n">CatBoostClassifier</span><span class="p">(</span>
-        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
-        <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
     <span class="p">))</span>
 <span class="p">])</span>
 
@@ -2835,7 +2836,7 @@ Round 4: Eliminando &#39;Age&#39; con VIF = 16.94
 
 <span class="n">grid_catboost</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
     <span class="n">pipeline_catboost</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid_catboost</span><span class="p">,</span>
-    <span class="n">cv</span><span class="o">=</span><span class="n">cv_stratified</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
+    <span class="n">cv</span><span class="o">=</span><span class="n">cv_stratified</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -2905,6 +2906,406 @@ Round 4: Eliminando &#39;Age&#39; con VIF = 16.94
  Gradient Boosting entrenado correctamente.
 
  Entrenando: CatBoost ...
+0:	learn: 0.6855593	total: 136ms	remaining: 54.1s
+1:	learn: 0.6782432	total: 137ms	remaining: 27.3s
+2:	learn: 0.6715377	total: 139ms	remaining: 18.4s
+3:	learn: 0.6640803	total: 141ms	remaining: 13.9s
+4:	learn: 0.6576061	total: 142ms	remaining: 11.2s
+5:	learn: 0.6510627	total: 144ms	remaining: 9.45s
+6:	learn: 0.6439893	total: 146ms	remaining: 8.21s
+7:	learn: 0.6391585	total: 148ms	remaining: 7.24s
+8:	learn: 0.6339947	total: 149ms	remaining: 6.48s
+9:	learn: 0.6278838	total: 151ms	remaining: 5.88s
+10:	learn: 0.6218020	total: 152ms	remaining: 5.39s
+11:	learn: 0.6160114	total: 154ms	remaining: 4.99s
+12:	learn: 0.6106609	total: 156ms	remaining: 4.64s
+13:	learn: 0.6037901	total: 158ms	remaining: 4.34s
+14:	learn: 0.5987033	total: 159ms	remaining: 4.08s
+15:	learn: 0.5928773	total: 161ms	remaining: 3.86s
+16:	learn: 0.5878124	total: 163ms	remaining: 3.66s
+17:	learn: 0.5824797	total: 164ms	remaining: 3.48s
+18:	learn: 0.5774350	total: 166ms	remaining: 3.32s
+19:	learn: 0.5729536	total: 167ms	remaining: 3.18s
+20:	learn: 0.5692683	total: 169ms	remaining: 3.05s
+21:	learn: 0.5653255	total: 170ms	remaining: 2.93s
+22:	learn: 0.5609950	total: 172ms	remaining: 2.82s
+23:	learn: 0.5566930	total: 174ms	remaining: 2.72s
+24:	learn: 0.5521447	total: 175ms	remaining: 2.63s
+25:	learn: 0.5478111	total: 177ms	remaining: 2.54s
+26:	learn: 0.5433968	total: 179ms	remaining: 2.47s
+27:	learn: 0.5396538	total: 180ms	remaining: 2.39s
+28:	learn: 0.5357783	total: 182ms	remaining: 2.33s
+29:	learn: 0.5322601	total: 183ms	remaining: 2.26s
+30:	learn: 0.5282399	total: 185ms	remaining: 2.2s
+31:	learn: 0.5248003	total: 187ms	remaining: 2.14s
+32:	learn: 0.5212987	total: 188ms	remaining: 2.09s
+33:	learn: 0.5181006	total: 190ms	remaining: 2.04s
+34:	learn: 0.5146365	total: 191ms	remaining: 2s
+35:	learn: 0.5111872	total: 193ms	remaining: 1.95s
+36:	learn: 0.5081520	total: 195ms	remaining: 1.91s
+37:	learn: 0.5049791	total: 196ms	remaining: 1.87s
+38:	learn: 0.5019634	total: 198ms	remaining: 1.83s
+39:	learn: 0.4990284	total: 200ms	remaining: 1.8s
+40:	learn: 0.4963505	total: 202ms	remaining: 1.76s
+41:	learn: 0.4930794	total: 203ms	remaining: 1.73s
+42:	learn: 0.4901122	total: 205ms	remaining: 1.7s
+43:	learn: 0.4869290	total: 207ms	remaining: 1.68s
+44:	learn: 0.4839865	total: 209ms	remaining: 1.65s
+45:	learn: 0.4808107	total: 211ms	remaining: 1.62s
+46:	learn: 0.4782953	total: 212ms	remaining: 1.59s
+47:	learn: 0.4756233	total: 215ms	remaining: 1.57s
+48:	learn: 0.4729540	total: 217ms	remaining: 1.55s
+49:	learn: 0.4702614	total: 218ms	remaining: 1.53s
+50:	learn: 0.4676727	total: 223ms	remaining: 1.53s
+51:	learn: 0.4648845	total: 225ms	remaining: 1.51s
+52:	learn: 0.4622409	total: 227ms	remaining: 1.49s
+53:	learn: 0.4600447	total: 232ms	remaining: 1.49s
+54:	learn: 0.4579799	total: 234ms	remaining: 1.47s
+55:	learn: 0.4557997	total: 236ms	remaining: 1.45s
+56:	learn: 0.4532789	total: 239ms	remaining: 1.44s
+57:	learn: 0.4510897	total: 240ms	remaining: 1.42s
+58:	learn: 0.4490933	total: 242ms	remaining: 1.4s
+59:	learn: 0.4472366	total: 244ms	remaining: 1.38s
+60:	learn: 0.4448491	total: 247ms	remaining: 1.37s
+61:	learn: 0.4426444	total: 248ms	remaining: 1.35s
+62:	learn: 0.4410802	total: 250ms	remaining: 1.34s
+63:	learn: 0.4393398	total: 253ms	remaining: 1.33s
+64:	learn: 0.4376329	total: 254ms	remaining: 1.31s
+65:	learn: 0.4359664	total: 256ms	remaining: 1.3s
+66:	learn: 0.4340678	total: 258ms	remaining: 1.28s
+67:	learn: 0.4316812	total: 260ms	remaining: 1.27s
+68:	learn: 0.4298162	total: 262ms	remaining: 1.26s
+69:	learn: 0.4281693	total: 264ms	remaining: 1.25s
+70:	learn: 0.4265229	total: 266ms	remaining: 1.23s
+71:	learn: 0.4243930	total: 268ms	remaining: 1.22s
+72:	learn: 0.4221617	total: 270ms	remaining: 1.21s
+73:	learn: 0.4203765	total: 272ms	remaining: 1.2s
+74:	learn: 0.4193499	total: 273ms	remaining: 1.18s
+75:	learn: 0.4179132	total: 275ms	remaining: 1.17s
+76:	learn: 0.4157169	total: 277ms	remaining: 1.16s
+77:	learn: 0.4143811	total: 279ms	remaining: 1.15s
+78:	learn: 0.4124240	total: 281ms	remaining: 1.14s
+79:	learn: 0.4110999	total: 283ms	remaining: 1.13s
+80:	learn: 0.4096495	total: 286ms	remaining: 1.12s
+81:	learn: 0.4085551	total: 288ms	remaining: 1.12s
+82:	learn: 0.4069574	total: 290ms	remaining: 1.11s
+83:	learn: 0.4057018	total: 293ms	remaining: 1.1s
+84:	learn: 0.4044621	total: 295ms	remaining: 1.09s
+85:	learn: 0.4036205	total: 297ms	remaining: 1.08s
+86:	learn: 0.4022163	total: 300ms	remaining: 1.08s
+87:	learn: 0.4005383	total: 302ms	remaining: 1.07s
+88:	learn: 0.3991609	total: 308ms	remaining: 1.07s
+89:	learn: 0.3977905	total: 310ms	remaining: 1.07s
+90:	learn: 0.3967567	total: 312ms	remaining: 1.06s
+91:	learn: 0.3953506	total: 315ms	remaining: 1.05s
+92:	learn: 0.3942481	total: 316ms	remaining: 1.04s
+93:	learn: 0.3931112	total: 319ms	remaining: 1.04s
+94:	learn: 0.3919713	total: 321ms	remaining: 1.03s
+95:	learn: 0.3910502	total: 323ms	remaining: 1.02s
+96:	learn: 0.3900638	total: 325ms	remaining: 1.01s
+97:	learn: 0.3890183	total: 327ms	remaining: 1.01s
+98:	learn: 0.3879360	total: 329ms	remaining: 1000ms
+99:	learn: 0.3870671	total: 331ms	remaining: 992ms
+100:	learn: 0.3861286	total: 333ms	remaining: 985ms
+101:	learn: 0.3842275	total: 336ms	remaining: 980ms
+102:	learn: 0.3827064	total: 337ms	remaining: 973ms
+103:	learn: 0.3815244	total: 339ms	remaining: 965ms
+104:	learn: 0.3801880	total: 341ms	remaining: 958ms
+105:	learn: 0.3789860	total: 343ms	remaining: 950ms
+106:	learn: 0.3780727	total: 344ms	remaining: 943ms
+107:	learn: 0.3771241	total: 346ms	remaining: 935ms
+108:	learn: 0.3762334	total: 347ms	remaining: 928ms
+109:	learn: 0.3751219	total: 349ms	remaining: 920ms
+110:	learn: 0.3743324	total: 351ms	remaining: 914ms
+111:	learn: 0.3731531	total: 353ms	remaining: 908ms
+112:	learn: 0.3718904	total: 355ms	remaining: 902ms
+113:	learn: 0.3710569	total: 357ms	remaining: 896ms
+114:	learn: 0.3700876	total: 359ms	remaining: 890ms
+115:	learn: 0.3691826	total: 361ms	remaining: 883ms
+116:	learn: 0.3683369	total: 363ms	remaining: 877ms
+117:	learn: 0.3673647	total: 365ms	remaining: 871ms
+118:	learn: 0.3664778	total: 366ms	remaining: 865ms
+119:	learn: 0.3653691	total: 368ms	remaining: 859ms
+120:	learn: 0.3646173	total: 370ms	remaining: 852ms
+121:	learn: 0.3635897	total: 371ms	remaining: 846ms
+122:	learn: 0.3627419	total: 374ms	remaining: 841ms
+123:	learn: 0.3620262	total: 375ms	remaining: 835ms
+124:	learn: 0.3611998	total: 377ms	remaining: 829ms
+125:	learn: 0.3606698	total: 379ms	remaining: 824ms
+126:	learn: 0.3601832	total: 381ms	remaining: 819ms
+127:	learn: 0.3596240	total: 383ms	remaining: 814ms
+128:	learn: 0.3589046	total: 385ms	remaining: 808ms
+129:	learn: 0.3583545	total: 387ms	remaining: 803ms
+130:	learn: 0.3573678	total: 389ms	remaining: 798ms
+131:	learn: 0.3565827	total: 390ms	remaining: 793ms
+132:	learn: 0.3559440	total: 392ms	remaining: 788ms
+133:	learn: 0.3550588	total: 394ms	remaining: 782ms
+134:	learn: 0.3541631	total: 396ms	remaining: 777ms
+135:	learn: 0.3536058	total: 398ms	remaining: 772ms
+136:	learn: 0.3527095	total: 399ms	remaining: 767ms
+137:	learn: 0.3522351	total: 401ms	remaining: 761ms
+138:	learn: 0.3514620	total: 403ms	remaining: 757ms
+139:	learn: 0.3506858	total: 405ms	remaining: 752ms
+140:	learn: 0.3499169	total: 406ms	remaining: 747ms
+141:	learn: 0.3493940	total: 408ms	remaining: 742ms
+142:	learn: 0.3485243	total: 411ms	remaining: 738ms
+143:	learn: 0.3480214	total: 412ms	remaining: 733ms
+144:	learn: 0.3474178	total: 414ms	remaining: 728ms
+145:	learn: 0.3467397	total: 416ms	remaining: 723ms
+146:	learn: 0.3460917	total: 418ms	remaining: 719ms
+147:	learn: 0.3453472	total: 420ms	remaining: 714ms
+148:	learn: 0.3449021	total: 421ms	remaining: 709ms
+149:	learn: 0.3443288	total: 423ms	remaining: 704ms
+150:	learn: 0.3437043	total: 424ms	remaining: 700ms
+151:	learn: 0.3431586	total: 426ms	remaining: 696ms
+152:	learn: 0.3424980	total: 428ms	remaining: 691ms
+153:	learn: 0.3419916	total: 430ms	remaining: 687ms
+154:	learn: 0.3414395	total: 432ms	remaining: 683ms
+155:	learn: 0.3406995	total: 434ms	remaining: 679ms
+156:	learn: 0.3399077	total: 436ms	remaining: 675ms
+157:	learn: 0.3394948	total: 438ms	remaining: 670ms
+158:	learn: 0.3390244	total: 439ms	remaining: 666ms
+159:	learn: 0.3386157	total: 441ms	remaining: 662ms
+160:	learn: 0.3381299	total: 443ms	remaining: 658ms
+161:	learn: 0.3376870	total: 445ms	remaining: 653ms
+162:	learn: 0.3372144	total: 446ms	remaining: 649ms
+163:	learn: 0.3366187	total: 448ms	remaining: 645ms
+164:	learn: 0.3357165	total: 450ms	remaining: 641ms
+165:	learn: 0.3352342	total: 452ms	remaining: 637ms
+166:	learn: 0.3349392	total: 453ms	remaining: 633ms
+167:	learn: 0.3345162	total: 455ms	remaining: 629ms
+168:	learn: 0.3341015	total: 457ms	remaining: 625ms
+169:	learn: 0.3338362	total: 459ms	remaining: 620ms
+170:	learn: 0.3333525	total: 460ms	remaining: 616ms
+171:	learn: 0.3325869	total: 462ms	remaining: 612ms
+172:	learn: 0.3321134	total: 467ms	remaining: 613ms
+173:	learn: 0.3313477	total: 469ms	remaining: 609ms
+174:	learn: 0.3309423	total: 472ms	remaining: 606ms
+175:	learn: 0.3305101	total: 474ms	remaining: 603ms
+176:	learn: 0.3300371	total: 476ms	remaining: 599ms
+177:	learn: 0.3295202	total: 478ms	remaining: 596ms
+178:	learn: 0.3291267	total: 480ms	remaining: 593ms
+179:	learn: 0.3287306	total: 482ms	remaining: 590ms
+180:	learn: 0.3283740	total: 484ms	remaining: 586ms
+181:	learn: 0.3277385	total: 486ms	remaining: 582ms
+182:	learn: 0.3273679	total: 488ms	remaining: 579ms
+183:	learn: 0.3268807	total: 490ms	remaining: 575ms
+184:	learn: 0.3265549	total: 492ms	remaining: 572ms
+185:	learn: 0.3261138	total: 494ms	remaining: 569ms
+186:	learn: 0.3255444	total: 497ms	remaining: 566ms
+187:	learn: 0.3253058	total: 498ms	remaining: 562ms
+188:	learn: 0.3245967	total: 501ms	remaining: 559ms
+189:	learn: 0.3239438	total: 505ms	remaining: 559ms
+190:	learn: 0.3233185	total: 508ms	remaining: 555ms
+191:	learn: 0.3231447	total: 510ms	remaining: 552ms
+192:	learn: 0.3226068	total: 512ms	remaining: 549ms
+193:	learn: 0.3220481	total: 513ms	remaining: 545ms
+194:	learn: 0.3216423	total: 515ms	remaining: 542ms
+195:	learn: 0.3214086	total: 517ms	remaining: 538ms
+196:	learn: 0.3207659	total: 519ms	remaining: 535ms
+197:	learn: 0.3203220	total: 521ms	remaining: 532ms
+198:	learn: 0.3200692	total: 524ms	remaining: 529ms
+199:	learn: 0.3197364	total: 525ms	remaining: 525ms
+200:	learn: 0.3195452	total: 527ms	remaining: 522ms
+201:	learn: 0.3191180	total: 529ms	remaining: 518ms
+202:	learn: 0.3188963	total: 530ms	remaining: 515ms
+203:	learn: 0.3184234	total: 532ms	remaining: 511ms
+204:	learn: 0.3181845	total: 534ms	remaining: 508ms
+205:	learn: 0.3177957	total: 535ms	remaining: 504ms
+206:	learn: 0.3172343	total: 537ms	remaining: 501ms
+207:	learn: 0.3169879	total: 539ms	remaining: 497ms
+208:	learn: 0.3167571	total: 540ms	remaining: 494ms
+209:	learn: 0.3161857	total: 542ms	remaining: 490ms
+210:	learn: 0.3158574	total: 544ms	remaining: 487ms
+211:	learn: 0.3154743	total: 545ms	remaining: 484ms
+212:	learn: 0.3153340	total: 547ms	remaining: 480ms
+213:	learn: 0.3150436	total: 549ms	remaining: 477ms
+214:	learn: 0.3147621	total: 551ms	remaining: 474ms
+215:	learn: 0.3144375	total: 553ms	remaining: 471ms
+216:	learn: 0.3140314	total: 555ms	remaining: 468ms
+217:	learn: 0.3137643	total: 559ms	remaining: 467ms
+218:	learn: 0.3132752	total: 561ms	remaining: 463ms
+219:	learn: 0.3129634	total: 562ms	remaining: 460ms
+220:	learn: 0.3125028	total: 565ms	remaining: 457ms
+221:	learn: 0.3122576	total: 566ms	remaining: 454ms
+222:	learn: 0.3119235	total: 568ms	remaining: 451ms
+223:	learn: 0.3116017	total: 570ms	remaining: 448ms
+224:	learn: 0.3114537	total: 572ms	remaining: 445ms
+225:	learn: 0.3110744	total: 574ms	remaining: 442ms
+226:	learn: 0.3107568	total: 576ms	remaining: 439ms
+227:	learn: 0.3103254	total: 578ms	remaining: 436ms
+228:	learn: 0.3101949	total: 580ms	remaining: 433ms
+229:	learn: 0.3099183	total: 581ms	remaining: 430ms
+230:	learn: 0.3097103	total: 583ms	remaining: 427ms
+231:	learn: 0.3093638	total: 585ms	remaining: 423ms
+232:	learn: 0.3092760	total: 586ms	remaining: 420ms
+233:	learn: 0.3090362	total: 588ms	remaining: 417ms
+234:	learn: 0.3089220	total: 589ms	remaining: 414ms
+235:	learn: 0.3088025	total: 591ms	remaining: 411ms
+236:	learn: 0.3084453	total: 593ms	remaining: 408ms
+237:	learn: 0.3081594	total: 595ms	remaining: 405ms
+238:	learn: 0.3077579	total: 597ms	remaining: 402ms
+239:	learn: 0.3075746	total: 599ms	remaining: 399ms
+240:	learn: 0.3072355	total: 601ms	remaining: 396ms
+241:	learn: 0.3067848	total: 603ms	remaining: 394ms
+242:	learn: 0.3065529	total: 605ms	remaining: 391ms
+243:	learn: 0.3061980	total: 606ms	remaining: 388ms
+244:	learn: 0.3059240	total: 608ms	remaining: 385ms
+245:	learn: 0.3054990	total: 610ms	remaining: 382ms
+246:	learn: 0.3052922	total: 612ms	remaining: 379ms
+247:	learn: 0.3051635	total: 614ms	remaining: 376ms
+248:	learn: 0.3048014	total: 616ms	remaining: 374ms
+249:	learn: 0.3046074	total: 618ms	remaining: 371ms
+250:	learn: 0.3043472	total: 619ms	remaining: 368ms
+251:	learn: 0.3040694	total: 621ms	remaining: 365ms
+252:	learn: 0.3037774	total: 623ms	remaining: 362ms
+253:	learn: 0.3035365	total: 625ms	remaining: 359ms
+254:	learn: 0.3033601	total: 627ms	remaining: 357ms
+255:	learn: 0.3032212	total: 629ms	remaining: 354ms
+256:	learn: 0.3029492	total: 631ms	remaining: 351ms
+257:	learn: 0.3027802	total: 632ms	remaining: 348ms
+258:	learn: 0.3026404	total: 634ms	remaining: 345ms
+259:	learn: 0.3023630	total: 636ms	remaining: 343ms
+260:	learn: 0.3021898	total: 638ms	remaining: 340ms
+261:	learn: 0.3020624	total: 640ms	remaining: 337ms
+262:	learn: 0.3019071	total: 642ms	remaining: 334ms
+263:	learn: 0.3017296	total: 644ms	remaining: 332ms
+264:	learn: 0.3016166	total: 646ms	remaining: 329ms
+265:	learn: 0.3013981	total: 647ms	remaining: 326ms
+266:	learn: 0.3011135	total: 649ms	remaining: 323ms
+267:	learn: 0.3008082	total: 650ms	remaining: 320ms
+268:	learn: 0.3006501	total: 652ms	remaining: 318ms
+269:	learn: 0.3003755	total: 654ms	remaining: 315ms
+270:	learn: 0.3002018	total: 656ms	remaining: 312ms
+271:	learn: 0.3001223	total: 657ms	remaining: 309ms
+272:	learn: 0.2999548	total: 659ms	remaining: 306ms
+273:	learn: 0.2997155	total: 660ms	remaining: 304ms
+274:	learn: 0.2995370	total: 662ms	remaining: 301ms
+275:	learn: 0.2991650	total: 664ms	remaining: 298ms
+276:	learn: 0.2988965	total: 666ms	remaining: 296ms
+277:	learn: 0.2987553	total: 668ms	remaining: 293ms
+278:	learn: 0.2983174	total: 669ms	remaining: 290ms
+279:	learn: 0.2981710	total: 671ms	remaining: 288ms
+280:	learn: 0.2979348	total: 673ms	remaining: 285ms
+281:	learn: 0.2978048	total: 675ms	remaining: 282ms
+282:	learn: 0.2975062	total: 677ms	remaining: 280ms
+283:	learn: 0.2973622	total: 678ms	remaining: 277ms
+284:	learn: 0.2970700	total: 680ms	remaining: 274ms
+285:	learn: 0.2969327	total: 683ms	remaining: 272ms
+286:	learn: 0.2968444	total: 685ms	remaining: 270ms
+287:	learn: 0.2964788	total: 689ms	remaining: 268ms
+288:	learn: 0.2964113	total: 691ms	remaining: 265ms
+289:	learn: 0.2962707	total: 693ms	remaining: 263ms
+290:	learn: 0.2959843	total: 695ms	remaining: 260ms
+291:	learn: 0.2958267	total: 697ms	remaining: 258ms
+292:	learn: 0.2957007	total: 699ms	remaining: 255ms
+293:	learn: 0.2954127	total: 701ms	remaining: 253ms
+294:	learn: 0.2949980	total: 703ms	remaining: 250ms
+295:	learn: 0.2947825	total: 705ms	remaining: 248ms
+296:	learn: 0.2946155	total: 707ms	remaining: 245ms
+297:	learn: 0.2943480	total: 709ms	remaining: 243ms
+298:	learn: 0.2939765	total: 713ms	remaining: 241ms
+299:	learn: 0.2937963	total: 714ms	remaining: 238ms
+300:	learn: 0.2935849	total: 716ms	remaining: 236ms
+301:	learn: 0.2934216	total: 718ms	remaining: 233ms
+302:	learn: 0.2933403	total: 720ms	remaining: 231ms
+303:	learn: 0.2930768	total: 722ms	remaining: 228ms
+304:	learn: 0.2927940	total: 724ms	remaining: 225ms
+305:	learn: 0.2925038	total: 726ms	remaining: 223ms
+306:	learn: 0.2923120	total: 728ms	remaining: 220ms
+307:	learn: 0.2921790	total: 729ms	remaining: 218ms
+308:	learn: 0.2920158	total: 731ms	remaining: 215ms
+309:	learn: 0.2918072	total: 734ms	remaining: 213ms
+310:	learn: 0.2915630	total: 736ms	remaining: 211ms
+311:	learn: 0.2914043	total: 738ms	remaining: 208ms
+312:	learn: 0.2913090	total: 739ms	remaining: 205ms
+313:	learn: 0.2912184	total: 741ms	remaining: 203ms
+314:	learn: 0.2910753	total: 743ms	remaining: 200ms
+315:	learn: 0.2908868	total: 745ms	remaining: 198ms
+316:	learn: 0.2907727	total: 746ms	remaining: 195ms
+317:	learn: 0.2906433	total: 749ms	remaining: 193ms
+318:	learn: 0.2905753	total: 750ms	remaining: 191ms
+319:	learn: 0.2904133	total: 752ms	remaining: 188ms
+320:	learn: 0.2903013	total: 754ms	remaining: 186ms
+321:	learn: 0.2901302	total: 756ms	remaining: 183ms
+322:	learn: 0.2897609	total: 757ms	remaining: 181ms
+323:	learn: 0.2894758	total: 759ms	remaining: 178ms
+324:	learn: 0.2893299	total: 761ms	remaining: 176ms
+325:	learn: 0.2891460	total: 763ms	remaining: 173ms
+326:	learn: 0.2887950	total: 765ms	remaining: 171ms
+327:	learn: 0.2886071	total: 767ms	remaining: 168ms
+328:	learn: 0.2883919	total: 769ms	remaining: 166ms
+329:	learn: 0.2882371	total: 772ms	remaining: 164ms
+330:	learn: 0.2880567	total: 774ms	remaining: 161ms
+331:	learn: 0.2878600	total: 776ms	remaining: 159ms
+332:	learn: 0.2878063	total: 777ms	remaining: 156ms
+333:	learn: 0.2875977	total: 779ms	remaining: 154ms
+334:	learn: 0.2874671	total: 781ms	remaining: 152ms
+335:	learn: 0.2873133	total: 783ms	remaining: 149ms
+336:	learn: 0.2871756	total: 784ms	remaining: 147ms
+337:	learn: 0.2870724	total: 786ms	remaining: 144ms
+338:	learn: 0.2869634	total: 788ms	remaining: 142ms
+339:	learn: 0.2867597	total: 790ms	remaining: 139ms
+340:	learn: 0.2866582	total: 791ms	remaining: 137ms
+341:	learn: 0.2865259	total: 793ms	remaining: 135ms
+342:	learn: 0.2863323	total: 795ms	remaining: 132ms
+343:	learn: 0.2860418	total: 797ms	remaining: 130ms
+344:	learn: 0.2858822	total: 799ms	remaining: 127ms
+345:	learn: 0.2856867	total: 801ms	remaining: 125ms
+346:	learn: 0.2853920	total: 802ms	remaining: 123ms
+347:	learn: 0.2851553	total: 804ms	remaining: 120ms
+348:	learn: 0.2850263	total: 806ms	remaining: 118ms
+349:	learn: 0.2847933	total: 807ms	remaining: 115ms
+350:	learn: 0.2844831	total: 809ms	remaining: 113ms
+351:	learn: 0.2843415	total: 811ms	remaining: 111ms
+352:	learn: 0.2842044	total: 812ms	remaining: 108ms
+353:	learn: 0.2840448	total: 814ms	remaining: 106ms
+354:	learn: 0.2839468	total: 815ms	remaining: 103ms
+355:	learn: 0.2838300	total: 817ms	remaining: 101ms
+356:	learn: 0.2837410	total: 819ms	remaining: 98.6ms
+357:	learn: 0.2836391	total: 821ms	remaining: 96.3ms
+358:	learn: 0.2834598	total: 822ms	remaining: 93.9ms
+359:	learn: 0.2834208	total: 824ms	remaining: 91.6ms
+360:	learn: 0.2831016	total: 826ms	remaining: 89.3ms
+361:	learn: 0.2829583	total: 828ms	remaining: 86.9ms
+362:	learn: 0.2828021	total: 829ms	remaining: 84.5ms
+363:	learn: 0.2826231	total: 831ms	remaining: 82.2ms
+364:	learn: 0.2824341	total: 833ms	remaining: 79.9ms
+365:	learn: 0.2823936	total: 835ms	remaining: 77.5ms
+366:	learn: 0.2822848	total: 836ms	remaining: 75.2ms
+367:	learn: 0.2821790	total: 838ms	remaining: 72.9ms
+368:	learn: 0.2821264	total: 840ms	remaining: 70.6ms
+369:	learn: 0.2818003	total: 842ms	remaining: 68.3ms
+370:	learn: 0.2816616	total: 843ms	remaining: 65.9ms
+371:	learn: 0.2814972	total: 846ms	remaining: 63.7ms
+372:	learn: 0.2813781	total: 848ms	remaining: 61.3ms
+373:	learn: 0.2811242	total: 849ms	remaining: 59ms
+374:	learn: 0.2808227	total: 852ms	remaining: 56.8ms
+375:	learn: 0.2806886	total: 854ms	remaining: 54.5ms
+376:	learn: 0.2805602	total: 856ms	remaining: 52.2ms
+377:	learn: 0.2803809	total: 857ms	remaining: 49.9ms
+378:	learn: 0.2802499	total: 860ms	remaining: 47.6ms
+379:	learn: 0.2800863	total: 862ms	remaining: 45.4ms
+380:	learn: 0.2799089	total: 864ms	remaining: 43.1ms
+381:	learn: 0.2798489	total: 865ms	remaining: 40.8ms
+382:	learn: 0.2797146	total: 867ms	remaining: 38.5ms
+383:	learn: 0.2795877	total: 869ms	remaining: 36.2ms
+384:	learn: 0.2793652	total: 870ms	remaining: 33.9ms
+385:	learn: 0.2792853	total: 872ms	remaining: 31.6ms
+386:	learn: 0.2791504	total: 874ms	remaining: 29.3ms
+387:	learn: 0.2789554	total: 878ms	remaining: 27.2ms
+388:	learn: 0.2787479	total: 881ms	remaining: 24.9ms
+389:	learn: 0.2786397	total: 883ms	remaining: 22.6ms
+390:	learn: 0.2785744	total: 885ms	remaining: 20.4ms
+391:	learn: 0.2784345	total: 886ms	remaining: 18.1ms
+392:	learn: 0.2782758	total: 887ms	remaining: 15.8ms
+393:	learn: 0.2782394	total: 888ms	remaining: 13.5ms
+394:	learn: 0.2779599	total: 890ms	remaining: 11.3ms
+395:	learn: 0.2778605	total: 891ms	remaining: 9ms
+396:	learn: 0.2778422	total: 892ms	remaining: 6.74ms
+397:	learn: 0.2777524	total: 894ms	remaining: 4.49ms
+398:	learn: 0.2776668	total: 895ms	remaining: 2.24ms
+399:	learn: 0.2774723	total: 896ms	remaining: 0us
  CatBoost entrenado correctamente.
 </pre></div>
 </div>
@@ -3044,8 +3445,8 @@ Evaluando: CatBoost ...
     <tr>
       <th>8</th>
       <td>GaussianNB</td>
-      <td>0.912081</td>
-      <td>0.021868</td>
+      <td>0.909973</td>
+      <td>0.022482</td>
     </tr>
     <tr>
       <th>9</th>
@@ -3073,10 +3474,10 @@ Evaluando: CatBoost ...
 <h3><strong>Modelos de Alto Rendimiento (AUC &gt; 0.92)</strong><a class="headerlink" href="#modelos-de-alto-rendimiento-auc-0-92" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>XGBoost (0.931)</strong>: <strong>Máximo desempeño absoluto</strong> con la mayor AUC y la segunda menor desviación estándar, confirmando la superioridad de los algoritmos de boosting avanzados.</p></li>
-<li><p><strong>CatBoost (0.928)</strong>: Excelente rendimiento, muy cercano al líder, demostrando la efectividad de los métodos de boosting especializados.</p></li>
-<li><p><strong>Gradient Boosting (0.927)</strong>: Alto desempeño con la <strong>menor variabilidad</strong> (std 0.014), indicando robustez excepcional.</p></li>
+<li><p><strong>CatBoost (0.927)</strong>: Excelente rendimiento, muy cercano al líder, demostrando la efectividad de los métodos de boosting especializados.</p></li>
+<li><p><strong>Gradient Boosting (0.926)</strong>: Alto desempeño con la <strong>menor variabilidad</strong> (std 0.013), indicando robustez excepcional.</p></li>
 <li><p><strong>SVM (0.922)</strong>: Buen rendimiento aunque con mayor variabilidad, destacando para un modelo no basado en árboles.</p></li>
-<li><p><strong>Random Forest (0.922)</strong>: Performance sólida, confirmando la confiabilidad de los métodos de ensamblaje.</p></li>
+<li><p><strong>Random Forest (0.921)</strong>: Performance sólida, confirmando la confiabilidad de los métodos de ensamblaje.</p></li>
 </ol>
 </section>
 <section id="modelos-de-rendimiento-competitivo-auc-0-91-0-92">
@@ -3084,13 +3485,13 @@ Evaluando: CatBoost ...
 <ol class="arabic simple" start="6">
 <li><p><strong>Logistic Regression L1/L2 (0.919)</strong>: Desempeño casi idéntico entre regularizaciones, mostrando robustez en modelos lineales.</p></li>
 <li><p><strong>KNN (0.912)</strong>: Rendimiento aceptable pero superado por métodos más modernos.</p></li>
-<li><p><strong>GaussianNB (0.912)</strong>: Resultado notable para un modelo probabilístico simple.</p></li>
 </ol>
 </section>
 <section id="modelos-de-menor-rendimiento-auc-0-91">
 <h3><strong>Modelos de Menor Rendimiento (AUC &lt; 0.91)</strong><a class="headerlink" href="#modelos-de-menor-rendimiento-auc-0-91" title="Link to this heading">#</a></h3>
-<ol class="arabic simple" start="9">
-<li><p><strong>MultinomialNB (0.910)</strong>: Rendimiento limitado por la naturaleza discreta del modelo.</p></li>
+<ol class="arabic simple" start="8">
+<li><p><strong>GaussianNB (0.909)</strong>: Resultado notable para un modelo probabilístico simple.</p></li>
+<li><p><strong>MultinomialNB (0.909)</strong>: Rendimiento limitado por la naturaleza discreta del modelo.</p></li>
 <li><p><strong>Decision Tree (0.906)</strong>: <strong>Peor desempeño entre modelos basados en árboles</strong>, evidenciando sobreajuste.</p></li>
 <li><p><strong>BernoulliNB (0.904)</strong>: <strong>Rendimiento más bajo general</strong>, limitado por su enfoque binario.</p></li>
 </ol>
@@ -3098,9 +3499,9 @@ Evaluando: CatBoost ...
 <section id="analisis-de-estabilidad-desviacion-estandar">
 <h3><strong>Análisis de Estabilidad (Desviación Estándar)</strong><a class="headerlink" href="#analisis-de-estabilidad-desviacion-estandar" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Mayor Estabilidad</strong>: Gradient Boosting (0.014), XGBoost (0.019), CatBoost (0.019) y Random Forest (0.018) demuestran consistencia excepcional.</p></li>
-<li><p><strong>Variabilidad Moderada</strong>: GaussianNB (0.022), KNN (0.024) y Logistic Regression (0.025) muestran comportamiento predecible.</p></li>
-<li><p><strong>Alta Variabilidad</strong>: Decision Tree (0.032), MultinomialNB (0.030) y BernoulliNB (0.029) presentan inconsistencia entre folds.</p></li>
+<li><p><strong>Mayor Estabilidad</strong>: Gradient Boosting (0.013), XGBoost (0.018), CatBoost (0.018) y Random Forest (0.018) demuestran consistencia excepcional.</p></li>
+<li><p><strong>Variabilidad Moderada</strong>: GaussianNB (0.022), KNN (0.023) y Logistic Regression (0.025) muestran comportamiento predecible.</p></li>
+<li><p><strong>Alta Variabilidad</strong>: Decision Tree (0.031), MultinomialNB (0.030) y BernoulliNB (0.028) presentan inconsistencia entre folds.</p></li>
 </ul>
 </section>
 <section id="brechas-de-desempeno-y-competitividad">
@@ -3244,7 +3645,7 @@ Configuración por defecto utilizada.
 <p><strong>Random Forest</strong></p>
 <ul class="simple">
 <li><p><strong>Configuración óptima:</strong> <code class="docutils literal notranslate"><span class="pre">n_estimators=200</span></code>, <code class="docutils literal notranslate"><span class="pre">max_depth=10</span></code>, <code class="docutils literal notranslate"><span class="pre">min_samples_split=2</span></code>, <code class="docutils literal notranslate"><span class="pre">max_features='sqrt'</span></code>.</p></li>
-<li><p><strong>Interpretación:</strong> Bosque con <strong>mayor complejidad</strong> (200 árboles, profundidad 10) pero manteniendo diversidad mediante <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, logrando excelente AUC de 0.922.</p></li>
+<li><p><strong>Interpretación:</strong> Bosque con <strong>mayor complejidad</strong> (200 árboles, profundidad 10) pero manteniendo diversidad mediante <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, logrando excelente AUC de 0.921.</p></li>
 </ul>
 </section>
 <section id="algoritmos-de-boosting-avanzado">
@@ -3416,7 +3817,7 @@ Precision: 0.867925
 Recall:    0.901961
 F1-score:  0.884615
 AUC-ROC:   0.933405
-Tiempo predicción: 0.0071 segundos
+Tiempo predicción: 0.0206 segundos
 </pre></div>
 </div>
 <img alt="_images/416f96713a4f5cab4b171a0560ca0687d137ef7607e625b56ac541a591b10556.png" src="_images/416f96713a4f5cab4b171a0560ca0687d137ef7607e625b56ac541a591b10556.png" />
@@ -3428,7 +3829,7 @@ Precision: 0.867925
 Recall:    0.901961
 F1-score:  0.884615
 AUC-ROC:   0.933764
-Tiempo predicción: 0.0102 segundos
+Tiempo predicción: 0.0199 segundos
 </pre></div>
 </div>
 <img alt="_images/a061becd4147e5925dc1f97eb9688c3db506e58a86d52da26bec3a1407d37b1f.png" src="_images/a061becd4147e5925dc1f97eb9688c3db506e58a86d52da26bec3a1407d37b1f.png" />
@@ -3440,23 +3841,23 @@ Precision: 0.865385
 Recall:    0.882353
 F1-score:  0.873786
 AUC-ROC:   0.918221
-Tiempo predicción: 0.0414 segundos
+Tiempo predicción: 0.6394 segundos
 </pre></div>
 </div>
 <img alt="_images/479fb5f965a4d503b47e40da8ba17514f9a3fd99a95bbf16d30024731e0a8f67.png" src="_images/479fb5f965a4d503b47e40da8ba17514f9a3fd99a95bbf16d30024731e0a8f67.png" />
 <img alt="_images/5254d2bd5726f5bbcccf9bf4268258d9be8d4a80e5b5d250e6381acfa844f118.png" src="_images/5254d2bd5726f5bbcccf9bf4268258d9be8d4a80e5b5d250e6381acfa844f118.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== GAUSSIANNB === 
 
-Accuracy:  0.891304
-Precision: 0.910000
-Recall:    0.892157
-F1-score:  0.900990
-AUC-ROC:   0.935318
-Tiempo predicción: 0.0076 segundos
+Accuracy:  0.885870
+Precision: 0.909091
+Recall:    0.882353
+F1-score:  0.895522
+AUC-ROC:   0.932927
+Tiempo predicción: 0.0137 segundos
 </pre></div>
 </div>
-<img alt="_images/a794287edab3097231dc9df6c78601f71501df344578f9a1f3320c650e2a23d2.png" src="_images/a794287edab3097231dc9df6c78601f71501df344578f9a1f3320c650e2a23d2.png" />
-<img alt="_images/825ce3940c4624467d814a3cedebc0e04fda934b1701cb553e5a03083761ee7c.png" src="_images/825ce3940c4624467d814a3cedebc0e04fda934b1701cb553e5a03083761ee7c.png" />
+<img alt="_images/7917e4cac42bc2b232ec6056378896ee67e3bf5d21739832fde886a63c73a70c.png" src="_images/7917e4cac42bc2b232ec6056378896ee67e3bf5d21739832fde886a63c73a70c.png" />
+<img alt="_images/557af30e46699e134ec588967d4255913e8e872e3e1b8354624f086ff1275f06.png" src="_images/557af30e46699e134ec588967d4255913e8e872e3e1b8354624f086ff1275f06.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== BERNOULLINB === 
 
 Accuracy:  0.864130
@@ -3464,7 +3865,7 @@ Precision: 0.888889
 Recall:    0.862745
 F1-score:  0.875622
 AUC-ROC:   0.924020
-Tiempo predicción: 0.0000 segundos
+Tiempo predicción: 0.0251 segundos
 </pre></div>
 </div>
 <img alt="_images/1a570fac1194a242d51691e5d77fc75261c96342c9a9ea877617c0cffb3da994.png" src="_images/1a570fac1194a242d51691e5d77fc75261c96342c9a9ea877617c0cffb3da994.png" />
@@ -3476,7 +3877,7 @@ Precision: 0.858491
 Recall:    0.892157
 F1-score:  0.875000
 AUC-ROC:   0.919237
-Tiempo predicción: 0.0159 segundos
+Tiempo predicción: 0.0229 segundos
 </pre></div>
 </div>
 <img alt="_images/42456e11cdf76f202b724c3c1afbc2187c326353fa8fc3616a28ca65296f5588.png" src="_images/42456e11cdf76f202b724c3c1afbc2187c326353fa8fc3616a28ca65296f5588.png" />
@@ -3488,7 +3889,7 @@ Precision: 0.830357
 Recall:    0.911765
 F1-score:  0.869159
 AUC-ROC:   0.907461
-Tiempo predicción: 0.0094 segundos
+Tiempo predicción: 0.0165 segundos
 </pre></div>
 </div>
 <img alt="_images/b7388f781ed7e8290ffc9e6483666c3007fb87ff0ccf1ee5640b22d4cfa9ce82.png" src="_images/b7388f781ed7e8290ffc9e6483666c3007fb87ff0ccf1ee5640b22d4cfa9ce82.png" />
@@ -3500,7 +3901,7 @@ Precision: 0.842593
 Recall:    0.892157
 F1-score:  0.866667
 AUC-ROC:   0.921090
-Tiempo predicción: 0.0388 segundos
+Tiempo predicción: 0.0399 segundos
 </pre></div>
 </div>
 <img alt="_images/195bfe308c8e4a41521f6f30a16089fbcf702cde9ae88f221ebea51f71372d53.png" src="_images/195bfe308c8e4a41521f6f30a16089fbcf702cde9ae88f221ebea51f71372d53.png" />
@@ -3512,7 +3913,7 @@ Precision: 0.882353
 Recall:    0.882353
 F1-score:  0.882353
 AUC-ROC:   0.927606
-Tiempo predicción: 0.0199 segundos
+Tiempo predicción: 0.0206 segundos
 </pre></div>
 </div>
 <img alt="_images/1b0a8cba40e8947b36989a4a8f98fce0744e140fda6c1b37fc592613cc17f0c7.png" src="_images/1b0a8cba40e8947b36989a4a8f98fce0744e140fda6c1b37fc592613cc17f0c7.png" />
@@ -3524,7 +3925,7 @@ Precision: 0.872549
 Recall:    0.872549
 F1-score:  0.872549
 AUC-ROC:   0.935856
-Tiempo predicción: 0.0315 segundos
+Tiempo predicción: 0.6015 segundos
 </pre></div>
 </div>
 <img alt="_images/9a3570c611b743eb5403affb85776be99a5c74fb5baa790a21c8152407bf1556.png" src="_images/9a3570c611b743eb5403affb85776be99a5c74fb5baa790a21c8152407bf1556.png" />
@@ -3536,7 +3937,7 @@ Precision: 0.872549
 Recall:    0.872549
 F1-score:  0.872549
 AUC-ROC:   0.925215
-Tiempo predicción: 0.0121 segundos
+Tiempo predicción: 0.0178 segundos
 </pre></div>
 </div>
 <img alt="_images/67542149e4633c186807ed094cd4f235a764bdeece7f3bb77c58745c9967c03e.png" src="_images/67542149e4633c186807ed094cd4f235a764bdeece7f3bb77c58745c9967c03e.png" />
@@ -3548,7 +3949,7 @@ Precision: 0.866667
 Recall:    0.892157
 F1-score:  0.879227
 AUC-ROC:   0.928862
-Tiempo predicción: 0.0449 segundos
+Tiempo predicción: 1.5636 segundos
 </pre></div>
 </div>
 <img alt="_images/4db39d5edbab86e20887da3edd515579dc620bf01faab2289d8570b7d69969b5.png" src="_images/4db39d5edbab86e20887da3edd515579dc620bf01faab2289d8570b7d69969b5.png" />
@@ -3593,41 +3994,41 @@ Tiempo predicción: 0.0449 segundos
       <td>0.872549</td>
       <td>0.872549</td>
       <td>0.935856</td>
-      <td>0.031489</td>
+      <td>0.601488</td>
       <td>{'classifier__C': 10, 'classifier__degree': 2, 'classifier__gamma': 'auto', 'classifier__kernel': 'poly'}</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>GaussianNB</td>
-      <td>0.891304</td>
-      <td>0.910000</td>
-      <td>0.892157</td>
-      <td>0.900990</td>
-      <td>0.935318</td>
-      <td>0.007629</td>
-      <td>Configuración por defecto</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>Logistic Regression L2</td>
       <td>0.869565</td>
       <td>0.867925</td>
       <td>0.901961</td>
       <td>0.884615</td>
       <td>0.933764</td>
-      <td>0.010180</td>
+      <td>0.019853</td>
       <td>{'classifier__C': 10}</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>Logistic Regression L1</td>
       <td>0.869565</td>
       <td>0.867925</td>
       <td>0.901961</td>
       <td>0.884615</td>
       <td>0.933405</td>
-      <td>0.007077</td>
+      <td>0.020594</td>
       <td>{'classifier__C': 10}</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GaussianNB</td>
+      <td>0.885870</td>
+      <td>0.909091</td>
+      <td>0.882353</td>
+      <td>0.895522</td>
+      <td>0.932927</td>
+      <td>0.013746</td>
+      <td>Configuración por defecto</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3637,7 +4038,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.892157</td>
       <td>0.879227</td>
       <td>0.928862</td>
-      <td>0.044919</td>
+      <td>1.563628</td>
       <td>{'classifier__border_count': 64, 'classifier__depth': 4, 'classifier__grow_policy': 'Depthwise', 'classifier__iterations': 400, 'classifier__l2_leaf_reg': 5, 'classifier__learning_rate': 0.01}</td>
     </tr>
     <tr>
@@ -3648,7 +4049,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.882353</td>
       <td>0.882353</td>
       <td>0.927606</td>
-      <td>0.019896</td>
+      <td>0.020609</td>
       <td>{'classifier__colsample_bytree': 0.8, 'classifier__gamma': 0.2, 'classifier__learning_rate': 0.1, 'classifier__max_depth': 3, 'classifier__min_child_weight': 3, 'classifier__n_estimators': 200, 'classifier__reg_lambda': 10, 'classifier__subsample': 1.0}</td>
     </tr>
     <tr>
@@ -3659,7 +4060,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.872549</td>
       <td>0.872549</td>
       <td>0.925215</td>
-      <td>0.012137</td>
+      <td>0.017806</td>
       <td>{'classifier__learning_rate': 0.05, 'classifier__max_depth': 3, 'classifier__min_samples_leaf': 1, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 100, 'classifier__subsample': 1.0}</td>
     </tr>
     <tr>
@@ -3670,7 +4071,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.862745</td>
       <td>0.875622</td>
       <td>0.924020</td>
-      <td>0.000000</td>
+      <td>0.025116</td>
       <td>{'classifier__alpha': 0.001, 'classifier__fit_prior': True}</td>
     </tr>
     <tr>
@@ -3681,7 +4082,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.892157</td>
       <td>0.866667</td>
       <td>0.921090</td>
-      <td>0.038773</td>
+      <td>0.039864</td>
       <td>{'classifier__bootstrap': True, 'classifier__criterion': 'gini', 'classifier__max_depth': 10, 'classifier__max_features': 'sqrt', 'classifier__min_samples_leaf': 2, 'classifier__min_samples_split': 2, 'classifier__n_estimators': 200}</td>
     </tr>
     <tr>
@@ -3692,7 +4093,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.892157</td>
       <td>0.875000</td>
       <td>0.919237</td>
-      <td>0.015894</td>
+      <td>0.022878</td>
       <td>{'classifier__alpha': 0.001, 'classifier__fit_prior': True}</td>
     </tr>
     <tr>
@@ -3703,7 +4104,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.882353</td>
       <td>0.873786</td>
       <td>0.918221</td>
-      <td>0.041380</td>
+      <td>0.639430</td>
       <td>{'classifier__algorithm': 'auto', 'classifier__metric': 'manhattan', 'classifier__n_neighbors': 11, 'classifier__weights': 'uniform'}</td>
     </tr>
     <tr>
@@ -3714,7 +4115,7 @@ Tiempo predicción: 0.0449 segundos
       <td>0.911765</td>
       <td>0.869159</td>
       <td>0.907461</td>
-      <td>0.009389</td>
+      <td>0.016510</td>
       <td>{'classifier__criterion': 'gini', 'classifier__max_depth': 5, 'classifier__max_features': None, 'classifier__min_samples_leaf': 5, 'classifier__min_samples_split': 2, 'classifier__splitter': 'random'}</td>
     </tr>
   </tbody>
@@ -3725,102 +4126,102 @@ Tiempo predicción: 0.0449 segundos
 <h3><strong>Ranking de Modelos por Métrica</strong><a class="headerlink" href="#ranking-de-modelos-por-metrica" title="Link to this heading">#</a></h3>
 <p><strong>Accuracy (Exactitud General)</strong></p>
 <ol class="arabic simple">
-<li><p><strong>GaussianNB (0.8913)</strong></p></li>
+<li><p><strong>GaussianNB (0.8858)</strong></p></li>
 <li><p><strong>Logistic Regression L1/L2 (0.8695)</strong></p></li>
 <li><p><strong>XGBoost (0.8695)</strong></p></li>
 <li><p><strong>CatBoost (0.8641)</strong></p></li>
 <li><p><strong>BernoulliNB (0.8641)</strong></p></li>
-<li><p><strong>KNN (0.8587)</strong></p></li>
-<li><p><strong>MultinomialNB (0.8587)</strong></p></li>
-<li><p><strong>SVM (0.8587)</strong></p></li>
-<li><p><strong>Gradient Boosting (0.8587)</strong></p></li>
+<li><p><strong>KNN (0.8586)</strong></p></li>
+<li><p><strong>MultinomialNB (0.8586)</strong></p></li>
+<li><p><strong>SVM (0.8586)</strong></p></li>
+<li><p><strong>Gradient Boosting (0.8586)</strong></p></li>
 <li><p><strong>Random Forest (0.8478)</strong></p></li>
 <li><p><strong>Decision Tree (0.8478)</strong></p></li>
 </ol>
 <p><strong>Precision (Minimizar Falsos Positivos)</strong></p>
 <ol class="arabic simple">
-<li><p><strong>GaussianNB (0.9100)</strong></p></li>
-<li><p><strong>BernoulliNB (0.8889)</strong></p></li>
-<li><p><strong>XGBoost (0.8824)</strong></p></li>
+<li><p><strong>GaussianNB (0.9090)</strong></p></li>
+<li><p><strong>BernoulliNB (0.8888)</strong></p></li>
+<li><p><strong>XGBoost (0.8823)</strong></p></li>
 <li><p><strong>SVM (0.8725)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.8725)</strong></p></li>
 <li><p><strong>Logistic Regression L1/L2 (0.8679)</strong></p></li>
-<li><p><strong>CatBoost (0.8667)</strong></p></li>
-<li><p><strong>KNN (0.8654)</strong></p></li>
-<li><p><strong>MultinomialNB (0.8585)</strong></p></li>
-<li><p><strong>Random Forest (0.8426)</strong></p></li>
-<li><p><strong>Decision Tree (0.8304)</strong></p></li>
+<li><p><strong>CatBoost (0.8666)</strong></p></li>
+<li><p><strong>KNN (0.8653)</strong></p></li>
+<li><p><strong>MultinomialNB (0.8584)</strong></p></li>
+<li><p><strong>Random Forest (0.8425)</strong></p></li>
+<li><p><strong>Decision Tree (0.8303)</strong></p></li>
 </ol>
 <p><strong>Recall (Maximizar Detección de Enfermos)</strong></p>
 <ol class="arabic simple">
-<li><p><strong>Decision Tree (0.9118)</strong></p></li>
-<li><p><strong>Logistic Regression L1/L2 (0.9020)</strong></p></li>
-<li><p><strong>Random Forest (0.8922)</strong></p></li>
-<li><p><strong>MultinomialNB (0.8922)</strong></p></li>
-<li><p><strong>CatBoost (0.8922)</strong></p></li>
-<li><p><strong>GaussianNB (0.8922)</strong></p></li>
-<li><p><strong>XGBoost (0.8824)</strong></p></li>
-<li><p><strong>KNN (0.8824)</strong></p></li>
+<li><p><strong>Decision Tree (0.9117)</strong></p></li>
+<li><p><strong>Logistic Regression L1/L2 (0.9019)</strong></p></li>
+<li><p><strong>Random Forest (0.8921)</strong></p></li>
+<li><p><strong>MultinomialNB (0.8921)</strong></p></li>
+<li><p><strong>CatBoost (0.8921)</strong></p></li>
+<li><p><strong>GaussianNB (0.8921)</strong></p></li>
+<li><p><strong>XGBoost (0.8823)</strong></p></li>
+<li><p><strong>KNN (0.8823)</strong></p></li>
 <li><p><strong>SVM (0.8725)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.8725)</strong></p></li>
 <li><p><strong>BernoulliNB (0.8627)</strong></p></li>
 </ol>
 <p><strong>F1-Score (Balance Precision-Recall)</strong></p>
 <ol class="arabic simple">
-<li><p><strong>GaussianNB (0.9010)</strong></p></li>
+<li><p><strong>GaussianNB (0.8955)</strong></p></li>
 <li><p><strong>Logistic Regression L1/L2 (0.8846)</strong></p></li>
-<li><p><strong>XGBoost (0.8824)</strong></p></li>
+<li><p><strong>XGBoost (0.8823)</strong></p></li>
 <li><p><strong>CatBoost (0.8792)</strong></p></li>
 <li><p><strong>BernoulliNB (0.8756)</strong></p></li>
 <li><p><strong>MultinomialNB (0.8750)</strong></p></li>
-<li><p><strong>KNN (0.8738)</strong></p></li>
+<li><p><strong>KNN (0.8737)</strong></p></li>
 <li><p><strong>SVM (0.8725)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.8725)</strong></p></li>
-<li><p><strong>Decision Tree (0.8692)</strong></p></li>
-<li><p><strong>Random Forest (0.8667)</strong></p></li>
+<li><p><strong>Decision Tree (0.8691)</strong></p></li>
+<li><p><strong>Random Forest (0.8666)</strong></p></li>
 </ol>
 <p><strong>AUC-ROC (Capacidad Discriminativa)</strong></p>
 <ol class="arabic simple">
-<li><p><strong>SVM (0.9359)</strong></p></li>
-<li><p><strong>GaussianNB (0.9353)</strong></p></li>
-<li><p><strong>Logistic Regression L2 (0.9338)</strong></p></li>
+<li><p><strong>SVM (0.9358)</strong></p></li>
+<li><p><strong>Logistic Regression L2 (0.9337)</strong></p></li>
 <li><p><strong>Logistic Regression L1 (0.9334)</strong></p></li>
-<li><p><strong>CatBoost (0.9289)</strong></p></li>
+<li><p><strong>GaussianNB (0.9329)</strong></p></li>
+<li><p><strong>CatBoost (0.9288)</strong></p></li>
 <li><p><strong>XGBoost (0.9276)</strong></p></li>
 <li><p><strong>Gradient Boosting (0.9252)</strong></p></li>
 <li><p><strong>BernoulliNB (0.9240)</strong></p></li>
-<li><p><strong>Random Forest (0.9211)</strong></p></li>
+<li><p><strong>Random Forest (0.9210)</strong></p></li>
 <li><p><strong>MultinomialNB (0.9192)</strong></p></li>
 <li><p><strong>KNN (0.9182)</strong></p></li>
-<li><p><strong>Decision Tree (0.9075)</strong></p></li>
+<li><p><strong>Decision Tree (0.9074)</strong></p></li>
 </ol>
 <p><strong>Tiempo de Predicción (Eficiencia)</strong></p>
 <ol class="arabic simple">
-<li><p><strong>BernoulliNB (0.0000s)</strong> - Instantáneo</p></li>
-<li><p><strong>Logistic Regression L1 (0.0071s)</strong></p></li>
-<li><p><strong>GaussianNB (0.0076s)</strong></p></li>
-<li><p><strong>Decision Tree (0.0094s)</strong></p></li>
-<li><p><strong>Logistic Regression L2 (0.0102s)</strong></p></li>
-<li><p><strong>Gradient Boosting (0.0121s)</strong></p></li>
-<li><p><strong>MultinomialNB (0.0159s)</strong></p></li>
-<li><p><strong>XGBoost (0.0199s)</strong></p></li>
-<li><p><strong>SVM (0.0315s)</strong></p></li>
-<li><p><strong>Random Forest (0.0388s)</strong></p></li>
-<li><p><strong>KNN (0.0414s)</strong></p></li>
-<li><p><strong>CatBoost (0.0449s)</strong></p></li>
+<li><p><strong>GaussianNB (0.0137s)</strong></p></li>
+<li><p><strong>Decision Tree (0.0165s)</strong></p></li>
+<li><p><strong>Gradient Boosting (0.0178s)</strong></p></li>
+<li><p><strong>Logistic Regression L2 (0.0198s)</strong></p></li>
+<li><p><strong>Logistic Regression L1 (0.0205s)</strong></p></li>
+<li><p><strong>XGBoost (0.0206s)</strong></p></li>
+<li><p><strong>MultinomialNB (0.0228s)</strong></p></li>
+<li><p><strong>BernoulliNB (0.0251s)</strong></p></li>
+<li><p><strong>Random Forest (0.0398s)</strong></p></li>
+<li><p><strong>SVM (0.6014s)</strong></p></li>
+<li><p><strong>KNN (0.6394s)</strong></p></li>
+<li><p><strong>CatBoost (1.5636s)</strong></p></li>
 </ol>
 </section>
 <section id="analisis-por-grupos-de-desempeno">
 <h3><strong>Análisis por Grupos de Desempeño</strong><a class="headerlink" href="#analisis-por-grupos-de-desempeno" title="Link to this heading">#</a></h3>
 <p><strong>Modelos de Elite (Múltiples Métricas Top)</strong></p>
 <ul class="simple">
-<li><p><strong>GaussianNB</strong>: Líder en Accuracy, Precision y F1-score; top 3 en AUC-ROC.</p></li>
+<li><p><strong>GaussianNB</strong>: Líder en Accuracy, Precision, F1-score y Tiempo de Predicción; top 3 en AUC-ROC.</p></li>
 <li><p><strong>Logistic Regression</strong>: Top 2 en Accuracy, Recall y F1-score; top 3 en AUC-ROC.</p></li>
 </ul>
 <p><strong>Modelos de Alto Rendimiento (Balance General)</strong></p>
 <ul class="simple">
 <li><p><strong>XGBoost</strong>: Top 3 en Accuracy, Precision y F1-score.</p></li>
-<li><p><strong>BernoulliNB</strong>: Top 5 en Accuracy, Top 2 en Precision y velocidad máxima.</p></li>
+<li><p><strong>BernoulliNB</strong>: Top 5 en Accuracy, Top 2 en Precision pero tiempo de Predicción medio.</p></li>
 <li><p><strong>CatBoost</strong>: Top 4 en Accuracy, buen balance general.</p></li>
 </ul>
 <p><strong>Modelos Especializados (Fuerzas Específicas)</strong></p>
@@ -3836,17 +4237,16 @@ Tiempo predicción: 0.0449 segundos
 <ul class="simple">
 <li><p><strong>Máxima Confiabilidad</strong>: GaussianNB (mejor balance general + rápido).</p></li>
 <li><p><strong>Detección de Emergencias</strong>: Logistic Regression (alto recall + rápido).</p></li>
-<li><p><strong>Velocidad Extrema</strong>: BernoulliNB (instantáneo + buen desempeño).</p></li>
 </ul>
 <p><strong>Según Objetivo Específico</strong></p>
 <ul class="simple">
-<li><p><strong>Precisión Diagnóstica</strong>: GaussianNB (91% precision).</p></li>
-<li><p><strong>Detección de Enfermos</strong>: Decision Tree (91.2% recall).</p></li>
-<li><p><strong>Balance Ideal</strong>: GaussianNB (90.1% F1-score).</p></li>
-<li><p><strong>Capacidad Discriminativa</strong>: SVM (93.6% AUC-ROC).</p></li>
-<li><p><strong>Producción en Tiempo Real</strong>: BernoulliNB (predicción instantánea).</p></li>
+<li><p><strong>Precisión Diagnóstica</strong>: GaussianNB (90% precision).</p></li>
+<li><p><strong>Detección de Enfermos</strong>: Decision Tree (91.1% recall).</p></li>
+<li><p><strong>Balance Ideal</strong>: GaussianNB (89.5% F1-score).</p></li>
+<li><p><strong>Capacidad Discriminativa</strong>: SVM (93.5% AUC-ROC).</p></li>
+<li><p><strong>Producción en Tiempo Real</strong>: GaussianNB (predicción muy veloz).</p></li>
 </ul>
-<p><strong>GaussianNB se consolida como el modelo óptimo</strong> al liderar 3 de 5 métricas clave, demostrando que la simplicidad bien aplicada supera a algoritmos complejos en este escenario específico.</p>
+<p><strong>GaussianNB se consolida como el modelo óptimo</strong> al liderar 4 de 5 métricas clave, demostrando que la simplicidad bien aplicada supera a algoritmos complejos en este escenario específico.</p>
 </section>
 </section>
 <section id="analisis-de-importancia-de-variables-en-modelos-basados-en-arboles">
@@ -41160,10 +41560,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2130 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div67LK5KFBDRBHPB2"></div>
+        <div class="lime top_div" id="top_divXT30YH8DPDMZ06U"></div>
         
         <script>
-        var top_div = d3.select('#top_div67LK5KFBDRBHPB2').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXT30YH8DPDMZ06U').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -41175,10 +41575,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2130 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.3083383724641817], ["cat__ChestPainType_NAP > 0.00", -0.3065423189730497], ["cat__ChestPainType_TA <= 0.00", 0.2836871443105412], ["cat__ST_Slope_Up <= 0.00", 0.2730610499688952], ["bin_num__FastingBS <= 0.00", -0.2116152960502549], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.16189407916781748], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.1494947524382536], ["cat__RestingECG_Normal <= 0.00", 0.05999409132227188], ["-0.85 < num__Oldpeak <= -0.36", -0.03310880198590389], ["cat__RestingECG_ST <= 0.00", 0.019806837855792042]], 1, exp_div);
+                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.3156186146225809], ["cat__ChestPainType_NAP > 0.00", -0.30419108410055273], ["cat__ChestPainType_TA <= 0.00", 0.3003248488511112], ["cat__ST_Slope_Up <= 0.00", 0.26895555746787025], ["bin_num__FastingBS <= 0.00", -0.21133823017183448], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.1639758486629474], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.15644147839790715], ["cat__RestingECG_Normal <= 0.00", 0.06272378389192759], ["-0.85 < num__Oldpeak <= -0.36", -0.026864578147788875], ["cat__RestingECG_ST <= 0.00", 0.01561436530245581]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.3083383724641817], ["cat__ChestPainType_NAP", "1.00", -0.3065423189730497], ["cat__ChestPainType_TA", "0.00", 0.2836871443105412], ["cat__ST_Slope_Up", "0.00", 0.2730610499688952], ["bin_num__FastingBS", "0.00", -0.2116152960502549], ["cat__ST_Slope_Flat", "1.00", 0.16189407916781748], ["bin_cat__ExerciseAngina_Y", "0.00", -0.1494947524382536], ["cat__RestingECG_Normal", "0.00", 0.05999409132227188], ["num__Oldpeak", "-0.75", -0.03310880198590389], ["cat__RestingECG_ST", "0.00", 0.019806837855792042]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.3156186146225809], ["cat__ChestPainType_NAP", "1.00", -0.30419108410055273], ["cat__ChestPainType_TA", "0.00", 0.3003248488511112], ["cat__ST_Slope_Up", "0.00", 0.26895555746787025], ["bin_num__FastingBS", "0.00", -0.21133823017183448], ["cat__ST_Slope_Flat", "1.00", 0.1639758486629474], ["bin_cat__ExerciseAngina_Y", "0.00", -0.15644147839790715], ["cat__RestingECG_Normal", "0.00", 0.06272378389192759], ["num__Oldpeak", "-0.75", -0.026864578147788875], ["cat__RestingECG_ST", "0.00", 0.01561436530245581]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== LOGISTIC REGRESSION L2 ===
@@ -78276,10 +78676,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2150 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divU7J3RNHN4HXXK2Y"></div>
+        <div class="lime top_div" id="top_divB75QKW9ISRKX0B0"></div>
         
         <script>
-        var top_div = d3.select('#top_divU7J3RNHN4HXXK2Y').classed('lime top_div', true);
+        var top_div = d3.select('#top_divB75QKW9ISRKX0B0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -78291,10 +78691,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2150 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.30990030339072633], ["cat__ChestPainType_NAP > 0.00", -0.29639102269307377], ["cat__ChestPainType_TA <= 0.00", 0.2955083254043296], ["cat__ST_Slope_Up <= 0.00", 0.26417287111291055], ["bin_num__FastingBS <= 0.00", -0.21044326825364684], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.16295405897580964], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.15514360516982553], ["cat__RestingECG_Normal <= 0.00", 0.060049373261037556], ["-0.85 < num__Oldpeak <= -0.36", -0.03435795521079787], ["cat__RestingECG_ST <= 0.00", 0.02245074309019241]], 1, exp_div);
+                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.3136059832777216], ["cat__ChestPainType_TA <= 0.00", 0.31119848188820914], ["cat__ChestPainType_NAP > 0.00", -0.29458671551971694], ["cat__ST_Slope_Up <= 0.00", 0.27370011267126737], ["bin_num__FastingBS <= 0.00", -0.20982333351851948], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.16446432998611185], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.15131092005624594], ["cat__RestingECG_Normal <= 0.00", 0.061509952399446566], ["-0.85 < num__Oldpeak <= -0.36", -0.0454701251514452], ["cat__RestingECG_ST <= 0.00", 0.016358749558414425]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.30990030339072633], ["cat__ChestPainType_NAP", "1.00", -0.29639102269307377], ["cat__ChestPainType_TA", "0.00", 0.2955083254043296], ["cat__ST_Slope_Up", "0.00", 0.26417287111291055], ["bin_num__FastingBS", "0.00", -0.21044326825364684], ["cat__ST_Slope_Flat", "1.00", 0.16295405897580964], ["bin_cat__ExerciseAngina_Y", "0.00", -0.15514360516982553], ["cat__RestingECG_Normal", "0.00", 0.060049373261037556], ["num__Oldpeak", "-0.75", -0.03435795521079787], ["cat__RestingECG_ST", "0.00", 0.02245074309019241]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.3136059832777216], ["cat__ChestPainType_TA", "0.00", 0.31119848188820914], ["cat__ChestPainType_NAP", "1.00", -0.29458671551971694], ["cat__ST_Slope_Up", "0.00", 0.27370011267126737], ["bin_num__FastingBS", "0.00", -0.20982333351851948], ["cat__ST_Slope_Flat", "1.00", 0.16446432998611185], ["bin_cat__ExerciseAngina_Y", "0.00", -0.15131092005624594], ["cat__RestingECG_Normal", "0.00", 0.061509952399446566], ["num__Oldpeak", "-0.75", -0.0454701251514452], ["cat__RestingECG_ST", "0.00", 0.016358749558414425]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== KNN ===
@@ -115392,10 +115792,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1818 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divV62HTQCAUJRRTZ8"></div>
+        <div class="lime top_div" id="top_divRGXD02Q7ZJ9MC7F"></div>
         
         <script>
-        var top_div = d3.select('#top_divV62HTQCAUJRRTZ8').classed('lime top_div', true);
+        var top_div = d3.select('#top_divRGXD02Q7ZJ9MC7F').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -115407,14 +115807,14 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1818 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.22609002606810452], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.22007878533697378], ["cat__ChestPainType_NAP > 0.00", -0.2167744136646224], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.20899791275357169], ["cat__ChestPainType_ATA <= 0.00", 0.17367695378688416], ["bin_num__FastingBS <= 0.00", -0.1501308371774785], ["-0.85 < num__Oldpeak <= -0.36", -0.08317133158487675], ["cat__ChestPainType_TA <= 0.00", 0.053525726800577766], ["cat__RestingECG_ST <= 0.00", 0.03568406952757002], ["cat__RestingECG_Normal <= 0.00", 0.0244572321929793]], 1, exp_div);
+                exp.show([["bin_cat__ExerciseAngina_Y <= 0.00", -0.221191632059096], ["cat__ST_Slope_Up <= 0.00", 0.22000684705459955], ["cat__ChestPainType_NAP > 0.00", -0.2172561751711156], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.1964611831393765], ["cat__ChestPainType_ATA <= 0.00", 0.185665526527425], ["bin_num__FastingBS <= 0.00", -0.1551974548540012], ["-0.85 < num__Oldpeak <= -0.36", -0.0954843181956039], ["cat__ChestPainType_TA <= 0.00", 0.0887978598428425], ["cat__RestingECG_Normal <= 0.00", 0.029139042774344363], ["cat__RestingECG_ST <= 0.00", 0.019539249103315396]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.22609002606810452], ["bin_cat__ExerciseAngina_Y", "0.00", -0.22007878533697378], ["cat__ChestPainType_NAP", "1.00", -0.2167744136646224], ["cat__ST_Slope_Flat", "1.00", 0.20899791275357169], ["cat__ChestPainType_ATA", "0.00", 0.17367695378688416], ["bin_num__FastingBS", "0.00", -0.1501308371774785], ["num__Oldpeak", "-0.75", -0.08317133158487675], ["cat__ChestPainType_TA", "0.00", 0.053525726800577766], ["cat__RestingECG_ST", "0.00", 0.03568406952757002], ["cat__RestingECG_Normal", "0.00", 0.0244572321929793]], 1, raw_div);
+            exp.show_raw_tabular([["bin_cat__ExerciseAngina_Y", "0.00", -0.221191632059096], ["cat__ST_Slope_Up", "0.00", 0.22000684705459955], ["cat__ChestPainType_NAP", "1.00", -0.2172561751711156], ["cat__ST_Slope_Flat", "1.00", 0.1964611831393765], ["cat__ChestPainType_ATA", "0.00", 0.185665526527425], ["bin_num__FastingBS", "0.00", -0.1551974548540012], ["num__Oldpeak", "-0.75", -0.0954843181956039], ["cat__ChestPainType_TA", "0.00", 0.0887978598428425], ["cat__RestingECG_Normal", "0.00", 0.029139042774344363], ["cat__RestingECG_ST", "0.00", 0.019539249103315396]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== GAUSSIANNB ===
-Predicción: 0 | Probabilidad de Enfermedad: 0.1078 | Real: 0
+Predicción: 0 | Probabilidad de Enfermedad: 0.1194 | Real: 0
 </pre></div>
 </div>
 <div class="output text_html"><html>
@@ -152508,25 +152908,25 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1078 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div0E1W9963JMR0JPN"></div>
+        <div class="lime top_div" id="top_divP5V53Y4FLHJU91F"></div>
         
         <script>
-        var top_div = d3.select('#top_div0E1W9963JMR0JPN').classed('lime top_div', true);
+        var top_div = d3.select('#top_divP5V53Y4FLHJU91F').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["No Enfermedad", "Enfermedad"], [0.8922014391337508, 0.10779856086624962]);
+            var pp = new lime.PredictProba(pp_svg, ["No Enfermedad", "Enfermedad"], [0.88056851607987, 0.11943148392013019]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.5961937250129843], ["cat__ChestPainType_TA <= 0.00", 0.3378650028144621], ["cat__ST_Slope_Up <= 0.00", 0.3364143375677662], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.24102835300935263], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.22771816390646335], ["bin_num__FastingBS <= 0.00", -0.2142982917119948], ["cat__ChestPainType_NAP > 0.00", -0.16534508080261223], ["cat__RestingECG_ST <= 0.00", -0.0984087066778442], ["-0.85 < num__Oldpeak <= -0.36", -0.07552911717004905], ["cat__RestingECG_Normal <= 0.00", 0.03669346887390171]], 1, exp_div);
+                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.6026369703963231], ["cat__ChestPainType_TA <= 0.00", 0.37928332104325113], ["cat__ST_Slope_Up <= 0.00", 0.3520846227540921], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.2463946513140096], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.2460877720244342], ["bin_num__FastingBS <= 0.00", -0.2287163222976482], ["cat__ChestPainType_NAP > 0.00", -0.1611685061086044], ["cat__RestingECG_ST <= 0.00", -0.0845810845901499], ["-0.94 < num__Oldpeak <= -0.07", -0.05463431926337721], ["cat__RestingECG_Normal <= 0.00", 0.037330209468913696]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.5961937250129843], ["cat__ChestPainType_TA", "0.00", 0.3378650028144621], ["cat__ST_Slope_Up", "0.00", 0.3364143375677662], ["cat__ST_Slope_Flat", "1.00", 0.24102835300935263], ["bin_cat__ExerciseAngina_Y", "0.00", -0.22771816390646335], ["bin_num__FastingBS", "0.00", -0.2142982917119948], ["cat__ChestPainType_NAP", "1.00", -0.16534508080261223], ["cat__RestingECG_ST", "0.00", -0.0984087066778442], ["num__Oldpeak", "-0.75", -0.07552911717004905], ["cat__RestingECG_Normal", "0.00", 0.03669346887390171]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.6026369703963231], ["cat__ChestPainType_TA", "0.00", 0.37928332104325113], ["cat__ST_Slope_Up", "0.00", 0.3520846227540921], ["cat__ST_Slope_Flat", "1.00", 0.2463946513140096], ["bin_cat__ExerciseAngina_Y", "0.00", -0.2460877720244342], ["bin_num__FastingBS", "0.00", -0.2287163222976482], ["cat__ChestPainType_NAP", "1.00", -0.1611685061086044], ["cat__RestingECG_ST", "0.00", -0.0845810845901499], ["num__Oldpeak", "-0.72", -0.05463431926337721], ["cat__RestingECG_Normal", "0.00", 0.037330209468913696]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== BERNOULLINB ===
@@ -189624,10 +190024,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.4064 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divT3GF6U05HDU640A"></div>
+        <div class="lime top_div" id="top_divMNXVEUBG9BPSVIS"></div>
         
         <script>
-        var top_div = d3.select('#top_divT3GF6U05HDU640A').classed('lime top_div', true);
+        var top_div = d3.select('#top_divMNXVEUBG9BPSVIS').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -189639,10 +190039,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.4064 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.3898859449339478], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.31522392061113536], ["cat__ChestPainType_ATA <= 0.00", 0.2944284282013981], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.2619598869182294], ["num__Oldpeak <= 0.00", -0.2058845320853883], ["bin_num__FastingBS <= 0.00", -0.1573821888667467], ["cat__ChestPainType_NAP > 0.00", -0.12970697008836876], ["cat__RestingECG_ST <= 0.00", -0.06580846799481012], ["cat__RestingECG_Normal <= 0.00", 0.054087492830750934], ["cat__ChestPainType_TA <= 0.00", 0.053733455252567876]], 1, exp_div);
+                exp.show([["cat__ST_Slope_Up <= 0.00", 0.39180823833286943], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.32139807245233193], ["cat__ChestPainType_ATA <= 0.00", 0.29449377489316136], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.2671940422347652], ["num__Oldpeak <= 0.00", -0.20755855508279084], ["bin_num__FastingBS <= 0.00", -0.15357133137174853], ["cat__ChestPainType_NAP > 0.00", -0.12929958919931067], ["cat__RestingECG_ST <= 0.00", -0.05502632893210175], ["cat__ChestPainType_TA <= 0.00", 0.054605260590756474], ["cat__RestingECG_Normal <= 0.00", 0.050467813813350325]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.3898859449339478], ["cat__ST_Slope_Flat", "1.00", 0.31522392061113536], ["cat__ChestPainType_ATA", "0.00", 0.2944284282013981], ["bin_cat__ExerciseAngina_Y", "0.00", -0.2619598869182294], ["num__Oldpeak", "0.00", -0.2058845320853883], ["bin_num__FastingBS", "0.00", -0.1573821888667467], ["cat__ChestPainType_NAP", "1.00", -0.12970697008836876], ["cat__RestingECG_ST", "0.00", -0.06580846799481012], ["cat__RestingECG_Normal", "0.00", 0.054087492830750934], ["cat__ChestPainType_TA", "0.00", 0.053733455252567876]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.39180823833286943], ["cat__ST_Slope_Flat", "1.00", 0.32139807245233193], ["cat__ChestPainType_ATA", "0.00", 0.29449377489316136], ["bin_cat__ExerciseAngina_Y", "0.00", -0.2671940422347652], ["num__Oldpeak", "0.00", -0.20755855508279084], ["bin_num__FastingBS", "0.00", -0.15357133137174853], ["cat__ChestPainType_NAP", "1.00", -0.12929958919931067], ["cat__RestingECG_ST", "0.00", -0.05502632893210175], ["cat__ChestPainType_TA", "0.00", 0.054605260590756474], ["cat__RestingECG_Normal", "0.00", 0.050467813813350325]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== MULTINOMIALNB ===
@@ -226740,10 +227140,10 @@ Predicción: 1 | Probabilidad de Enfermedad: 0.6398 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div73QZ3FYA2BHGTOP"></div>
+        <div class="lime top_div" id="top_divWSM93WOWL47E8JQ"></div>
         
         <script>
-        var top_div = d3.select('#top_div73QZ3FYA2BHGTOP').classed('lime top_div', true);
+        var top_div = d3.select('#top_divWSM93WOWL47E8JQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -226755,10 +227155,10 @@ Predicción: 1 | Probabilidad de Enfermedad: 0.6398 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.37525983640946936], ["cat__ST_Slope_Up <= 0.00", 0.3311194668397502], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.21066229301110975], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.19953028357148675], ["cat__ChestPainType_NAP > 0.00", -0.1739470189628397], ["bin_num__FastingBS <= 0.00", -0.1514572193716553], ["cat__ChestPainType_TA <= 0.00", 0.1217405166006592], ["cat__RestingECG_Normal <= 0.00", 0.06213810790724634], ["num__Oldpeak <= 1.00", -0.05986209578661448], ["cat__RestingECG_ST <= 0.00", -0.044920105650927356]], 1, exp_div);
+                exp.show([["cat__ChestPainType_ATA <= 0.00", 0.3752941286700266], ["cat__ST_Slope_Up <= 0.00", 0.3261479411742108], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.2122965987651197], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.19701802247543498], ["cat__ChestPainType_NAP > 0.00", -0.1742995925728962], ["bin_num__FastingBS <= 0.00", -0.14965170007333822], ["cat__ChestPainType_TA <= 0.00", 0.11876369980104301], ["cat__RestingECG_Normal <= 0.00", 0.05962696341710807], ["num__Oldpeak <= 1.00", -0.0542810714909894], ["cat__RestingECG_ST <= 0.00", -0.044305736423527795]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.37525983640946936], ["cat__ST_Slope_Up", "0.00", 0.3311194668397502], ["bin_cat__ExerciseAngina_Y", "0.00", -0.21066229301110975], ["cat__ST_Slope_Flat", "1.00", 0.19953028357148675], ["cat__ChestPainType_NAP", "1.00", -0.1739470189628397], ["bin_num__FastingBS", "0.00", -0.1514572193716553], ["cat__ChestPainType_TA", "0.00", 0.1217405166006592], ["cat__RestingECG_Normal", "0.00", 0.06213810790724634], ["num__Oldpeak", "1.00", -0.05986209578661448], ["cat__RestingECG_ST", "0.00", -0.044920105650927356]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ChestPainType_ATA", "0.00", 0.3752941286700266], ["cat__ST_Slope_Up", "0.00", 0.3261479411742108], ["bin_cat__ExerciseAngina_Y", "0.00", -0.2122965987651197], ["cat__ST_Slope_Flat", "1.00", 0.19701802247543498], ["cat__ChestPainType_NAP", "1.00", -0.1742995925728962], ["bin_num__FastingBS", "0.00", -0.14965170007333822], ["cat__ChestPainType_TA", "0.00", 0.11876369980104301], ["cat__RestingECG_Normal", "0.00", 0.05962696341710807], ["num__Oldpeak", "1.00", -0.0542810714909894], ["cat__RestingECG_ST", "0.00", -0.044305736423527795]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== DECISION TREE ===
@@ -263856,10 +264256,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1818 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUQV8R0HULP3IL2H"></div>
+        <div class="lime top_div" id="top_divFA2LOEMAHJQNRH0"></div>
         
         <script>
-        var top_div = d3.select('#top_divUQV8R0HULP3IL2H').classed('lime top_div', true);
+        var top_div = d3.select('#top_divFA2LOEMAHJQNRH0').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -263871,10 +264271,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1818 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.37564353823289315], ["bin_num__FastingBS <= 0.00", -0.18797653179092608], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.140815625343562], ["cat__ChestPainType_ATA <= 0.00", 0.10278578645650428], ["cat__ChestPainType_NAP > 0.00", -0.1020902477754011], ["cat__ChestPainType_TA <= 0.00", 0.05407388718324799], ["0.00 < num__Oldpeak <= 0.50", -0.04918370988483651], ["cat__RestingECG_ST <= 0.00", -0.01316507437868114], ["cat__RestingECG_Normal <= 0.00", 0.006451760597062734], ["0.00 < cat__ST_Slope_Flat <= 1.00", -0.00038344273917573186]], 1, exp_div);
+                exp.show([["cat__ST_Slope_Up <= 0.00", 0.39056184451218584], ["bin_num__FastingBS <= 0.00", -0.16863130366026402], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.12610255727571956], ["cat__ChestPainType_ATA <= 0.00", 0.11867772443411151], ["cat__ChestPainType_NAP > 0.00", -0.09597014072356558], ["0.00 < num__Oldpeak <= 0.50", -0.05454910702863462], ["cat__ChestPainType_TA <= 0.00", 0.02331641596178993], ["cat__RestingECG_ST <= 0.00", 0.013830357812042742], ["cat__RestingECG_Normal <= 0.00", 0.008156755226735915], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.0024953793961678653]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.37564353823289315], ["bin_num__FastingBS", "0.00", -0.18797653179092608], ["bin_cat__ExerciseAngina_Y", "0.00", -0.140815625343562], ["cat__ChestPainType_ATA", "0.00", 0.10278578645650428], ["cat__ChestPainType_NAP", "1.00", -0.1020902477754011], ["cat__ChestPainType_TA", "0.00", 0.05407388718324799], ["num__Oldpeak", "0.10", -0.04918370988483651], ["cat__RestingECG_ST", "0.00", -0.01316507437868114], ["cat__RestingECG_Normal", "0.00", 0.006451760597062734], ["cat__ST_Slope_Flat", "1.00", -0.00038344273917573186]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.39056184451218584], ["bin_num__FastingBS", "0.00", -0.16863130366026402], ["bin_cat__ExerciseAngina_Y", "0.00", -0.12610255727571956], ["cat__ChestPainType_ATA", "0.00", 0.11867772443411151], ["cat__ChestPainType_NAP", "1.00", -0.09597014072356558], ["num__Oldpeak", "0.10", -0.05454910702863462], ["cat__ChestPainType_TA", "0.00", 0.02331641596178993], ["cat__RestingECG_ST", "0.00", 0.013830357812042742], ["cat__RestingECG_Normal", "0.00", 0.008156755226735915], ["cat__ST_Slope_Flat", "1.00", 0.0024953793961678653]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== RANDOM FOREST ===
@@ -300972,10 +301372,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2990 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divXENED8O9CEZ31O1"></div>
+        <div class="lime top_div" id="top_divXFVVO0N3NE1Z277"></div>
         
         <script>
-        var top_div = d3.select('#top_divXENED8O9CEZ31O1').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXFVVO0N3NE1Z277').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -300987,10 +301387,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2990 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.2630477816933581], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.17283495650009328], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.13414054040229526], ["cat__ChestPainType_NAP > 0.00", -0.13386065827915214], ["cat__ChestPainType_ATA <= 0.00", 0.1261589072120561], ["0.00 < num__Oldpeak <= 0.50", -0.12244704564102363], ["bin_num__FastingBS <= 0.00", -0.11113552737356325], ["cat__ChestPainType_TA <= 0.00", 0.08220808125912946], ["cat__RestingECG_Normal <= 0.00", 0.054283730786856825], ["cat__RestingECG_ST <= 0.00", -0.01837099496167724]], 1, exp_div);
+                exp.show([["cat__ST_Slope_Up <= 0.00", 0.26420685211002604], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.16714029499749997], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.14016755521373428], ["cat__ChestPainType_NAP > 0.00", -0.12925481245099218], ["cat__ChestPainType_ATA <= 0.00", 0.12306399775770162], ["0.00 < num__Oldpeak <= 0.50", -0.12187544624370152], ["bin_num__FastingBS <= 0.00", -0.10485101074368461], ["cat__ChestPainType_TA <= 0.00", 0.08338787469600098], ["cat__RestingECG_Normal <= 0.00", 0.04497879181475441], ["cat__RestingECG_ST <= 0.00", -0.015494853617731844]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.2630477816933581], ["bin_cat__ExerciseAngina_Y", "0.00", -0.17283495650009328], ["cat__ST_Slope_Flat", "1.00", 0.13414054040229526], ["cat__ChestPainType_NAP", "1.00", -0.13386065827915214], ["cat__ChestPainType_ATA", "0.00", 0.1261589072120561], ["num__Oldpeak", "0.10", -0.12244704564102363], ["bin_num__FastingBS", "0.00", -0.11113552737356325], ["cat__ChestPainType_TA", "0.00", 0.08220808125912946], ["cat__RestingECG_Normal", "0.00", 0.054283730786856825], ["cat__RestingECG_ST", "0.00", -0.01837099496167724]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.26420685211002604], ["bin_cat__ExerciseAngina_Y", "0.00", -0.16714029499749997], ["cat__ST_Slope_Flat", "1.00", 0.14016755521373428], ["cat__ChestPainType_NAP", "1.00", -0.12925481245099218], ["cat__ChestPainType_ATA", "0.00", 0.12306399775770162], ["num__Oldpeak", "0.10", -0.12187544624370152], ["bin_num__FastingBS", "0.00", -0.10485101074368461], ["cat__ChestPainType_TA", "0.00", 0.08338787469600098], ["cat__RestingECG_Normal", "0.00", 0.04497879181475441], ["cat__RestingECG_ST", "0.00", -0.015494853617731844]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== XGBOOST ===
@@ -338088,10 +338488,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2231 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divV59K9PRUYTW7833"></div>
+        <div class="lime top_div" id="top_divV31MQ906LRMH74G"></div>
         
         <script>
-        var top_div = d3.select('#top_divV59K9PRUYTW7833').classed('lime top_div', true);
+        var top_div = d3.select('#top_divV31MQ906LRMH74G').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -338103,10 +338503,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2231 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.24593363100843119], ["bin_num__FastingBS <= 0.00", -0.2272792963753332], ["0.00 < num__Oldpeak <= 0.50", -0.2072345622245243], ["cat__ChestPainType_NAP > 0.00", -0.20296610367728488], ["cat__ChestPainType_TA <= 0.00", 0.1812605208411261], ["cat__ChestPainType_ATA <= 0.00", 0.17708229702222794], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.14173726033851158], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.1155222642892826], ["cat__RestingECG_Normal <= 0.00", 0.07572485078871011], ["cat__RestingECG_ST <= 0.00", -0.0029357491011332286]], 1, exp_div);
+                exp.show([["cat__ST_Slope_Up <= 0.00", 0.243701033349329], ["bin_num__FastingBS <= 0.00", -0.22101737927607637], ["0.00 < num__Oldpeak <= 0.50", -0.20716975273040691], ["cat__ChestPainType_NAP > 0.00", -0.19868855567836002], ["cat__ChestPainType_TA <= 0.00", 0.1817114038627731], ["cat__ChestPainType_ATA <= 0.00", 0.1700911922881545], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.1413597305070918], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.11343772539519689], ["cat__RestingECG_Normal <= 0.00", 0.07502511974608124], ["cat__RestingECG_ST <= 0.00", -0.00237144414382046]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.24593363100843119], ["bin_num__FastingBS", "0.00", -0.2272792963753332], ["num__Oldpeak", "0.10", -0.2072345622245243], ["cat__ChestPainType_NAP", "1.00", -0.20296610367728488], ["cat__ChestPainType_TA", "0.00", 0.1812605208411261], ["cat__ChestPainType_ATA", "0.00", 0.17708229702222794], ["bin_cat__ExerciseAngina_Y", "0.00", -0.14173726033851158], ["cat__ST_Slope_Flat", "1.00", 0.1155222642892826], ["cat__RestingECG_Normal", "0.00", 0.07572485078871011], ["cat__RestingECG_ST", "0.00", -0.0029357491011332286]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.243701033349329], ["bin_num__FastingBS", "0.00", -0.22101737927607637], ["num__Oldpeak", "0.10", -0.20716975273040691], ["cat__ChestPainType_NAP", "1.00", -0.19868855567836002], ["cat__ChestPainType_TA", "0.00", 0.1817114038627731], ["cat__ChestPainType_ATA", "0.00", 0.1700911922881545], ["bin_cat__ExerciseAngina_Y", "0.00", -0.1413597305070918], ["cat__ST_Slope_Flat", "1.00", 0.11343772539519689], ["cat__RestingECG_Normal", "0.00", 0.07502511974608124], ["cat__RestingECG_ST", "0.00", -0.00237144414382046]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== GRADIENT BOOSTING ===
@@ -375204,10 +375604,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1049 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div1YTZMIZEDG3MTRZ"></div>
+        <div class="lime top_div" id="top_div0XUG5YIFTIA09TD"></div>
         
         <script>
-        var top_div = d3.select('#top_div1YTZMIZEDG3MTRZ').classed('lime top_div', true);
+        var top_div = d3.select('#top_div0XUG5YIFTIA09TD').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -375219,10 +375619,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.1049 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.310721636347932], ["cat__ChestPainType_TA <= 0.00", 0.23293552169106327], ["0.00 < num__Oldpeak <= 0.50", -0.19548131172368657], ["cat__ChestPainType_NAP > 0.00", -0.17624836350960277], ["cat__ChestPainType_ATA <= 0.00", 0.15474588747009527], ["bin_num__FastingBS <= 0.00", -0.13628901657473952], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.10963396218933436], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.08166322855039629], ["cat__RestingECG_Normal <= 0.00", 0.05199820389925373], ["cat__RestingECG_ST <= 0.00", 0.014199257164246862]], 1, exp_div);
+                exp.show([["cat__ST_Slope_Up <= 0.00", 0.29822431773417996], ["cat__ChestPainType_TA <= 0.00", 0.2149587440635034], ["0.00 < num__Oldpeak <= 0.50", -0.18747183047408744], ["cat__ChestPainType_ATA <= 0.00", 0.17535626765874424], ["cat__ChestPainType_NAP > 0.00", -0.16894885615958707], ["bin_num__FastingBS <= 0.00", -0.14961219176995694], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.1114554644273773], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.08877666077078764], ["cat__RestingECG_Normal <= 0.00", 0.051027035344859605], ["cat__RestingECG_ST <= 0.00", -0.004806095970020887]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.310721636347932], ["cat__ChestPainType_TA", "0.00", 0.23293552169106327], ["num__Oldpeak", "0.10", -0.19548131172368657], ["cat__ChestPainType_NAP", "1.00", -0.17624836350960277], ["cat__ChestPainType_ATA", "0.00", 0.15474588747009527], ["bin_num__FastingBS", "0.00", -0.13628901657473952], ["bin_cat__ExerciseAngina_Y", "0.00", -0.10963396218933436], ["cat__ST_Slope_Flat", "1.00", 0.08166322855039629], ["cat__RestingECG_Normal", "0.00", 0.05199820389925373], ["cat__RestingECG_ST", "0.00", 0.014199257164246862]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.29822431773417996], ["cat__ChestPainType_TA", "0.00", 0.2149587440635034], ["num__Oldpeak", "0.10", -0.18747183047408744], ["cat__ChestPainType_ATA", "0.00", 0.17535626765874424], ["cat__ChestPainType_NAP", "1.00", -0.16894885615958707], ["bin_num__FastingBS", "0.00", -0.14961219176995694], ["bin_cat__ExerciseAngina_Y", "0.00", -0.1114554644273773], ["cat__ST_Slope_Flat", "1.00", 0.08877666077078764], ["cat__RestingECG_Normal", "0.00", 0.051027035344859605], ["cat__RestingECG_ST", "0.00", -0.004806095970020887]], 1, raw_div);
         
         </script>
         </body></html></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== CATBOOST ===
@@ -412320,10 +412720,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2519 | Real: 0
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div4ZA6DHMPDVTZILQ"></div>
+        <div class="lime top_div" id="top_divKA0MJY6FFCEUW9M"></div>
         
         <script>
-        var top_div = d3.select('#top_div4ZA6DHMPDVTZILQ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divKA0MJY6FFCEUW9M').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
@@ -412335,10 +412735,10 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2519 | Real: 0
             var exp = new lime.Explanation(["No Enfermedad", "Enfermedad"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["cat__ST_Slope_Up <= 0.00", 0.28433489255660255], ["bin_num__FastingBS <= 0.00", -0.18437602370287512], ["cat__ChestPainType_NAP > 0.00", -0.16986414837463426], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.16945936675834475], ["cat__ChestPainType_ATA <= 0.00", 0.1531422652769039], ["cat__ChestPainType_TA <= 0.00", 0.14954048131216782], ["0.00 < num__Oldpeak <= 0.50", -0.14922167432197764], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.09626756422775884], ["cat__RestingECG_Normal <= 0.00", 0.0417816432131726], ["cat__RestingECG_ST <= 0.00", -0.007222745670475706]], 1, exp_div);
+                exp.show([["cat__ST_Slope_Up <= 0.00", 0.2933490131426098], ["cat__ChestPainType_NAP > 0.00", -0.1794435763207027], ["bin_num__FastingBS <= 0.00", -0.17046842305081397], ["bin_cat__ExerciseAngina_Y <= 0.00", -0.16584573442229364], ["cat__ChestPainType_TA <= 0.00", 0.1519779391462363], ["cat__ChestPainType_ATA <= 0.00", 0.14900312985675288], ["0.00 < num__Oldpeak <= 0.50", -0.13792300629950502], ["0.00 < cat__ST_Slope_Flat <= 1.00", 0.0999347822244626], ["cat__RestingECG_Normal <= 0.00", 0.042212098690001795], ["cat__RestingECG_ST <= 0.00", -0.014367543417317042]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.28433489255660255], ["bin_num__FastingBS", "0.00", -0.18437602370287512], ["cat__ChestPainType_NAP", "1.00", -0.16986414837463426], ["bin_cat__ExerciseAngina_Y", "0.00", -0.16945936675834475], ["cat__ChestPainType_ATA", "0.00", 0.1531422652769039], ["cat__ChestPainType_TA", "0.00", 0.14954048131216782], ["num__Oldpeak", "0.10", -0.14922167432197764], ["cat__ST_Slope_Flat", "1.00", 0.09626756422775884], ["cat__RestingECG_Normal", "0.00", 0.0417816432131726], ["cat__RestingECG_ST", "0.00", -0.007222745670475706]], 1, raw_div);
+            exp.show_raw_tabular([["cat__ST_Slope_Up", "0.00", 0.2933490131426098], ["cat__ChestPainType_NAP", "1.00", -0.1794435763207027], ["bin_num__FastingBS", "0.00", -0.17046842305081397], ["bin_cat__ExerciseAngina_Y", "0.00", -0.16584573442229364], ["cat__ChestPainType_TA", "0.00", 0.1519779391462363], ["cat__ChestPainType_ATA", "0.00", 0.14900312985675288], ["num__Oldpeak", "0.10", -0.13792300629950502], ["cat__ST_Slope_Flat", "1.00", 0.0999347822244626], ["cat__RestingECG_Normal", "0.00", 0.042212098690001795], ["cat__RestingECG_ST", "0.00", -0.014367543417317042]], 1, raw_div);
         
         </script>
         </body></html></div></div>
@@ -412379,7 +412779,7 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2519 | Real: 0
 </tr>
 <tr class="row-odd"><td><p>GaussianNB</p></td>
 <td><p>No enfermedad</p></td>
-<td><p>0.1078</p></td>
+<td><p>0.1194</p></td>
 <td><p>No enfermedad</p></td>
 <td><p>Sí</p></td>
 <td><p>cat_ChestPainType_ATA (+), cat_ChestPainType_TA (+), cat_ST_Slope_Up (+)</p></td>
@@ -412450,6 +412850,25 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2519 | Real: 0
 <li><p>Los modelos de Naive Bayes mostraron tendencia a sobreestimar el riesgo.</p></li>
 </ul>
 </section>
+</section>
+<section id="carga-modelos">
+<h2><strong>Carga modelos</strong><a class="headerlink" href="#carga-modelos" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">joblib</span>
+
+<span class="n">ruta_modelos</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;models.joblib&quot;</span><span class="p">)</span>
+
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">final_models</span><span class="p">,</span> <span class="n">ruta_modelos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;..\\models.joblib&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -412594,6 +413013,7 @@ Predicción: 0 | Probabilidad de Enfermedad: 0.2519 | Real: 0
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-la-evaluacion-comparativa-de-modelos-paciente-de-prueba"><strong>Resumen de la Evaluación Comparativa de Modelos (Paciente de Prueba)</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-modelos"><strong>Carga modelos</strong></a></li>
 </ul>
   </nav></div>
 
